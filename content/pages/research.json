@@ -1,0 +1,41 @@
+{
+  "path": "research/",
+  "en": {
+    "short": "Research",
+    "title": "Research",
+    "description": "Research internships at LJK (bilinear map rank) and GAEL (algorithmic pricing).",
+    "blocks": [
+      {
+        "type": "hero",
+        "eyebrow": "Two internships",
+        "title": "Research",
+        "lede": "Two supervised internships, one in computer algebra and one in industrial economics. Both are published in full, including the parts that did not work."
+      },
+      {
+        "type": "showcase",
+        "preview": { "mode": "chooser" },
+        "blocks": [
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "research/bilinear-tensor-optimization/",
+                "preview": "bilinear",
+                "tag": "LJK &middot; May to July 2024",
+                "title": "Rank of bilinear maps",
+                "desc": "Supervised by Jean-Guillaume Dumas. Cuts 5&times;5 polynomial multiplication over GF(2) from 25 multiplications to 14."
+              },
+              {
+                "href": "research/strategic-pricing/",
+                "preview": "strategic-pricing",
+                "tag": "GAEL &middot; January to April 2025",
+                "title": "AI and strategic pricing",
+                "desc": "Supervised by Alexis Garapin and Olivier Bonroy. A survey, a model, two tournament agents, and a correction to my own analysis."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

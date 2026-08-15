@@ -1,0 +1,27 @@
+{
+  "origin": "https://tewf.github.io",
+  "repo": "https://github.com/Tewf/Tewf.github.io",
+  "profile": "https://github.com/Tewf",
+  "defaultLanguage": "en",
+  "languages": ["en", "fr"],
+
+  "en": {
+    "brand": "Mohamed Hamlil",
+    "profileLabel": "GitHub",
+    "breadcrumbLabel": "Breadcrumb",
+    "footerNote": "Every figure on this site names the file it came from. ",
+    "footerLink": "Source for this site",
+    "languageName": "English",
+    "otherLanguageName": "Français"
+  },
+
+  "fr": {
+    "brand": "Mohamed Hamlil",
+    "profileLabel": "GitHub",
+    "breadcrumbLabel": "Fil d'Ariane",
+    "footerNote": "Chaque figure de ce site nomme le fichier dont elle provient. ",
+    "footerLink": "Le code de ce site",
+    "languageName": "Français",
+    "otherLanguageName": "English"
+  }
+}

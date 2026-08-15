@@ -1,37 +1,7 @@
-/* tewf.github.io. Same tokens as the project sites under this domain, so
-   moving between them feels like one place. The signature here is different:
-   the work is about counting operations and reducing them, so the hero is a
-   set of reductions rather than a board. */
-
-:root {
-  --paper:   #F4F6F9;
-  --surface: #FFFFFF;
-  --sunken:  #ECEFF4;
-  --ink:     #0F1B2A;
-  --muted:   #5A6B80;
-  --line:    #D7DEE7;
-  --teal:    #10707E;
-  --gold:    #B4820E;
-
-  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Mono", Menlo, Consolas, monospace;
-  --sans: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-
-  --w: 1000px;
-  --r: 4px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:   #0B131E;
-    --surface: #121D2A;
-    --sunken:  #0F1926;
-    --ink:     #E7EEF6;
-    --muted:   #93A5BA;
-    --line:    #23334699;
-    --teal:    #4FC3D0;
-    --gold:    #E0B93F;
-  }
-}
+/* tewf.github.io, the root site. The tokens live in /site/tokens.css, shared
+   with the project sites under this domain; this file is what only this site
+   needs. The signature here is the set of reductions: the work is about
+   counting operations and making the count smaller. */
 
 * { box-sizing: border-box; }
 
@@ -47,6 +17,10 @@ h1, h2, h3 { line-height: 1.15; letter-spacing: -0.025em; font-weight: 700; }
 h1 { font-size: clamp(2rem, 5.5vw, 3.2rem); margin: 0 0 .5em; letter-spacing: -0.04em; }
 h2 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin: 2.8rem 0 .8rem; }
 h3 { font-size: 1.02rem; margin: 1.7rem 0 .4rem; }
+
+/* Was an inline style on each page's opening section; the pages are generated
+   now, so it is a class like everything else. */
+.hero { padding: 3rem 0 .5rem; }
 
 .eyebrow {
   font-family: var(--mono); font-size: .72rem; letter-spacing: .15em;
@@ -72,7 +46,10 @@ code, .num { font-family: var(--mono); }
 .crumbs a:hover { color: var(--teal); }
 .crumbs .sep { opacity: .5; padding: 0 .35rem; }
 .site-head .spacer { flex: 1; }
-.site-head .repo { font-family: var(--mono); font-size: .8rem; }
+.site-head .repo,
+.site-head .lang { font-family: var(--mono); font-size: .8rem; }
+.site-head .lang { color: var(--muted); }
+.site-head .lang:hover { color: var(--teal); }
 
 .site-foot {
   margin-top: 4rem; border-top: 1px solid var(--line);
