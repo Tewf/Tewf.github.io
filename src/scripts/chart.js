@@ -32,7 +32,7 @@ export function beforeAfter(host, { rows, unit = '', format = v => String(v) }) 
     s.append(label);
 
     s.append(svg('rect', { x: gutter, y: y0 + 5, width: Math.max(1, x(r.from)), height: 12, rx: 2,
-      fill: 'var(--line)' }));
+      fill: 'var(--sunken)' }));
     s.append(svg('rect', { x: gutter, y: y0 + 21, width: Math.max(1, x(r.to)), height: 12, rx: 2,
       class: 'bar alt' }));
 
@@ -42,7 +42,7 @@ export function beforeAfter(host, { rows, unit = '', format = v => String(v) }) 
   });
 
   const legend = svg('text', { x: gutter, y: height - 8 });
-  legend.textContent = 'before (grey) and after (gold)';
+  legend.textContent = 'before (pale) and after (dark)';
   s.append(legend);
 
   host.replaceChildren(s);
