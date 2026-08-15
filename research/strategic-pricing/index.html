@@ -17,6 +17,10 @@
     <h1>Do algorithms learn to collude?</h1>
     <p class="lede">In repeated price competition, human players tend to settle on tacitly collusive prices rather than on the competitive equilibrium. Whether algorithms sustain that behaviour, break it or intensify it is open, and it matters directly for competition policy.</p>
   </section>
+  <div class="preview head" data-state="rest">
+    <div class="pv-frame"></div>
+    <p class="pv-cap"></p>
+  </div>
   <p class="meta">GAEL, Grenoble Applied Economics Laboratory, UGA and INRAE<br>Supervised by Alexis Garapin and Olivier Bonroy<br>23 January to 14 April 2025</p>
   <p>The internship surveyed where the literature stands, modelled the imitation mechanism that might underpin cooperation, and built agents to watch it happen. <strong>It did not settle the question.</strong> The report is a study rather than a finding, and it says so.</p>
   <h2>What it produced</h2>
@@ -59,6 +63,11 @@ logBars(document.getElementById('tourney'), {
   ],
   note: 'cumulative score, log scale, top 8 of 16'
 });
+</script>
+<script type="module">
+import { mountPreview } from '../../site/preview.js';
+import { withBase } from '../../site/previews.js';
+mountPreview(document.querySelector('.preview'), withBase('../../'), 'strategic-pricing');
 </script>
 </body>
 </html>

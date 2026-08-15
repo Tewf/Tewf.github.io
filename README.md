@@ -25,6 +25,5 @@ appears here without a source, that is a bug.
 
 The project sites it links to live in their own repositories:
 [University-Coursework](https://tewf.github.io/University-Coursework/),
-[after-hours](https://tewf.github.io/after-hours/),
-[IA-Economie-Strategique](https://tewf.github.io/IA-Economie-Strategique/) and
-[shots](https://tewf.github.io/shots/).
+[after-hours](https://tewf.github.io/after-hours/) and
+[IA-Economie-Strategique](https://tewf.github.io/IA-Economie-Strategique/).

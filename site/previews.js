@@ -61,12 +61,6 @@ export const SETS = {
     ],
   },
 
-  shots: {
-    caption: 'A bar at closing time, and a choice made out loud',
-    images: [
-      { src: 'thumb-shots.webp', alt: 'The SHOTS! title screen, a dark bar lit from above' },
-    ],
-  },
 };
 
 /** Rewrite the local thumbnails so they resolve from any page depth. */

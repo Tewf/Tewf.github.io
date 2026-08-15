@@ -17,7 +17,7 @@ function img(src, alt) {
   return i;
 }
 
-export function mountPreview(panel, sets) {
+export function mountPreview(panel, sets, restKey = REST) {
   const frame = panel.querySelector('.pv-frame');
   const cap = panel.querySelector('.pv-cap');
   let current = null;
@@ -35,7 +35,7 @@ export function mountPreview(panel, sets) {
 
     frame.replaceChildren(shelf);
     cap.textContent = set.caption;
-    panel.dataset.state = key === REST ? 'rest' : 'active';
+    panel.dataset.state = key === restKey ? 'rest' : 'active';
   }
 
   // Preload one set the first time it is pointed at, so the second look is instant.
@@ -51,7 +51,7 @@ export function mountPreview(panel, sets) {
     const enter = () => { clearTimeout(leaveTimer); warm(key); show(key); };
     const leave = () => {
       clearTimeout(leaveTimer);
-      leaveTimer = setTimeout(() => show(REST), 260);
+      leaveTimer = setTimeout(() => show(restKey), 260);
     };
     el.addEventListener('mouseenter', enter);
     el.addEventListener('focus', enter);
@@ -59,5 +59,5 @@ export function mountPreview(panel, sets) {
     el.addEventListener('blur', leave);
   }
 
-  show(REST);
+  show(restKey);
 }

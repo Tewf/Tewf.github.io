@@ -17,6 +17,10 @@
     <h1>How few multiplications does a product need?</h1>
     <p class="lede">The rank of a bilinear map is the number of multiplications required to compute it. Strassen doing 2&times;2 matrix multiplication in seven instead of eight is where fast matrix multiplication comes from, and finding such decompositions in general is open.</p>
   </section>
+  <div class="preview head" data-state="rest">
+    <div class="pv-frame"></div>
+    <p class="pv-cap"></p>
+  </div>
   <p class="meta">Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas<br>21 May to 15 July 2024</p>
   <h2>What it does</h2>
   <p>The search is greedy. It takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. All the linear algebra over GF(p) is written from scratch, with exact rational arithmetic rather than floating point, so a reported rank is a fact about the map and not an artefact of rounding.</p>
@@ -53,6 +57,11 @@ beforeAfter(document.getElementById('ranks'), {
   ],
   unit: ' multiplications'
 });
+</script>
+<script type="module">
+import { mountPreview } from '../../site/preview.js';
+import { withBase } from '../../site/previews.js';
+mountPreview(document.querySelector('.preview'), withBase('../../'), 'bilinear');
 </script>
 </body>
 </html>

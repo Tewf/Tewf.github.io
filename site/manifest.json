@@ -2,14 +2,45 @@
   "repo": "https://github.com/Tewf/Tewf.github.io",
   "brand": "Mohamed Hamlil",
   "pages": [
-    { "path": "",                                      "title": "Mohamed Hamlil",        "short": "Home" },
-    { "path": "research/",                             "title": "Research",              "short": "Research" },
-    { "path": "research/bilinear-tensor-optimization/", "title": "Bilinear map rank",    "short": "Bilinear rank" },
-    { "path": "research/strategic-pricing/",           "title": "AI and strategic pricing", "short": "Strategic pricing" },
-    { "path": "work/",                                 "title": "Work",                  "short": "Work" },
-    { "path": "work/after-hours/",                     "title": "after-hours",           "short": "after-hours" },
-    { "path": "work/university-coursework/",           "title": "University coursework",  "short": "Coursework" },
-    { "path": "work/shots/",                           "title": "SHOTS!",                "short": "SHOTS!" },
-    { "path": "contact/",                              "title": "Contact",               "short": "Contact" }
+    {
+      "path": "",
+      "title": "Mohamed Hamlil",
+      "short": "Home"
+    },
+    {
+      "path": "research/",
+      "title": "Research",
+      "short": "Research"
+    },
+    {
+      "path": "research/bilinear-tensor-optimization/",
+      "title": "Bilinear map rank",
+      "short": "Bilinear rank"
+    },
+    {
+      "path": "research/strategic-pricing/",
+      "title": "AI and strategic pricing",
+      "short": "Strategic pricing"
+    },
+    {
+      "path": "work/",
+      "title": "Work",
+      "short": "Work"
+    },
+    {
+      "path": "work/after-hours/",
+      "title": "after-hours",
+      "short": "after-hours"
+    },
+    {
+      "path": "work/university-coursework/",
+      "title": "University coursework",
+      "short": "Coursework"
+    },
+    {
+      "path": "contact/",
+      "title": "Contact",
+      "short": "Contact"
+    }
   ]
 }

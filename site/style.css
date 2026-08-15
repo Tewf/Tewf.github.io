@@ -192,3 +192,10 @@ svg .grid-line { stroke: var(--line); stroke-width: 1; }
 
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
 @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
+
+/* On a project's own page the panel is a header rather than a chooser: it does
+   not follow the scroll, and its resting state is the subject, not a hint, so
+   it is shown at full strength. */
+.preview.head { position: static; }
+.preview.head[data-state="rest"] .pv-shelf img { opacity: 1; filter: none; }
+.preview.head[data-state="rest"] .pv-cap { opacity: 1; }
