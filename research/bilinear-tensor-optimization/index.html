@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rank of bilinear maps</title>
-<meta name="description" content="A heuristic search over alternative bases that cuts 5x5 polynomial multiplication over GF(2) from 25 multiplications to 14. LJK internship supervised by Jean-Guillaume Dumas.">
+<meta name="description" content="A heuristic search over alternative bases that cuts 5x5 polynomial multiplication over GF(2) from 25 multiplications to 14. Reimplemented in C++, it finishes a search that never terminated and reaches 10 where 11 was published. LJK internship supervised by Jean-Guillaume Dumas.">
 <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../site/style.css">
 </head>
@@ -21,20 +21,25 @@
     <div class="pv-frame"></div>
     <p class="pv-cap"></p>
   </div>
-  <p class="meta">Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas<br>21 May to 15 July 2024</p>
+  <p class="meta">Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas<br>21 May to 15 July 2024 &middot; reimplemented in C++ on Givaro, 2026</p>
   <h2>What it does</h2>
-  <p>The search is greedy. It takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. All the linear algebra over GF(p) is written from scratch, with exact rational arithmetic rather than floating point, so a reported rank is a fact about the map and not an artefact of rounding.</p>
+  <p>The search is greedy. It takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. The rewrite is allowed to use <em>more</em> components than it started with, since it only has to generate the original map: that is what Karatsuba&rsquo;s five products for a four-coefficient product is.</p>
+  <p>The internship was written in Julia; it has since been redone in C++ on <a href="https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/">Givaro</a>, the exact-arithmetic library from the same laboratory. Every rank is computed over GF(p) rather than in floating point, so a reported rank is a fact about the map and not an artefact of rounding, and every rewrite is checked to still generate the map it came from.</p>
   <h2>Results</h2>
-  <figure><div id="ranks"></div><figcaption>Rank before and after, on four bilinear maps over F2 and F3. Source: <code>Bilinear_Rank_over_Finite_Field/bilinear_rank_problem_heuristic.pdf</code>, Table 1.</figcaption></figure>
-  <div class="tw"><table><thead><tr><th>Field</th><th>Product</th><th class="n">Original rank</th><th class="n">After</th><th class="n">Reduction</th><th class="n">Time</th></tr></thead><tbody><tr><td>F2</td><td>5&times;5</td><td class="n">25</td><td class="n">14</td><td class="n">44%</td><td class="n">14.4 s</td></tr><tr><td>F2</td><td>3&times;8</td><td class="n">24</td><td class="n">15</td><td class="n">37%</td><td class="n">3 461 s</td></tr><tr><td>F2</td><td>4&times;7</td><td class="n">28</td><td class="n">16</td><td class="n">43%</td><td class="n">5 044 s</td></tr><tr><td>F3</td><td>3&times;6</td><td class="n">18</td><td class="n">11</td><td class="n">39%</td><td class="n">18.1 s</td></tr></tbody></table></div>
-  <p>Times are total execution on a single core of an i5-12450H at 2.2 GHz. The cost grows sharply with the size of the map: the 5&times;5 case finishes in fourteen seconds, the 4&times;7 takes an hour and a half.</p>
-  <div class="caveat"><h3>Where this stops</h3><p>Both methods here are heuristics. Neither proves that the decomposition it finds is optimal, and neither settles the bilinear rank problem, which is still open. The second strand of the internship, sparsifying the operators that fast multiplication relies on, produced no measured result: the minimisation ran too long to finish on a small case.</p></div>
+  <figure><div id="ranks"></div><figcaption>Multiplications before and after the search, on four bilinear maps over F2 and F3. Source: <code>rank/results.json</code>, produced by <code>minimise-rank</code>.</figcaption></figure>
+  <div class="tw"><table><thead><tr><th>Field</th><th>Product</th><th class="n">Naive</th><th class="n">Result</th><th class="n">Time</th><th class="n">Internship</th></tr></thead><tbody><tr><td>F2</td><td>5&times;5</td><td class="n">25</td><td class="n">14</td><td class="n">2.52 s</td><td class="n">14 &middot; 14.4 s</td></tr><tr><td>F2</td><td>3&times;8</td><td class="n">24</td><td class="n">15</td><td class="n">5.95 s</td><td class="n">15 &middot; 3 461 s</td></tr><tr><td>F2</td><td>4&times;7</td><td class="n">28</td><td class="n">16</td><td class="n">17.8 s</td><td class="n">16 &middot; 5 044 s</td></tr><tr><td>F3</td><td>3&times;6</td><td class="n">18</td><td class="n"><strong>10</strong></td><td class="n">9.92 s</td><td class="n">11 &middot; did not finish</td></tr></tbody></table></div>
+  <p>Both columns are total execution on a single core of the same i5-12450H at 2.2 GHz, so the comparison is like for like on hardware and not on language.</p>
+  <p><strong>One case improves on what was published.</strong> The internship&rsquo;s final step on F3 3&times;6 never terminated, so its 11 was a figure from an abandoned run; that search now finishes in under ten seconds and reaches 10.</p>
+  <p><strong>And the expensive step turns out to earn very little.</strong> Across the four maps it improved the answer once. On 4&times;7 it spent 5 020 of its 5 044 seconds to return the rank the previous step already had. The step that costs almost everything buys almost nothing, which is why the result here came from finishing a run rather than accelerating one.</p>
+  <h2>The second strand</h2>
+  <p>Sparsifying the operators fast multiplication relies on &mdash; fewer nonzero entries means fewer additions, the cost the multiplication count misses. The internship reported no measured result here, only that the program took too long for a simple problem. Over exact rationals it takes milliseconds: Strassen&rsquo;s two encoding operators go from 12 nonzeros to 10, and the alternative-basis operator the code was tested on goes from 21 to 10.</p>
+  <div class="caveat"><h3>Where this stops</h3><p>Every method here is a heuristic. None proves the decomposition it finds is optimal, and none settles the bilinear rank problem, which is still open. The 10 for F3 3&times;6 is a better decomposition than the one on record, not a claim about the true rank.</p></div>
   <h2>Read it</h2>
   <div class="cards">
     <a class="card" href="https://github.com/Tewf/bilinear-tensor-optimization">
       <span class="tag">Repository</span>
       <span class="t">Source and write-ups</span>
-      <span class="d">Two PDFs with the derivations, plus Python and Julia implementations.</span>
+      <span class="d">C++ on Givaro, with the internship frozen under <code>original/</code>. CI reproduces every number on this page in about a minute.</span>
     </a>
     <a class="card" href="https://github.com/Tewf/bilinear-tensor-optimization/blob/main/Bilinear_Rank_over_Finite_Field/bilinear_rank_problem_heuristic.pdf">
       <span class="tag">PDF</span>
@@ -53,7 +58,7 @@ beforeAfter(document.getElementById('ranks'), {
     { label: 'F2  5x5', from: 25, to: 14 },
     { label: 'F2  3x8', from: 24, to: 15 },
     { label: 'F2  4x7', from: 28, to: 16 },
-    { label: 'F3  3x6', from: 18, to: 11 },
+    { label: 'F3  3x6', from: 18, to: 10 },
   ],
   unit: ' multiplications'
 });

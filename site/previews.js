@@ -67,10 +67,10 @@ export const SETS = {
   },
 
   bilinear: {
-    caption: 'Rank falling, on four bilinear maps over F2 and F3',
+    caption: 'Multiplications falling, on four bilinear maps over F2 and F3',
     images: [
       { src: 'anim-bilinear.svg', still: 'thumb-bilinear.svg',
-        alt: 'Rank falling from 25 to 14, 24 to 15, 28 to 16 and 18 to 11' },
+        alt: 'Multiplications falling from 25 to 14, 24 to 15, 28 to 16 and 18 to 10' },
     ],
   },
 };
