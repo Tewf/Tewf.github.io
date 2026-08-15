@@ -1,0 +1,98 @@
+{
+  "path": "",
+  "en": {
+    "short": "Home",
+    "title": "Mohamed Hamlil",
+    "description": "Mohamed Hamlil, M1 Artificial Intelligence at Universite Grenoble Alpes. Research in bilinear map rank and in algorithmic pricing, plus projects with measured results.",
+    "blocks": [
+      {
+        "type": "hero",
+        "eyebrow": "Grenoble, France",
+        "title": "I count what things cost, then try to make them cost less.",
+        "lede": "M1 Artificial Intelligence at Universit&eacute; Grenoble Alpes, UFR IM&sup2;AG and Ensimag. EFELIA-MIAI excellence scholarship, and French student-entrepreneur status (SNEE). Two research internships, in computer algebra and in industrial economics."
+      },
+      {
+        "type": "showcase",
+        "preview": { "mode": "chooser" },
+        "blocks": [
+          { "type": "heading", "text": "Research" },
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "research/bilinear-tensor-optimization/",
+                "preview": "bilinear",
+                "tag": "LJK &middot; 2024",
+                "title": "Rank of bilinear maps",
+                "desc": "How few multiplications a product actually needs. A heuristic that cuts 5&times;5 polynomial multiplication over GF(2) from 25 to 14."
+              },
+              {
+                "href": "research/strategic-pricing/",
+                "preview": "strategic-pricing",
+                "tag": "GAEL &middot; 2025",
+                "title": "AI and strategic pricing",
+                "desc": "Whether algorithms sustain tacit collusion in repeated price competition, and an error found later in the course project beside it."
+              }
+            ]
+          },
+          { "type": "heading", "text": "Work" },
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "work/after-hours/",
+                "preview": "after-hours",
+                "tag": "Personal",
+                "title": "after-hours",
+                "desc": "Reinforcement learning, computer algebra and applied maths, built outside coursework."
+              },
+              {
+                "href": "work/university-coursework/",
+                "preview": "university-coursework",
+                "tag": "Degree",
+                "title": "University coursework",
+                "desc": "The Licence MIASHS and the M1 AI, end to end, with the projects that carry numbers."
+              }
+            ]
+          }
+        ]
+      },
+      { "type": "heading", "text": "Measured changes" },
+      { "type": "prose", "html": "Every number on this site names the file it came from, so none of it has to be taken on trust." },
+      {
+        "type": "reductions",
+        "items": [
+          {
+            "what": "Multiplications to compute a 5&times;5 polynomial product over GF(2)",
+            "src": "bilinear-tensor-optimization &middot; bilinear_rank_problem_heuristic.pdf, Table 1",
+            "from": "25",
+            "to": "14"
+          },
+          {
+            "what": "Shots to clear a 10&times;10 Battleship board",
+            "src": "University-Coursework &middot; Results/performance_summary.csv",
+            "from": "94.3",
+            "to": "54.8"
+          },
+          {
+            "what": "Prediction error on Grenoble property prices",
+            "src": "University-Coursework &middot; ProjetEconometrie/results.json",
+            "from": "&euro;265,214",
+            "to": "&euro;58,750"
+          },
+          {
+            "what": "Pipes cleared by a Flappy Bird agent at 250k steps, after changing only the colour channel it sees",
+            "src": "after-hours &middot; Flappy_Bird_CNN/results/dqn.log",
+            "from": "0.4",
+            "to": "12.65"
+          }
+        ]
+      },
+      { "type": "heading", "text": "Contact" },
+      {
+        "type": "prose",
+        "html": "Reachable at <a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a>, on <a href=\"https://linkedin.com/in/mohamed-hamlil-4aa3a7335\">LinkedIn</a>, and on <a href=\"https://github.com/Tewf\">GitHub</a>. <a href=\"contact/\">More ways and what I am looking for</a>."
+      }
+    ]
+  }
+}
