@@ -7,34 +7,73 @@
    It holds custom properties and nothing else: no selectors, no components.
    Anything with a selector belongs in the stylesheet of the site that needs it,
    where the bundler can hash it. Names here are a contract, checked against
-   site/tokens.lock.json on every build. */
+   site/tokens.lock.json on every build.
+
+   The world is a board on a light ground. The colour lives in one soft
+   iridescent field behind everything and never in the components, because the
+   work itself is a dozen charts and captures that already carry colour: ten of
+   the twelve are rendered on white, so a white surface is what lets them sit on
+   the page as themselves rather than as glaring slabs.
+
+   The legacy names at the bottom are the sibling sites' contract; they alias
+   onto the roles they already played, so the project sites can migrate one at a
+   time. */
 
 :root {
-  --paper:   #F4F6F9;
+  /* Ground and ink */
+  --paper:   #F7F7F9;
   --surface: #FFFFFF;
-  --sunken:  #ECEFF4;
-  --ink:     #0F1B2A;
-  --muted:   #5A6B80;
-  --line:    #D7DEE7;
-  --teal:    #10707E;
-  --gold:    #B4820E;
+  --raised:  #FFFFFF;
+  --sunken:  #EFEFF3;
+  --ink:     #101014;
+  --dim:     #55575F;
+  /* 5.2:1 on white and 4.9:1 on the ground. It sets the caption under every pin,
+     the chart labels and the footer, so it has to clear 4.5:1 rather than merely
+     look secondary. */
+  --muted:   #6A6D77;
+  --line:    #1010141F;
 
-  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Mono", Menlo, Consolas, monospace;
-  --sans: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  /* The field: four low-saturation stops, blurred behind the whole page. This
+     is the only place the site is allowed to be colourful on its own account. */
+  --field-violet: #CFC0FF;
+  --field-mint:   #BFEFDC;
+  --field-peach:  #FFD9C4;
+  --field-blue:   #C6DCFF;
 
-  --w: 1000px;
-  --r: 4px;
+  /* The one component hue. It marks a published correction and nothing else;
+     everything a visitor can act on is ink, because the field already carries
+     the site's whole colour budget. */
+  --correction: #B23A1B;
+
+  /* Type. Archivo carries the name at display scale, widened and heavy;
+     JetBrains Mono carries labels, paths and figures. */
+  /* "Archivo Metric" is a metric-matched local fallback declared in the site's
+     stylesheet, so the name does not jump size and lose its weight step on the
+     first paint of a cold cache. */
+  --display: "Archivo Variable", "Archivo Metric", system-ui, sans-serif;
+  --body:    "Archivo Variable", "Archivo Metric", system-ui, sans-serif;
+  --mono:    "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans:    "Archivo Variable", "Archivo Metric", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Geometry. Pills and large soft corners. */
+  --w: 1440px;
+  --measure: 68ch;
+  --r: 20px;
+  --r-sm: 12px;
+  --pill: 999px;
+
+  /* Legacy names, kept because site/tokens.lock.json pins them and four
+     project sites still speak this vocabulary. */
+  --teal: #3B2BFF;
+  --gold: #9A6B00;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:   #0B131E;
-    --surface: #121D2A;
-    --sunken:  #0F1926;
-    --ink:     #E7EEF6;
-    --muted:   #93A5BA;
-    --line:    #23334699;
-    --teal:    #4FC3D0;
-    --gold:    #E0B93F;
-  }
-}
+/* There is deliberately no dark scheme.
+
+   The ground is light for one reason: ten of the twelve things on the board are
+   figures rendered on white, and they come from four repositories this site does
+   not build. Inverting the page around them puts twelve white slabs on a black
+   ground, which is the exact failure the light world was chosen to avoid. A dark
+   scheme becomes possible the day those figures are re-rendered on dark grounds,
+   and not before; until then `color-scheme: light` in the site's own stylesheet
+   keeps the browser from flipping its defaults underneath. */
