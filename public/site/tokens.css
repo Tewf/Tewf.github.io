@@ -1,0 +1,40 @@
+/* The design tokens for every site on tewf.github.io.
+
+   This file is THE copy. It is served unhashed from /site/tokens.css and the
+   sibling project sites link it across the origin, so moving between them feels
+   like one place instead of five that used to drift apart.
+
+   It holds custom properties and nothing else: no selectors, no components.
+   Anything with a selector belongs in the stylesheet of the site that needs it,
+   where the bundler can hash it. Names here are a contract, checked against
+   site/tokens.lock.json on every build. */
+
+:root {
+  --paper:   #F4F6F9;
+  --surface: #FFFFFF;
+  --sunken:  #ECEFF4;
+  --ink:     #0F1B2A;
+  --muted:   #5A6B80;
+  --line:    #D7DEE7;
+  --teal:    #10707E;
+  --gold:    #B4820E;
+
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Mono", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+
+  --w: 1000px;
+  --r: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:   #0B131E;
+    --surface: #121D2A;
+    --sunken:  #0F1926;
+    --ink:     #E7EEF6;
+    --muted:   #93A5BA;
+    --line:    #23334699;
+    --teal:    #4FC3D0;
+    --gold:    #E0B93F;
+  }
+}

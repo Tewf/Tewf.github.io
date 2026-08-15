@@ -1,0 +1,41 @@
+{
+  "path": "work/",
+  "en": {
+    "short": "Work",
+    "title": "Work",
+    "description": "Projects: after-hours, university coursework, and a browser game.",
+    "blocks": [
+      {
+        "type": "hero",
+        "eyebrow": "Projects",
+        "title": "Work",
+        "lede": "Things built outside the two internships: evenings, and the degree itself."
+      },
+      {
+        "type": "showcase",
+        "preview": { "mode": "chooser" },
+        "blocks": [
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "work/after-hours/",
+                "preview": "after-hours",
+                "tag": "Personal",
+                "title": "after-hours",
+                "desc": "Reinforcement learning, computer algebra and applied maths, none of it assigned."
+              },
+              {
+                "href": "work/university-coursework/",
+                "preview": "university-coursework",
+                "tag": "Degree",
+                "title": "University coursework",
+                "desc": "The Licence MIASHS and the M1 AI, end to end."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -75,9 +75,9 @@ export const SETS = {
   },
 };
 
-/** Resolve local thumbnails against the page depth, and honour reduced motion. */
-export function withBase(base, calm = matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const abs = s => (s.startsWith('http') ? s : base + 'site/' + s);
+/** Resolve local thumbnails against /site/, and honour reduced motion. */
+export function resolveSets(calm = matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const abs = s => (s.startsWith('http') ? s : '/site/' + s);
   const out = {};
   for (const [k, v] of Object.entries(SETS)) {
     out[k] = {

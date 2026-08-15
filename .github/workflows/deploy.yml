@@ -1,0 +1,61 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a deploy half-way: a partial upload would serve a broken site.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Must precede setup-node, which needs pnpm on PATH for `cache: pnpm`.
+      # The version comes from "packageManager" in package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # `prebuild` runs tools/check-tokens.mjs, which fails if a custom property
+      # the sibling project sites depend on has disappeared from tokens.css.
+      - run: pnpm run build
+
+      - name: Assert the shared contract survived the build
+        run: |
+          test -f dist/site/tokens.css || { echo "dist/site/tokens.css is missing: four project sites link it."; exit 1; }
+          test -f dist/404.html       || { echo "dist/404.html is missing: it serves every unclaimed path on the origin."; exit 1; }
+          test -f dist/index.html     || { echo "dist/index.html is missing."; exit 1; }
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
