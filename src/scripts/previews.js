@@ -11,7 +11,17 @@
    recorded game data.
 
    Every animated image carries a `still`, used when the visitor has asked for
-   reduced motion. */
+   reduced motion.
+
+   `alt` is the name a visitor reads under the pin, so it says what the thing is
+   rather than what the picture contains: "a neural network learning to play
+   Flappy Bird", not "an agent playing". Someone who reads only the board should
+   come away knowing what was built.
+
+   `lead` orders the board. Anything that moves goes first whatever its lead,
+   because a two-second loop of the thing running is worth more than any still;
+   `lead` then ranks the stills, lowest first, by how much a stranger gets from
+   the picture alone. Images without one fall to the end in declaration order. */
 
 const AH = 'https://tewf.github.io/after-hours/';
 const UC = 'https://tewf.github.io/University-Coursework/';
@@ -37,12 +47,15 @@ export const SETS = {
     caption: 'Flappy Bird from raw pixels · sorting, rendered · 3-SAT over GF(2) · the French income tax · matrix algorithms',
     images: [
       { src: AH + 'thumbs/flappy_bird.webp', still: 'still-flappy.webp',
-        alt: 'A convolutional agent playing Flappy Bird from rendered frames' },
+        alt: 'A neural network learning to play Flappy Bird from raw pixels' },
       { src: AH + 'Blender_Python_Scripts/sorting_algorithms/bubble_sort.webp', still: 'still-sorting.webp',
-        alt: 'Bubble sort keyframed through Blender, bars swapping as it runs' },
-      { src: AH + 'thumbs/sat_solver.png', alt: 'Clauses encoded as polynomials over GF(2)' },
-      { src: AH + 'thumbs/income_tax.png', alt: 'Marginal against average French income tax rate' },
-      { src: AH + 'thumbs/matrix_algorithms.png', alt: 'Accuracy of a hand-written FFT against NumPy' },
+        alt: 'Sorting algorithms rendered in Blender, one swap per frame' },
+      { src: AH + 'thumbs/sat_solver.png', lead: 1,
+        alt: 'A SAT solver that turns logic into algebra over GF(2)' },
+      { src: AH + 'thumbs/income_tax.png', lead: 5,
+        alt: 'What French income tax actually costs, marginal against average' },
+      { src: AH + 'thumbs/matrix_algorithms.png', lead: 6,
+        alt: 'An FFT written from scratch, checked against NumPy' },
     ],
   },
 
@@ -50,20 +63,23 @@ export const SETS = {
     caption: 'The Battleship bot playing a recorded game · ROC curves over 24 000 fragrances · the correlation structure behind them',
     images: [
       { src: 'anim-battleship.webp', still: 'still-battleship.webp',
-        alt: 'The probability grid updating as the bot hunts the fleet' },
-      { src: RAPPORT + '07_comparaison_files/figure-html/fig-roc-comp-1.png',
-        alt: 'ROC curves for four classifiers' },
-      { src: RAPPORT + '01_exploration_files/figure-html/fig-corr-1.png',
-        alt: 'Correlation matrix of the fragrance features' },
+        alt: 'A Battleship bot working out where the ships are' },
+      { src: RAPPORT + '07_comparaison_files/figure-html/fig-roc-comp-1.png', lead: 3,
+        alt: 'Predicting how a perfume will be rated, four models compared' },
+      { src: RAPPORT + '01_exploration_files/figure-html/fig-corr-1.png', lead: 2,
+        alt: 'What actually moves together in 24 000 fragrances' },
     ],
   },
 
   'strategic-pricing': {
     caption: 'Imitation as a weight update · the agent against a cooperator, a defector and a coin flip · the tournament the course project entered',
     images: [
-      { src: IA + 'mirror_neurons/update_shape.png', alt: 'The logistic shape of the imitation update' },
-      { src: IA + 'mirror_neurons/opponents_sequential.png', alt: 'Cooperation tendency against three fixed opponents' },
-      { src: TOURNAMENT + 'results/leaderboard.png', alt: 'Sixteen agents on a log scale' },
+      { src: IA + 'mirror_neurons/opponents_sequential.png', lead: 4,
+        alt: 'An imitating agent meeting a cooperator, a defector and a coin flip' },
+      { src: IA + 'mirror_neurons/update_shape.png', lead: 8,
+        alt: 'How an agent that copies what it sees changes its mind' },
+      { src: TOURNAMENT + 'results/leaderboard.png', lead: 7,
+        alt: 'Sixteen Prolog strategies played against each other' },
     ],
   },
 
@@ -71,7 +87,7 @@ export const SETS = {
     caption: 'Multiplications falling, on four bilinear maps over F2 and F3',
     images: [
       { src: 'anim-bilinear.svg', still: 'thumb-bilinear.svg',
-        alt: 'Multiplications falling from 25 to 14, 24 to 15, 28 to 16 and 18 to 10' },
+        alt: 'Cutting the multiplications a polynomial product needs' },
     ],
   },
 };

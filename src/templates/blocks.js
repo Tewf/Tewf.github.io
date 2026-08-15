@@ -80,12 +80,15 @@ const caveat = (b) => `
 const board = (b, ctx) => {
   const asset = (s) => (s.startsWith('http') ? s : '/site/' + s);
 
-  // Animated first, across projects rather than within them: the board is filled
+  // Moving first, across projects rather than within them: the board is filled
   // column by column, so grouping by project buries three of the four loops at
-  // the bottom of a column where the first screen never reaches them.
+  // the bottom of a column where the first screen never reaches them. After
+  // those, `lead` from previews.js decides which stills earn the top.
+  const rank = (pin) => (pin.still ? 0 : 1);
   const pins = b.projects
     .flatMap((p) => (SETS[p.key]?.images ?? []).map((image) => ({ ...image, project: p })))
-    .sort((one, other) => Boolean(other.still) - Boolean(one.still));
+    .sort((one, other) =>
+      rank(one) - rank(other) || (one.lead ?? Infinity) - (other.lead ?? Infinity));
 
   return `
   <ul class="board" id="board">${pins.map((pin, i) => `
