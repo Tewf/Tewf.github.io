@@ -7,7 +7,6 @@
     "blocks": [
       {
         "type": "hero",
-        "eyebrow": "Personal work",
         "title": "What I build outside coursework",
         "lede": "Five self-contained projects in machine learning, computer algebra and applied mathematics. Nobody assigned any of it, every number is produced by code in the repository, and CI reruns the checks on every push."
       },

@@ -7,7 +7,6 @@
     "blocks": [
       {
         "type": "hero",
-        "eyebrow": "Research internship",
         "title": "How few multiplications does a product need?",
         "lede": "The rank of a bilinear map is the number of multiplications required to compute it. Strassen doing 2&times;2 matrix multiplication in seven instead of eight is where fast matrix multiplication comes from, and finding such decompositions in general is open."
       },

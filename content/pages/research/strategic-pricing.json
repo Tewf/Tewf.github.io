@@ -7,7 +7,6 @@
     "blocks": [
       {
         "type": "hero",
-        "eyebrow": "Research internship",
         "title": "Do algorithms learn to collude?",
         "lede": "In repeated price competition, human players tend to settle on tacitly collusive prices rather than on the competitive equilibrium. Whether algorithms sustain that behaviour, break it or intensify it is open, and it matters directly for competition policy."
       },
