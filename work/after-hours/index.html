@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>after-hours</title>
+<meta name="description" content="after-hours: a Flappy Bird CNN, a 3-SAT solver over GF(2), matrix algorithms from first principles, sorting animated in Blender, and the French income tax modelled with Lambert W.">
+<link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../site/style.css">
+</head>
+<body data-base="../../">
+
+<main class="wrap">
+
+  <section style="padding:3rem 0 .5rem">
+    <p class="eyebrow">Personal work</p>
+    <h1>What I build outside coursework</h1>
+    <p class="lede">Five self-contained projects in machine learning, computer algebra and applied mathematics. Nobody assigned any of it, every number is produced by code in the repository, and CI reruns the checks on every push.</p>
+  </section>
+  <h2>The one worth telling</h2>
+  <p>A convolutional network learning Flappy Bird from nothing but rendered frames. The largest gain in the whole project came from the observation rather than from any hyperparameter. Reducing a frame to one channel is standard and the standard way is a luminance greyscale, but the bird is yellow and the sky is light blue, and those are nearly equiluminant: measured off the sprites, the bird stands out from the sky by 22 levels out of 255 in luminance and by 181 in the blue channel.</p>
+  <p>Greyscale was delivering the obstacles at three times the contrast of the bird itself, which is the one object whose position the policy most needs. With everything else held fixed, same seed and same hyperparameters, taking the blue channel instead moved the agent from <strong>0.4 pipes to 12.65</strong> at 250k steps. The greyscale run never passed 0.8 in 420k.</p>
+  <h2>The five</h2>
+  <div class="cards">
+    <a class="card" href="https://tewf.github.io/after-hours/">
+      <span class="tag">Site</span>
+      <span class="t">Browse them all</span>
+      <span class="d">Every project on one page, with the animations and charts at full size.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN">
+      <span class="tag">RL</span>
+      <span class="t">Flappy Bird from pixels</span>
+      <span class="d">DQN reaching 12.21 pipes mean over 100 episodes, and a REINFORCE run that never cleared one, explained.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/after-hours/tree/main/Groebner_Basis_SAT_Solver">
+      <span class="tag">Algebra</span>
+      <span class="t">3-SAT over GF(2)</span>
+      <span class="d">Clauses as polynomials in the Boolean ring. 500 instances checked against exhaustive search with zero wrong verdicts.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/after-hours/tree/main/Linear_Algebra">
+      <span class="tag">Maths</span>
+      <span class="t">Matrix algorithms from scratch</span>
+      <span class="d">FFT, Schur-complement determinant and an exact integer inverse, checked against NumPy to 1e-13.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/after-hours/tree/main/Taxes">
+      <span class="tag">Applied</span>
+      <span class="t">French income tax</span>
+      <span class="d">The effective rate fitted per bracket, with Lambert W locating the inflection at 59 800 EUR.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts">
+      <span class="tag">Graphics</span>
+      <span class="t">Sorting, rendered</span>
+      <span class="d">Bubble and merge sort keyframed through Blender's Python API so the access pattern is watchable.</span>
+    </a>
+  </div>
+  <div class="caveat"><h3>What the SAT solver actually shows</h3><p>Its own measurement is that the algebraic step is nearly inert: across the unsatisfiable instances tested, the elimination on its own caught almost none, and the branching does the work. The repository says so rather than burying it. It is also benchmarked below the phase transition, where most instances are satisfiable, which the write-up names as its own open item.</p></div>
+
+</main>
+
+<script type="module" src="../../site/nav.js"></script>
+</body>
+</html>

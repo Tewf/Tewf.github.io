@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI and strategic pricing</title>
+<meta name="description" content="GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and a later correction to its own equilibrium analysis.">
+<link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../site/style.css">
+</head>
+<body data-base="../../">
+
+<main class="wrap">
+
+  <section style="padding:3rem 0 .5rem">
+    <p class="eyebrow">Research internship</p>
+    <h1>Do algorithms learn to collude?</h1>
+    <p class="lede">In repeated price competition, human players tend to settle on tacitly collusive prices rather than on the competitive equilibrium. Whether algorithms sustain that behaviour, break it or intensify it is open, and it matters directly for competition policy.</p>
+  </section>
+  <p class="meta">GAEL, Grenoble Applied Economics Laboratory, UGA and INRAE<br>Supervised by Alexis Garapin and Olivier Bonroy<br>23 January to 14 April 2025</p>
+  <p>The internship surveyed where the literature stands, modelled the imitation mechanism that might underpin cooperation, and built agents to watch it happen. <strong>It did not settle the question.</strong> The report is a study rather than a finding, and it says so.</p>
+  <h2>What it produced</h2>
+  <figure><div id="tourney"></div><figcaption>Cumulative score in the April 2025 tournament, sixteen agents, log scale. Source: <code>tournament/</code> in the repository, page 1 of a 636-page log.</figcaption></figure>
+  <p>Two agents were entered against thirteen other students'. They placed <strong>7th and 8th of 16</strong>. The three leaders are ahead by more than fifty orders of magnitude, which is what a scoring rule that compounds does to a strategy built to win single matches.</p>
+  <h2>The part worth reading</h2>
+  <p>Returning to the equilibrium analysis afterwards turned up an error in it. The original searched for a Nash point by minimising the sum of squared payoff gradients. On a simplex that is the wrong condition: a player's payoff is linear in their own strategy, so the gradient is constant and never zero unless every action pays nothing. Minimising its norm searches for the strategies that pay <em>least</em>.</p>
+  <p>Two things make that concrete. The original printed a stationarity residual of 80.89 directly beneath a success tick, having checked only that the optimiser converged and never that its own objective had been met. And run on Battle of the Sexes, a game whose three equilibria are known, it returns a point that is none of them and pays both players 0.48, against 2.0, 1.0 and 0.667 for the real ones.</p>
+  <p>Recomputed with the right condition, the original head-to-head result survives exactly: the submitted strategy beats Nash 3.5552 to 3.1521. What it also shows is why that did not translate into the tournament. Against the same opponent, simply playing Nash earns 3.8889. The strategy wins its match by costing the opponent more than it costs itself, which is the right thing to want head to head and the wrong thing to want when the score compounds.</p>
+  <div class="caveat"><h3>This is a correction, not a rescue</h3><p>The internship's conclusions are not overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such.</p></div>
+  <h2>Read it</h2>
+  <div class="cards">
+    <a class="card" href="https://tewf.github.io/IA-Economie-Strategique/">
+      <span class="tag">Site</span>
+      <span class="t">The findings</span>
+      <span class="d">Figures and results on one page, with the report readable in the browser.</span>
+    </a>
+    <a class="card" href="https://github.com/Tewf/IA-Economie-Strategique">
+      <span class="tag">Repository</span>
+      <span class="t">Source</span>
+      <span class="d">The internship preserved as delivered under original/, with the corrections beside it.</span>
+    </a>
+  </div>
+
+</main>
+
+<script type="module" src="../../site/nav.js"></script>
+<script type="module">
+import { logBars } from '../../site/chart.js';
+logBars(document.getElementById('tourney'), {
+  rows: [
+    { label: 'best_duo',        value: 2.02e62, display: '2.0e62' },
+    { label: 'naenae',          value: 2.58e57, display: '2.6e57' },
+    { label: 'youxi',           value: 4.14e54, display: '4.1e54' },
+    { label: 'lesStrateges',    value: 8.88e32, display: '8.9e32' },
+    { label: 'lesCowBoys',      value: 8.88e32, display: '8.9e32' },
+    { label: 'syntax_terror',   value: 6.34e29, display: '6.3e29' },
+    { label: 'stage_test',      value: 6163877, display: '6,163,877', highlight: true },
+    { label: 'nash_equilibrium', value: 1490429, display: '1,490,429', highlight: true },
+  ],
+  note: 'cumulative score, log scale, top 8 of 16'
+});
+</script>
+</body>
+</html>
