@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 264" width="400" height="264" role="img"
+     aria-label="Rank falling from 25 to 14, 24 to 15, 28 to 16 and 18 to 11">
+  <style>
+    .bg   { fill: #FFFFFF; }
+    .before { fill: #D7DEE7; }
+    .after  { fill: #B4820E; transform-box: fill-box; transform-origin: bottom; }
+    .lab  { fill: #5A6B80; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+    .num  { fill: #0F1B2A; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #121D2A; }
+      .before { fill: #233346; }
+      .after  { fill: #E0B93F; }
+      .lab  { fill: #93A5BA; }
+      .num  { fill: #E7EEF6; }
+    }
+
+    /* each bar starts at the height it had before the search and falls to the
+       height it ended on, so the reduction is the animation */
+    .after { animation: drop 5s ease-in-out infinite; }
+    #a1 { --s: 1.789; }
+    #a2 { --s: 1.604; }
+    #a3 { --s: 1.748; }
+    #a4 { --s: 1.634; }
+    @keyframes drop {
+      0%, 12%   { transform: scaleY(var(--s)); }
+      42%, 88%  { transform: scaleY(1); }
+      100%      { transform: scaleY(var(--s)); }
+    }
+    .num { animation: fade 5s ease-in-out infinite; }
+    @keyframes fade {
+      0%, 20%  { opacity: 0; }
+      45%, 88% { opacity: 1; }
+      100%     { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .after, .num { animation: none; }
+    }
+  </style>
+  <rect class="bg" width="400" height="264"/>
+
+  <rect class="before" x="30"  y="43"  width="26" height="161" rx="2"/>
+  <rect class="after" id="a1" x="62"  y="114" width="26" height="90"  rx="2"/>
+  <text class="lab" x="30" y="224">F2 5x5</text>
+  <text class="num" x="62" y="106">14</text>
+
+  <rect class="before" x="118" y="50"  width="26" height="154" rx="2"/>
+  <rect class="after" id="a2" x="150" y="108" width="26" height="96"  rx="2"/>
+  <text class="lab" x="118" y="224">F2 3x8</text>
+  <text class="num" x="150" y="100">15</text>
+
+  <rect class="before" x="206" y="24"  width="26" height="180" rx="2"/>
+  <rect class="after" id="a3" x="238" y="101" width="26" height="103" rx="2"/>
+  <text class="lab" x="206" y="224">F2 4x7</text>
+  <text class="num" x="238" y="93">16</text>
+
+  <rect class="before" x="294" y="88"  width="26" height="116" rx="2"/>
+  <rect class="after" id="a4" x="326" y="133" width="26" height="71"  rx="2"/>
+  <text class="lab" x="294" y="224">F3 3x6</text>
+  <text class="num" x="326" y="125">11</text>
+
+  <text class="lab" x="30" y="248">multiplications, before and after</text>
+</svg>
