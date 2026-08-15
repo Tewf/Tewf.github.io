@@ -1,3 +1,10 @@
 node_modules/
 dist/
 .gen/
+comps/
+
+# Design-session scratch: the decision pages' logs and process ids, and the
+# screenshots a review was run against. DESIGN.md and .impeccable/design.json
+# are the durable output and are tracked.
+.impeccable/questions/
+.impeccable/review/
