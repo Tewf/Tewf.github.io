@@ -3,7 +3,7 @@
   "en": {
     "short": "Strategic pricing",
     "title": "AI and strategic pricing",
-    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and a later correction to its own equilibrium analysis.",
+    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the Prolog course project entered alongside it.",
     "blocks": [
       {
         "type": "hero",
@@ -22,6 +22,15 @@
       },
       { "type": "heading", "text": "What it produced" },
       {
+        "type": "prose",
+        "html": "A survey of three papers on whether AI sustains cooperation, and a model of the imitation mechanism that might underpin it: two weights on a simplex, where observing an action multiplies its weight and renormalises. Tit-for-Tat is meant to fall out of that update without being programmed. Going back to it afterwards showed the growth is logistic rather than concave as the write-up says, and named two claims the code was never asked to check, including that the agent resembles a human when no human data is in the simulation."
+      },
+      { "type": "heading", "text": "The course project beside it" },
+      {
+        "type": "prose",
+        "html": "A Prolog strategy tournament, run for a logic programming course during the same months and submitted in the same repository. It is coursework rather than internship work: its game does not appear in the report, and it has since moved to the coursework repository. It is the better story of the two, so it is here rather than dropped."
+      },
+      {
         "type": "figure",
         "chart": {
           "kind": "logBars",
@@ -37,7 +46,7 @@
           ],
           "note": "cumulative score, log scale, top 8 of 16"
         },
-        "caption": "Cumulative score in the April 2025 tournament, sixteen agents, log scale. Source: <code>tournament/</code> in the repository, page 1 of a 636-page log."
+        "caption": "Cumulative score in the April 2025 tournament, sixteen agents, log scale. Source: <code>StrategyTournament/results/</code> in the coursework repository, page 1 of a 636-page log."
       },
       {
         "type": "prose",
@@ -46,7 +55,7 @@
       { "type": "heading", "text": "The part worth reading" },
       {
         "type": "prose",
-        "html": "Returning to the equilibrium analysis afterwards turned up an error in it. The original searched for a Nash point by minimising the sum of squared payoff gradients. On a simplex that is the wrong condition: a player's payoff is linear in their own strategy, so the gradient is constant and never zero unless every action pays nothing. Minimising its norm searches for the strategies that pay <em>least</em>."
+        "html": "Returning to that project's equilibrium analysis afterwards turned up an error in it. It searched for a Nash point by minimising the sum of squared payoff gradients. On a simplex that is the wrong condition: a player's payoff is linear in their own strategy, so the gradient is constant and never zero unless every action pays nothing. Minimising its norm searches for the strategies that pay <em>least</em>."
       },
       {
         "type": "prose",
@@ -59,7 +68,7 @@
       {
         "type": "caveat",
         "title": "This is a correction, not a rescue",
-        "html": "The internship's conclusions are not overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such."
+        "html": "Nothing is overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such. The same is true of the internship's own half: the mirror-neuron model stands, and what was corrected sits beside it rather than over it."
       },
       { "type": "heading", "text": "Read it" },
       {
@@ -76,6 +85,12 @@
             "tag": "Repository",
             "title": "Source",
             "desc": "The internship preserved as delivered under original/, with the corrections beside it."
+          },
+          {
+            "href": "https://tewf.github.io/University-Coursework/Bachelor/SecondSemestreLanguage/Prolog/StrategyTournament/",
+            "tag": "Coursework",
+            "title": "The Prolog tournament",
+            "desc": "The two agents, the 636-page log turned into data, and the equilibrium recomputed."
           }
         ]
       }
