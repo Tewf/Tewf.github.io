@@ -1,0 +1,40 @@
+{
+  "path": "work/university-coursework/",
+  "en": {
+    "short": "Coursework",
+    "title": "University coursework",
+    "description": "Licence MIASHS and M1 AI coursework, with four projects that each report a measured result.",
+    "blocks": [
+      {
+        "type": "hero",
+        "eyebrow": "Degree work",
+        "title": "The whole degree, with the numbers attached",
+        "lede": "The Licence MIASHS and the M1 Artificial Intelligence at Universit&eacute; Grenoble Alpes, published so that every report renders from the source that produced it."
+      },
+      { "type": "preview", "mode": "head", "key": "university-coursework" },
+      { "type": "heading", "text": "Four projects that carry a number" },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><thead><tr><th>Project</th><th>Result</th></tr></thead><tbody><tr><td><b>Battleship AI</b><br><span class=\"meta\">Java, pair project</span></td><td>Four targeting strategies over 300 games each. A placement-density heatmap wins <b>74.3%</b> and clears the board in 54.8 shots against 94.3 for random fire, while beating a Monte Carlo simulation that costs far more to run.</td></tr><tr><td><b>Grenoble housing prices</b><br><span class=\"meta\">R and Python, group project</span></td><td>Hedonic pricing on DVF open data. The log transform is what makes the linear model work, lifting R&sup2; from 0.096 to 0.275; a random forest then cuts error from <b>&euro;265,214 to &euro;58,750</b> by giving up the interpretable implicit prices the method exists to produce.</td></tr><tr><td><b>Perfume satisfaction</b><br><span class=\"meta\">R and Quarto, group project</span></td><td>Binary classification over roughly 24 000 fragrances. Four models compared on ROC and confusion matrices; the random forest leads at <b>AUC 0.693</b>, and every model sits between 0.65 and 0.69, which is the honest finding.</td></tr><tr><td><b>Full-stack web</b><br><span class=\"meta\">Node, Express, SQLite, solo</span></td><td>Nine practicals ending in a complete server with persistence, password hashing, sessions and authentication.</td></tr></tbody></table></div>"
+      },
+      { "type": "heading", "text": "Browse it" },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/University-Coursework/",
+            "tag": "Site",
+            "title": "The published site",
+            "desc": "A page per course, charts drawn from the result files, and the Battleship bot playing a recorded game."
+          },
+          {
+            "href": "https://github.com/Tewf/University-Coursework",
+            "tag": "Repository",
+            "title": "Source",
+            "desc": "Source next to rendered output, so everything reads without cloning."
+          }
+        ]
+      }
+    ]
+  }
+}

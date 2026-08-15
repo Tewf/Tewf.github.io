@@ -1,0 +1,21 @@
+{
+  "name": "tewf-github-io",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.17.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "node tools/build-pages.mjs --allow-missing-translations",
+    "tokens:check": "node tools/check-tokens.mjs",
+    "prebuild": "pnpm run tokens:check",
+    "dev": "ALLOW_MISSING_TRANSLATIONS=1 vite",
+    "build": "ALLOW_MISSING_TRANSLATIONS=1 vite build",
+    "preview": "ALLOW_MISSING_TRANSLATIONS=1 vite preview",
+    "preview:sibling": "node tools/preview-sibling.mjs"
+  },
+  "devDependencies": {
+    "vite": "^8.0.1"
+  }
+}

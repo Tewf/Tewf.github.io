@@ -1,0 +1,29 @@
+{
+  "note": [
+    "Names in /site/tokens.css that something depends on. Values may change",
+    "freely and names may be added; removing or renaming one has to be done in",
+    "the same commit as this file, and that edit is the review signal.",
+    "",
+    "Only the root site consumes the shared file so far. The four project sites",
+    "still carry their own copies, and two of them (after-hours and",
+    "IA-Economie-Strategique) use an older vocabulary entirely: --bg, --text,",
+    "--accent, --figure-bg where this one says --paper, --ink, --teal, --sunken.",
+    "University-Coursework additionally uses --hit, --miss, --ship and --ramp-0",
+    "for its board and heatmap. Migrating those and adding their names here is",
+    "the shared-system phase, not this one."
+  ],
+  "required": [
+    "--paper",
+    "--surface",
+    "--sunken",
+    "--ink",
+    "--muted",
+    "--line",
+    "--teal",
+    "--gold",
+    "--mono",
+    "--sans",
+    "--w",
+    "--r"
+  ]
+}

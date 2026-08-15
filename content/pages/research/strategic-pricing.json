@@ -1,0 +1,99 @@
+{
+  "path": "research/strategic-pricing/",
+  "en": {
+    "short": "Strategic pricing",
+    "title": "AI and strategic pricing",
+    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the Prolog course project entered alongside it.",
+    "blocks": [
+      {
+        "type": "hero",
+        "eyebrow": "Research internship",
+        "title": "Do algorithms learn to collude?",
+        "lede": "In repeated price competition, human players tend to settle on tacitly collusive prices rather than on the competitive equilibrium. Whether algorithms sustain that behaviour, break it or intensify it is open, and it matters directly for competition policy."
+      },
+      { "type": "preview", "mode": "head", "key": "strategic-pricing" },
+      {
+        "type": "meta",
+        "html": "GAEL, Grenoble Applied Economics Laboratory, UGA and INRAE<br>Supervised by Alexis Garapin and Olivier Bonroy<br>23 January to 14 April 2025"
+      },
+      {
+        "type": "prose",
+        "html": "The internship surveyed where the literature stands, modelled the imitation mechanism that might underpin cooperation, and built agents to watch it happen. <strong>It did not settle the question.</strong> The report is a study rather than a finding, and it says so."
+      },
+      { "type": "heading", "text": "What it produced" },
+      {
+        "type": "prose",
+        "html": "A survey of three papers on whether AI sustains cooperation, and a model of the imitation mechanism that might underpin it: two weights on a simplex, where observing an action multiplies its weight and renormalises. Tit-for-Tat is meant to fall out of that update without being programmed. Going back to it afterwards showed the growth is logistic rather than concave as the write-up says, and named two claims the code was never asked to check, including that the agent resembles a human when no human data is in the simulation."
+      },
+      { "type": "heading", "text": "The course project beside it" },
+      {
+        "type": "prose",
+        "html": "A Prolog strategy tournament, run for a logic programming course during the same months and submitted in the same repository. It is coursework rather than internship work: its game does not appear in the report, and it has since moved to the coursework repository. It is the better story of the two, so it is here rather than dropped."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            { "label": "best_duo", "value": 2.02e62, "display": "2.0e62" },
+            { "label": "naenae", "value": 2.58e57, "display": "2.6e57" },
+            { "label": "youxi", "value": 4.14e54, "display": "4.1e54" },
+            { "label": "lesStrateges", "value": 8.88e32, "display": "8.9e32" },
+            { "label": "lesCowBoys", "value": 8.88e32, "display": "8.9e32" },
+            { "label": "syntax_terror", "value": 6.34e29, "display": "6.3e29" },
+            { "label": "stage_test", "value": 6163877, "display": "6,163,877", "highlight": true },
+            { "label": "nash_equilibrium", "value": 1490429, "display": "1,490,429", "highlight": true }
+          ],
+          "note": "cumulative score, log scale, top 8 of 16"
+        },
+        "caption": "Cumulative score in the April 2025 tournament, sixteen agents, log scale. Source: <code>StrategyTournament/results/</code> in the coursework repository, page 1 of a 636-page log."
+      },
+      {
+        "type": "prose",
+        "html": "Two agents were entered against thirteen other students'. They placed <strong>7th and 8th of 16</strong>. The three leaders are ahead by more than fifty orders of magnitude, which is what a scoring rule that compounds does to a strategy built to win single matches."
+      },
+      { "type": "heading", "text": "The part worth reading" },
+      {
+        "type": "prose",
+        "html": "Returning to that project's equilibrium analysis afterwards turned up an error in it. It searched for a Nash point by minimising the sum of squared payoff gradients. On a simplex that is the wrong condition: a player's payoff is linear in their own strategy, so the gradient is constant and never zero unless every action pays nothing. Minimising its norm searches for the strategies that pay <em>least</em>."
+      },
+      {
+        "type": "prose",
+        "html": "Two things make that concrete. The original printed a stationarity residual of 80.89 directly beneath a success tick, having checked only that the optimiser converged and never that its own objective had been met. And run on Battle of the Sexes, a game whose three equilibria are known, it returns a point that is none of them and pays both players 0.48, against 2.0, 1.0 and 0.667 for the real ones."
+      },
+      {
+        "type": "prose",
+        "html": "Recomputed with the right condition, the original head-to-head result survives exactly: the submitted strategy beats Nash 3.5552 to 3.1521. What it also shows is why that did not translate into the tournament. Against the same opponent, simply playing Nash earns 3.8889. The strategy wins its match by costing the opponent more than it costs itself, which is the right thing to want head to head and the wrong thing to want when the score compounds."
+      },
+      {
+        "type": "caveat",
+        "title": "This is a correction, not a rescue",
+        "html": "Nothing is overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such. The same is true of the internship's own half: the mirror-neuron model stands, and what was corrected sits beside it rather than over it."
+      },
+      { "type": "heading", "text": "Read it" },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/IA-Economie-Strategique/",
+            "tag": "Site",
+            "title": "The findings",
+            "desc": "Figures and results on one page, with the report readable in the browser."
+          },
+          {
+            "href": "https://github.com/Tewf/IA-Economie-Strategique",
+            "tag": "Repository",
+            "title": "Source",
+            "desc": "The internship preserved as delivered under original/, with the corrections beside it."
+          },
+          {
+            "href": "https://tewf.github.io/University-Coursework/Bachelor/SecondSemestreLanguage/Prolog/StrategyTournament/",
+            "tag": "Coursework",
+            "title": "The Prolog tournament",
+            "desc": "The two agents, the 636-page log turned into data, and the equilibrium recomputed."
+          }
+        ]
+      }
+    ]
+  }
+}

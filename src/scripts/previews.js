@@ -17,6 +17,7 @@ const AH = 'https://tewf.github.io/after-hours/';
 const UC = 'https://tewf.github.io/University-Coursework/';
 const IA = 'https://tewf.github.io/IA-Economie-Strategique/';
 const RAPPORT = UC + 'Bachelor/L3/S6/ComplementMath2/Projet/rapport/notebooks/';
+const TOURNAMENT = UC + 'Bachelor/SecondSemestreLanguage/Prolog/StrategyTournament/';
 
 export const SETS = {
   __rest__: {
@@ -28,7 +29,7 @@ export const SETS = {
         alt: 'A Battleship bot working through a board' },
       { src: AH + 'Blender_Python_Scripts/sorting_algorithms/bubble_sort.webp', still: 'still-sorting.webp',
         alt: 'Bubble sort animated as moving bars' },
-      { src: IA + 'tournament/leaderboard.png', alt: 'Sixteen agents ranked by cumulative score' },
+      { src: TOURNAMENT + 'results/leaderboard.png', alt: 'Sixteen agents ranked by cumulative score' },
     ],
   },
 
@@ -58,11 +59,11 @@ export const SETS = {
   },
 
   'strategic-pricing': {
-    caption: 'The tournament standings · the match against Nash and what it cost · imitation as a weight update',
+    caption: 'Imitation as a weight update · the agent against a cooperator, a defector and a coin flip · the tournament the course project entered',
     images: [
-      { src: IA + 'tournament/leaderboard.png', alt: 'Sixteen agents on a log scale' },
-      { src: IA + 'equilibrium/equilibrium_comparison.png', alt: 'The match against Nash, and its cost' },
       { src: IA + 'mirror_neurons/update_shape.png', alt: 'The logistic shape of the imitation update' },
+      { src: IA + 'mirror_neurons/opponents_sequential.png', alt: 'Cooperation tendency against three fixed opponents' },
+      { src: TOURNAMENT + 'results/leaderboard.png', alt: 'Sixteen agents on a log scale' },
     ],
   },
 
@@ -75,9 +76,9 @@ export const SETS = {
   },
 };
 
-/** Resolve local thumbnails against the page depth, and honour reduced motion. */
-export function withBase(base, calm = matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const abs = s => (s.startsWith('http') ? s : base + 'site/' + s);
+/** Resolve local thumbnails against /site/, and honour reduced motion. */
+export function resolveSets(calm = matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const abs = s => (s.startsWith('http') ? s : '/site/' + s);
   const out = {};
   for (const [k, v] of Object.entries(SETS)) {
     out[k] = {
