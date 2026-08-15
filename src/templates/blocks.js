@@ -6,16 +6,28 @@
    finds them and mounts them. No page carries an inline script. */
 
 import { resolve, resolveInHtml } from './links.js';
+import { SETS } from '../scripts/previews.js';
 
 const attr = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
   .replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const hero = (b) => `
+/* The opening. `lines` sets the name at display scale, one line each, the way
+   the reference does; without it the title is an ordinary heading, which is what
+   every page except the home page wants.
+
+   Nothing sits above the heading. The course and the university are real
+   information the audience needs, so they are the first sentence underneath
+   rather than a label announcing the name. */
+const hero = (b, ctx) => `
   <section class="hero">
-    <p class="eyebrow">${b.eyebrow}</p>
-    <h1>${b.title}</h1>
+    ${b.lines
+      ? `<h1 class="stacked">${b.lines.map((line, i) =>
+          `<span class="line${i ? ' dim' : ''}">${line}</span>`).join('')}</h1>`
+      : `<h1>${b.title}</h1>`}
     <p class="lede">${b.lede}</p>
+    ${b.actions ? `<p class="actions">${b.actions.map((a, i) =>
+      `<a class="btn${i ? '' : ' primary'}" href="${attr(resolve(a.href, ctx.base))}">${a.label}</a>`).join('')}</p>` : ''}
   </section>`;
 
 // mode "head": the panel is this project's own header, static and at full
@@ -37,14 +49,6 @@ const cards = (b, ctx) => `
     </a>`).join('')}
   </div>`;
 
-const reductions = (b) => `
-  <div class="reductions">${b.items.map((r) => `
-    <div class="red">
-      <span class="what">${r.what}<span class="src">${r.src}</span></span>
-      <span class="pair"><span class="from">${r.from}</span><span class="arrow">&rarr;</span><span class="to">${r.to}</span></span>
-    </div>`).join('')}
-  </div>`;
-
 const figure = (b) => `
   <figure>
     <div class="chart" data-chart="${attr(JSON.stringify(b.chart))}"></div>
@@ -57,11 +61,53 @@ const caveat = (b) => `
     <p>${b.html}</p>
   </div>`;
 
+/* The board. Pins come from src/scripts/previews.js, which is the one list of
+   what each project shows, so the board and the hover previews cannot disagree.
+   Most pins are served from the project's own published site, which is what
+   keeps a picture here from outliving the work it depicts.
+
+   A loop of the agent actually playing says more than any still, so the animated
+   pins lead the board. The markup ships the *still* and carries the animation in
+   `data-motion`; src/main.js upgrades it only when the visitor has not asked for
+   reduced motion. Shipping it the other way round meant an animated WebP that
+   kept looping under `prefers-reduced-motion: reduce`, because no CSS rule stops
+   an animated image playing. The side effect is the honest one: with JavaScript
+   off the board is twelve stills rather than twelve moving things.
+
+   The image carries `alt=""` because the description it would have announced is
+   the visible caption right under it, inside the same link. Repeating it would
+   make a screen reader say the whole thing twice per pin. */
+const board = (b, ctx) => {
+  const asset = (s) => (s.startsWith('http') ? s : '/site/' + s);
+
+  // Animated first, across projects rather than within them: the board is filled
+  // column by column, so grouping by project buries three of the four loops at
+  // the bottom of a column where the first screen never reaches them.
+  const pins = b.projects
+    .flatMap((p) => (SETS[p.key]?.images ?? []).map((image) => ({ ...image, project: p })))
+    .sort((one, other) => Boolean(other.still) - Boolean(one.still));
+
+  return `
+  <ul class="board" id="board">${pins.map((pin, i) => `
+    <li class="pin">
+      <a href="${attr(resolve(pin.project.href, ctx.base))}">
+        <img src="${attr(asset(pin.still ?? pin.src))}"
+             ${pin.still ? `data-motion="${attr(asset(pin.src))}"` : ''}
+             alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
+        <span class="pin-face">
+          <span class="pin-what">${pin.alt}</span>
+          <span class="pin-where">${pin.project.title}</span>
+        </span>
+      </a>
+    </li>`).join('')}
+  </ul>`;
+};
+
 const RENDERERS = {
   hero,
+  board,
   preview,
   cards,
-  reductions,
   figure,
   caveat,
   heading: (b) => `<h2>${b.text}</h2>`,

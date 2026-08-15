@@ -1,178 +1,289 @@
-/* tewf.github.io, the root site. The tokens live in /site/tokens.css, shared
-   with the project sites under this domain; this file is what only this site
-   needs. The signature here is the set of reductions: the work is about
-   counting operations and making the count smaller. */
+/* tewf.github.io, the root site. Tokens live in /site/tokens.css, shared with
+   the project sites under this domain; this file is what only this site needs.
+
+   The world is a board on a light ground with one soft iridescent field behind
+   it. The name is set at display scale in a widened grotesque, the chrome is
+   pill-shaped and floats, the small labels are monospace because they carry
+   paths and figures, and everything below the opening is the work itself:
+   twelve real captures and charts in a masonry board, each opening the project
+   it came from.
+
+   The field is the only colour the site owns. Everything else is white, ink and
+   hairlines, because ten of the twelve pins are figures rendered on white and a
+   surface that matches them is what stops the page fighting its own content.
+
+   The one authored motion: a pin rises to meet the pointer. Everything is
+   legible before it runs, and none of it runs under prefers-reduced-motion. */
+
+@import "@fontsource-variable/archivo";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* The name is set at up to 160px, so the swap from a fallback face is the most
+   visible moment on a cold cache. Matching the fallback's metrics to Archivo's
+   keeps the first paint the same size and shape, and a local bold still carries
+   the weight step between the two lines. */
+@font-face {
+  font-family: "Archivo Metric";
+  src: local("Arial"), local("Helvetica Neue"), local("Liberation Sans");
+  size-adjust: 97%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* Light is the world, not a preference: see the note in tokens.css. Declaring it
+   stops the browser theming form controls and scrollbars for a dark page the
+   site never renders. */
+:root { color-scheme: light; }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0; background: var(--paper); color: var(--ink);
-  font-family: var(--sans); font-size: 16px; line-height: 1.65;
+  font-family: var(--body); font-size: 16px; line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
-.wrap { max-width: var(--w); margin: 0 auto; padding: 0 24px; }
-
-h1, h2, h3 { line-height: 1.15; letter-spacing: -0.025em; font-weight: 700; }
-h1 { font-size: clamp(2rem, 5.5vw, 3.2rem); margin: 0 0 .5em; letter-spacing: -0.04em; }
-h2 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); margin: 2.8rem 0 .8rem; }
-h3 { font-size: 1.02rem; margin: 1.7rem 0 .4rem; }
-
-/* Was an inline style on each page's opening section; the pages are generated
-   now, so it is a class like everything else. */
-.hero { padding: 3rem 0 .5rem; }
-
-.eyebrow {
-  font-family: var(--mono); font-size: .72rem; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--muted); margin: 0 0 .8rem;
+/* The field. Four soft stops, fixed behind the page and strongest at the top,
+   where the name sits; it fades out before the board so no pin is ever read
+   against a colour gradient. */
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: 128vh; z-index: -1;
+  background:
+    radial-gradient(62vw 52vh at 8% -4%,  var(--field-violet), transparent 66%),
+    radial-gradient(58vw 48vh at 82% 0%,  var(--field-peach),  transparent 64%),
+    radial-gradient(54vw 46vh at 44% 16%, var(--field-blue),   transparent 62%),
+    radial-gradient(48vw 42vh at 96% 26%, var(--field-mint),   transparent 60%);
+  filter: blur(36px) saturate(1.12);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
+          mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
 }
-.lede { font-size: 1.14rem; color: var(--muted); max-width: 62ch; }
-p { max-width: 72ch; }
-a { color: var(--teal); text-underline-offset: 2px; }
-code, .num { font-family: var(--mono); }
-.num { font-variant-numeric: tabular-nums; }
+
+.wrap { max-width: var(--w); margin: 0 auto; padding: 0 clamp(18px, 3.5vw, 40px); }
+
+/* ---------- type ---------- */
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin: 0 0 .6rem; }
+h2 { font-size: clamp(1.1rem, 1.7vw, 1.35rem); margin: 3.5rem 0 1rem; }
+h3 { font-size: 1.02rem; margin: 1.8rem 0 .35rem; }
+
+p { max-width: var(--measure); margin: 0 0 1rem; }
+.lede { color: var(--dim); font-size: clamp(1rem, 1.2vw, 1.1rem); max-width: 56ch; margin: 0 0 1.8rem; }
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+code, .num { font-family: var(--mono); font-size: .92em; }
+.num { font-variant-numeric: tabular-nums lining; }
+
+/* ---------- the opening ---------- */
+
+/* The identity sits on a pane rather than a solid card: the field is the one
+   piece of colour the site owns, so the pane is translucent and lets it through
+   instead of covering it up. */
+.hero {
+  margin: clamp(1.6rem, 4vw, 3rem) 0 clamp(1.4rem, 3vw, 2.2rem);
+  padding: clamp(2.4rem, 6vw, 4.5rem) clamp(1.4rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+  text-align: center; border-radius: var(--r);
+  background: color-mix(in srgb, var(--surface) 44%, transparent);
+  backdrop-filter: blur(22px) saturate(1.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--line);
+}
+.hero .lede { margin-inline: auto; }
+
+/* The name, widened and heavy, one word per line. Archivo's width axis is what
+   gives it the reference's stretch without reaching for a display face whose
+   only job is to look technical. */
+h1.stacked {
+  margin: 0 0 clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(3.2rem, 13vw, 10rem);
+  font-weight: 800; font-variation-settings: "wdth" 118;
+  letter-spacing: -0.05em; line-height: .88; text-transform: uppercase;
+}
+h1.stacked .line { display: block; }
+/* The second line steps down in weight rather than in grey. A mid-grey word on
+   a white ground reads as disabled; a lighter cut of the same colour reads as
+   deliberate, and keeps both lines at full contrast. */
+h1.stacked .line.dim { font-weight: 500; font-variation-settings: "wdth" 112; }
+
+.actions { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; max-width: none; }
+.btn {
+  display: inline-block; text-decoration: none;
+  border-radius: var(--pill); padding: .72rem 1.4rem;
+  font-size: .92rem; font-weight: 550; letter-spacing: -0.01em;
+  border: 1px solid var(--line); color: var(--ink);
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  transition: transform .28s cubic-bezier(.16, 1, .3, 1), background-color .2s, border-color .2s;
+}
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn:hover { transform: translateY(-2px); }
+.btn:not(.primary):hover { border-color: var(--dim); background: var(--surface); }
 
 /* ---------- chrome ---------- */
 
 .site-head {
-  border-bottom: 1px solid var(--line); background: var(--surface);
   position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  border-bottom: 1px solid var(--line);
 }
-.site-head .wrap { display: flex; align-items: center; gap: 1rem; min-height: 56px; flex-wrap: wrap; }
+.site-head .wrap { display: flex; align-items: center; gap: 1rem; min-height: 58px; flex-wrap: wrap; }
 .site-head a { text-decoration: none; }
-.brand { font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
-.crumbs { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
-.crumbs a { color: var(--muted); }
-.crumbs a:hover { color: var(--teal); }
-.crumbs .sep { opacity: .5; padding: 0 .35rem; }
+.brand { font-weight: 700; letter-spacing: -0.03em; color: var(--ink); font-variation-settings: "wdth" 110; }
+.crumbs, .site-head .repo, .site-head .lang { font-family: var(--mono); font-size: .78rem; }
+.crumbs, .crumbs a, .site-head .lang { color: var(--dim); }
+.crumbs a:hover, .site-head .lang:hover { color: var(--ink); }
+.crumbs .sep { opacity: .4; padding: 0 .4rem; }
 .site-head .spacer { flex: 1; }
-.site-head .repo,
-.site-head .lang { font-family: var(--mono); font-size: .8rem; }
-.site-head .lang { color: var(--muted); }
-.site-head .lang:hover { color: var(--teal); }
+.site-head .repo {
+  border: 1px solid var(--line); border-radius: var(--pill); padding: .4rem .9rem;
+  transition: border-color .2s, background-color .2s;
+}
+.site-head .repo:hover { border-color: var(--dim); background: var(--surface); }
 
 .site-foot {
-  margin-top: 4rem; border-top: 1px solid var(--line);
-  padding: 1.6rem 0 3rem; color: var(--muted); font-size: .88rem;
+  margin-top: 4.5rem; border-top: 1px solid var(--line);
+  padding: 1.5rem 0 3rem; color: var(--muted); font-size: .84rem;
+  font-family: var(--mono);
 }
 
-/* ---------- the signature: reductions ---------- */
+/* ---------- the board ---------- */
 
-.reductions { border-top: 1px solid var(--line); margin: 2.5rem 0; }
-.red {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto;
-  gap: .4rem 1.5rem; align-items: baseline;
-  padding: 1rem 0; border-bottom: 1px solid var(--line);
+.board {
+  list-style: none; margin: 0 0 2rem; padding: 0;
+  columns: 4; column-gap: clamp(12px, 1.4vw, 20px);
 }
-.red .what { font-size: .98rem; }
-.red .what b { font-weight: 650; }
-.red .src { display: block; font-family: var(--mono); font-size: .7rem; color: var(--muted); margin-top: .2rem; overflow-wrap: anywhere; }
-.red .pair { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 1.25rem; }
-.red .from { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; opacity: .8; }
-.red .arrow { color: var(--muted); padding: 0 .45rem; }
-.red .to { font-weight: 650; color: var(--gold); }
-@media (max-width: 620px) {
-  .red { grid-template-columns: 1fr; }
-  .red .pair { font-size: 1.4rem; }
+@media (max-width: 1180px) { .board { columns: 3; } }
+@media (max-width: 820px)  { .board { columns: 2; } }
+@media (max-width: 460px)  { .board { columns: 1; } }
+
+.pin { break-inside: avoid; margin: 0 0 clamp(12px, 1.4vw, 20px); }
+.pin > a {
+  display: block; position: relative; text-decoration: none; color: inherit;
+  border-radius: var(--r); overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: 0 1px 2px #1010140A, 0 10px 26px -18px #10101433;
+  transition: transform .34s cubic-bezier(.16, 1, .3, 1),
+              box-shadow .34s cubic-bezier(.16, 1, .3, 1), border-color .34s;
+}
+.pin img { display: block; width: 100%; height: auto; background: var(--sunken); }
+
+.pin-face { display: block; padding: .85rem .95rem 1rem; }
+.pin-what { display: block; font-size: .9rem; font-weight: 550; letter-spacing: -0.015em; line-height: 1.35; }
+.pin-where {
+  display: block; font-family: var(--mono); font-size: .72rem;
+  color: var(--muted); margin-top: .35rem;
 }
 
-/* ---------- the hover preview ---------- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pin > a:hover, .pin > a:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 2px 6px #1010140F, 0 26px 50px -24px #1010143D;
+  }
+}
+
+/* ---------- the hover preview, kept for the project pages ---------- */
 
 .showcase { margin: 2.6rem 0 0; }
 
 .preview {
-  position: sticky; top: 68px; z-index: 5;
+  position: sticky; top: 70px; z-index: 5;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--r); padding: .85rem;
-  margin-bottom: 1.1rem;
+  border-radius: var(--r); padding: .85rem; margin-bottom: 1.1rem;
 }
 .pv-frame { min-height: 152px; display: grid; place-items: center; }
 .pv-shelf {
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   gap: .6rem; width: 100%;
-  animation: pv-in .22s ease-out;
+  animation: pv-in .3s cubic-bezier(.16, 1, .3, 1);
 }
 /* contain, not cover: most of these are charts, and cropping one turns a
    result into wallpaper */
 .pv-shelf img {
   width: 100%; height: 152px; object-fit: contain; object-position: center;
-  border-radius: 3px; background: var(--sunken); display: block;
+  border-radius: var(--r-sm); background: var(--raised); display: block;
   border: 1px solid var(--line); padding: 4px;
 }
-@keyframes pv-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+@keyframes pv-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-.preview[data-state="rest"] .pv-shelf img { opacity: .5; filter: saturate(.55); }
+.preview[data-state="rest"] .pv-shelf img { opacity: .5; filter: saturate(.5); }
 .preview[data-state="rest"] .pv-cap { opacity: .75; }
+.pv-cap { font-family: var(--mono); font-size: .74rem; color: var(--muted); margin: .7rem .15rem 0; line-height: 1.5; }
 
-.pv-cap {
-  font-family: var(--mono); font-size: .74rem; color: var(--muted);
-  margin: .7rem .15rem 0; line-height: 1.5;
-}
-
-/* no pointer, no hover: the panel stays on its resting montage and the cards
-   are ordinary links */
 @media (hover: none) {
   .preview { position: static; }
   .pv-frame { min-height: 0; }
   .pv-shelf img { height: 118px; }
 }
-@media (max-width: 620px) {
+@media (max-width: 640px) {
   .pv-shelf { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, 1fr); }
   .pv-shelf img { height: 104px; }
 }
 
-/* ---------- cards ---------- */
-
-.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 1.2rem 0; }
-.card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
-  padding: 1.05rem 1.15rem; display: block; text-decoration: none; color: inherit;
-  transition: border-color .12s, transform .12s;
-}
-a.card:hover { border-color: var(--teal); transform: translateY(-2px); }
-.card .t { font-weight: 650; display: block; margin-bottom: .25rem; }
-.card .d { color: var(--muted); font-size: .9rem; }
-.card .tag {
-  font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--teal); display: block; margin-bottom: .45rem;
-}
-
-.meta {
-  font-family: var(--mono); font-size: .78rem; color: var(--muted);
-  margin: -.2rem 0 1.4rem; line-height: 1.7;
-}
-
-.caveat {
-  border-left: 3px solid var(--gold); background: var(--sunken);
-  padding: .9rem 1.1rem; border-radius: 0 var(--r) var(--r) 0; margin: 1.4rem 0; font-size: .93rem;
-}
-.caveat h3 { margin: 0 0 .4rem; font-size: .95rem; }
-
-.tw { overflow-x: auto; margin: 1rem 0; }
-table { border-collapse: collapse; width: 100%; font-size: .92rem; }
-th, td { text-align: left; padding: .5rem .7rem; border-bottom: 1px solid var(--line); }
-th {
-  font-family: var(--mono); font-size: .72rem; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--muted); font-weight: 500;
-}
-td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
-tbody tr:hover { background: var(--sunken); }
-
-figure { margin: 1.4rem 0; }
-figcaption { color: var(--muted); font-size: .84rem; margin-top: .6rem; max-width: 72ch; }
-svg { display: block; width: 100%; height: auto; overflow: visible; }
-svg text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
-svg text.val { fill: var(--ink); }
-svg .bar { fill: var(--teal); }
-svg .bar.alt { fill: var(--gold); }
-svg .grid-line { stroke: var(--line); stroke-width: 1; }
-
-:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
-@media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
-
-/* On a project's own page the panel is a header rather than a chooser: it does
-   not follow the scroll, and its resting state is the subject, not a hint, so
-   it is shown at full strength. */
 .preview.head { position: static; }
 .preview.head[data-state="rest"] .pv-shelf img { opacity: 1; filter: none; }
 .preview.head[data-state="rest"] .pv-cap { opacity: 1; }
+
+/* ---------- project pages ---------- */
+
+.cards { display: grid; gap: clamp(10px, 1.2vw, 16px); grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin: 1.2rem 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 1.1rem 1.2rem; display: block; text-decoration: none; color: inherit;
+  transition: transform .3s cubic-bezier(.16, 1, .3, 1), border-color .3s;
+}
+a.card:hover { transform: translateY(-4px); border-color: var(--dim); }
+.card .tag { display: block; font-family: var(--mono); font-size: .72rem; color: var(--muted); margin-bottom: .5rem; }
+.card .t { display: block; font-weight: 620; letter-spacing: -0.02em; margin-bottom: .25rem; }
+.card .d { color: var(--dim); font-size: .91rem; }
+
+.meta { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin: -.2rem 0 1.5rem; line-height: 1.7; }
+
+.caveat {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 1rem 1.15rem; margin: 1.6rem 0; max-width: var(--measure);
+}
+.caveat h3 { margin: 0 0 .35rem; font-size: .97rem; color: var(--correction); }
+.caveat p { margin: 0; font-size: .94rem; color: var(--dim); }
+
+.tw { overflow-x: auto; margin: 1.2rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: .55rem .8rem .55rem 0; border-bottom: 1px solid var(--line); }
+th { font-family: var(--mono); font-size: .74rem; color: var(--muted); font-weight: 500; }
+td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums lining; padding-right: 0; }
+
+/* The wrap is 1440 because the board wants it. Reading pages do not: at that
+   width the charts scaled up until their value labels ran off the page. Every
+   direct child except the board and the opening sits at a reading width. */
+main.wrap > *:not(.board):not(.hero) { max-width: 920px; margin-inline: auto; }
+
+figure { margin: 1.6rem 0; }
+figcaption { color: var(--muted); font-size: .84rem; margin-top: .6rem; max-width: var(--measure); }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+svg text.val { fill: var(--ink); }
+/* The emphasised series is the darker one: on these charts the bar that matters
+   is the result, not the starting point. `alt` marks it in both chart kinds. */
+svg .bar { fill: var(--muted); }
+svg .bar.alt { fill: var(--ink); }
+svg .grid-line { stroke: var(--line); stroke-width: 1; }
+
+/* ---------- the surfaces a browser would otherwise theme itself ---------- */
+
+::selection { background: var(--ink); color: var(--paper); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: var(--r-sm); }
+html { scrollbar-color: var(--muted) transparent; scrollbar-width: thin; caret-color: var(--ink); scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 99px; border: 3px solid var(--paper); }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition-duration: .01ms !important; }
+}

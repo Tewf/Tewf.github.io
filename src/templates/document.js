@@ -35,6 +35,23 @@ ${hreflang}
 <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 <body>
+<!--
+THESIS: A board of what the work actually looks like. It refuses the pitch line
+and the table of figures: the artifacts are the argument, so pictures lead and
+prose gets out of the way.
+OWN-WORLD: Light ground under one soft iridescent field, which is the only
+colour the site owns; white pins, hairline borders, pill chrome, and monospace
+reserved for labels and paths. The name is Archivo widened and heavy. Ten of the
+twelve pins are figures on white, and the white surface exists to host them.
+STORY: A visitor sees a dozen real things running, recognises the range, opens
+the one that interests them, and finds the numbers on the project's own page.
+FIRST VIEWPORT: A translucent pane on the field: mono course label, the name
+across two lines at display scale, one sentence, two pill actions. Immediately
+beneath, the board of twelve pins, the animated ones first.
+FORM: Pinterest board in the light reference's world, both pinned by the brief
+over the dealt hand; seed key eca17f8c.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
 ${body}
 <script type="module" src="/src/main.js"></script>
 </body>
