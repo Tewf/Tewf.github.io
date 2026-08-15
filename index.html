@@ -17,6 +17,43 @@
     <h1>I count what things cost, then try to make them cost less.</h1>
     <p class="lede">M1 Artificial Intelligence at Universit&eacute; Grenoble Alpes, UFR IM&sup2;AG and Ensimag. EFELIA-MIAI excellence scholarship, and French student-entrepreneur status (SNEE). Two research internships, in computer algebra and in industrial economics.</p>
   </section>
+  <section class="showcase">
+  <div class="preview" data-state="rest">
+    <div class="pv-frame"></div>
+    <p class="pv-cap"></p>
+  </div>
+  <h2>Research</h2>
+  <div class="cards">
+    <a class="card" href="research/bilinear-tensor-optimization/" data-preview="bilinear">
+      <span class="tag">LJK &middot; 2024</span>
+      <span class="t">Rank of bilinear maps</span>
+      <span class="d">How few multiplications a product actually needs. A heuristic that cuts 5&times;5 polynomial multiplication over GF(2) from 25 to 14.</span>
+    </a>
+    <a class="card" href="research/strategic-pricing/" data-preview="strategic-pricing">
+      <span class="tag">GAEL &middot; 2025</span>
+      <span class="t">AI and strategic pricing</span>
+      <span class="d">Whether algorithms sustain tacit collusion in repeated price competition, and an error found later in my own equilibrium analysis.</span>
+    </a>
+  </div>
+  <h2>Work</h2>
+  <div class="cards">
+    <a class="card" href="work/after-hours/" data-preview="after-hours">
+      <span class="tag">Personal</span>
+      <span class="t">after-hours</span>
+      <span class="d">Reinforcement learning, computer algebra and applied maths, built outside coursework.</span>
+    </a>
+    <a class="card" href="work/university-coursework/" data-preview="university-coursework">
+      <span class="tag">Degree</span>
+      <span class="t">University coursework</span>
+      <span class="d">The Licence MIASHS and the M1 AI, end to end, with the projects that carry numbers.</span>
+    </a>
+    <a class="card" href="work/shots/" data-preview="shots">
+      <span class="tag">Game</span>
+      <span class="t">SHOTS!</span>
+      <span class="d">A bar at closing time, a neutral house, and no information. Playable in the browser.</span>
+    </a>
+  </div>
+  </section>
   <h2>Measured changes</h2>
   <p>Every number on this site names the file it came from, so none of it has to be taken on trust.</p>
   <div class="reductions">
@@ -37,42 +74,16 @@
       <span class="pair"><span class="from">0.4</span><span class="arrow">&rarr;</span><span class="to">12.65</span></span>
     </div>
   </div>
-  <h2>Research</h2>
-  <div class="cards">
-    <a class="card" href="research/bilinear-tensor-optimization/">
-      <span class="tag">LJK &middot; 2024</span>
-      <span class="t">Rank of bilinear maps</span>
-      <span class="d">How few multiplications a product actually needs. A heuristic that cuts 5&times;5 polynomial multiplication over GF(2) from 25 to 14.</span>
-    </a>
-    <a class="card" href="research/strategic-pricing/">
-      <span class="tag">GAEL &middot; 2025</span>
-      <span class="t">AI and strategic pricing</span>
-      <span class="d">Whether algorithms sustain tacit collusion in repeated price competition, and an error found later in my own equilibrium analysis.</span>
-    </a>
-  </div>
-  <h2>Work</h2>
-  <div class="cards">
-    <a class="card" href="work/after-hours/">
-      <span class="tag">Personal</span>
-      <span class="t">after-hours</span>
-      <span class="d">Reinforcement learning, computer algebra and applied maths, built outside coursework.</span>
-    </a>
-    <a class="card" href="work/university-coursework/">
-      <span class="tag">Degree</span>
-      <span class="t">University coursework</span>
-      <span class="d">The Licence MIASHS and the M1 AI, end to end, with the projects that carry numbers.</span>
-    </a>
-    <a class="card" href="work/shots/">
-      <span class="tag">Game</span>
-      <span class="t">SHOTS!</span>
-      <span class="d">A bar at closing time, a neutral house, and no information. Playable in the browser.</span>
-    </a>
-  </div>
   <h2>Contact</h2>
   <p>Reachable at <a href="mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a>, on <a href="https://linkedin.com/in/mohamed-hamlil-4aa3a7335">LinkedIn</a>, and on <a href="https://github.com/Tewf">GitHub</a>. <a href="contact/">More ways and what I am looking for</a>.</p>
 
 </main>
 
 <script type="module" src="./site/nav.js"></script>
+<script type="module">
+import { mountPreview } from './site/preview.js';
+import { withBase } from './site/previews.js';
+mountPreview(document.querySelector('.preview'), withBase('./'));
+</script>
 </body>
 </html>

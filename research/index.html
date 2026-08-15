@@ -17,21 +17,32 @@
     <h1>Research</h1>
     <p class="lede">Two supervised internships, one in computer algebra and one in industrial economics. Both are published in full, including the parts that did not work.</p>
   </section>
+  <section class="showcase">
+  <div class="preview" data-state="rest">
+    <div class="pv-frame"></div>
+    <p class="pv-cap"></p>
+  </div>
   <div class="cards">
-    <a class="card" href="bilinear-tensor-optimization/">
+    <a class="card" href="bilinear-tensor-optimization/" data-preview="bilinear">
       <span class="tag">LJK &middot; May to July 2024</span>
       <span class="t">Rank of bilinear maps</span>
       <span class="d">Supervised by Jean-Guillaume Dumas. Cuts 5&times;5 polynomial multiplication over GF(2) from 25 multiplications to 14.</span>
     </a>
-    <a class="card" href="strategic-pricing/">
+    <a class="card" href="strategic-pricing/" data-preview="strategic-pricing">
       <span class="tag">GAEL &middot; January to April 2025</span>
       <span class="t">AI and strategic pricing</span>
       <span class="d">Supervised by Alexis Garapin and Olivier Bonroy. A survey, a model, two tournament agents, and a correction to my own analysis.</span>
     </a>
   </div>
+  </section>
 
 </main>
 
 <script type="module" src="../site/nav.js"></script>
+<script type="module">
+import { mountPreview } from '../site/preview.js';
+import { withBase } from '../site/previews.js';
+mountPreview(document.querySelector('.preview'), withBase('../'));
+</script>
 </body>
 </html>

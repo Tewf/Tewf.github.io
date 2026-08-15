@@ -17,26 +17,37 @@
     <h1>Work</h1>
     <p class="lede">Things built outside the two internships: evenings, coursework, and one game.</p>
   </section>
+  <section class="showcase">
+  <div class="preview" data-state="rest">
+    <div class="pv-frame"></div>
+    <p class="pv-cap"></p>
+  </div>
   <div class="cards">
-    <a class="card" href="after-hours/">
+    <a class="card" href="after-hours/" data-preview="after-hours">
       <span class="tag">Personal</span>
       <span class="t">after-hours</span>
       <span class="d">Reinforcement learning, computer algebra and applied maths, none of it assigned.</span>
     </a>
-    <a class="card" href="university-coursework/">
+    <a class="card" href="university-coursework/" data-preview="university-coursework">
       <span class="tag">Degree</span>
       <span class="t">University coursework</span>
       <span class="d">The Licence MIASHS and the M1 AI, end to end.</span>
     </a>
-    <a class="card" href="shots/">
+    <a class="card" href="shots/" data-preview="shots">
       <span class="tag">Game</span>
       <span class="t">SHOTS!</span>
       <span class="d">A game of nerve with no information, playable in the browser.</span>
     </a>
   </div>
+  </section>
 
 </main>
 
 <script type="module" src="../site/nav.js"></script>
+<script type="module">
+import { mountPreview } from '../site/preview.js';
+import { withBase } from '../site/previews.js';
+mountPreview(document.querySelector('.preview'), withBase('../'));
+</script>
 </body>
 </html>

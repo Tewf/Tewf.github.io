@@ -99,6 +99,51 @@ code, .num { font-family: var(--mono); }
   .red .pair { font-size: 1.4rem; }
 }
 
+/* ---------- the hover preview ---------- */
+
+.showcase { margin: 2.6rem 0 0; }
+
+.preview {
+  position: sticky; top: 68px; z-index: 5;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); padding: .85rem;
+  margin-bottom: 1.1rem;
+}
+.pv-frame { min-height: 152px; display: grid; place-items: center; }
+.pv-shelf {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  gap: .6rem; width: 100%;
+  animation: pv-in .22s ease-out;
+}
+/* contain, not cover: most of these are charts, and cropping one turns a
+   result into wallpaper */
+.pv-shelf img {
+  width: 100%; height: 152px; object-fit: contain; object-position: center;
+  border-radius: 3px; background: var(--sunken); display: block;
+  border: 1px solid var(--line); padding: 4px;
+}
+@keyframes pv-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+.preview[data-state="rest"] .pv-shelf img { opacity: .5; filter: saturate(.55); }
+.preview[data-state="rest"] .pv-cap { opacity: .75; }
+
+.pv-cap {
+  font-family: var(--mono); font-size: .74rem; color: var(--muted);
+  margin: .7rem .15rem 0; line-height: 1.5;
+}
+
+/* no pointer, no hover: the panel stays on its resting montage and the cards
+   are ordinary links */
+@media (hover: none) {
+  .preview { position: static; }
+  .pv-frame { min-height: 0; }
+  .pv-shelf img { height: 118px; }
+}
+@media (max-width: 620px) {
+  .pv-shelf { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, 1fr); }
+  .pv-shelf img { height: 104px; }
+}
+
 /* ---------- cards ---------- */
 
 .cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 1.2rem 0; }
