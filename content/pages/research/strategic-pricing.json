@@ -3,7 +3,7 @@
   "en": {
     "short": "Strategic pricing",
     "title": "AI and strategic pricing",
-    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the Prolog course project entered alongside it.",
+    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the two mechanisms it proposed without running: an imitation agent that finishes last of eight, and five local language models over 220 matches.",
     "blocks": [
       {
         "type": "hero",
@@ -23,6 +23,33 @@
       {
         "type": "prose",
         "html": "A survey of three papers on whether AI sustains cooperation, and a model of the imitation mechanism that might underpin it: two weights on a simplex, where observing an action multiplies its weight and renormalises. Tit-for-Tat is meant to fall out of that update without being programmed. Going back to it afterwards showed the growth is logistic rather than concave as the write-up says, and named two claims the code was never asked to check, including that the agent resembles a human when no human data is in the simulation."
+      },
+      { "type": "heading", "text": "What running them showed" },
+      {
+        "type": "prose",
+        "html": "Both mechanisms have since been run, which the internship never did. The imitation model was expected to produce Tit-for-Tat without being programmed. Against seven opponents from the literature it finishes <strong>eighth of eight, behind a coin flip</strong>: what the update implements is frequency matching, whose state is a pair of counts and so cannot depend on the last round at all. In self-play it is something else — a ratchet. Over 700 runs it locked onto whichever regime it was dropped into, mutual defection or mutual cooperation, and not once onto anything between."
+      },
+      {
+        "type": "prose",
+        "html": "The report's conclusion also names homo silicus, Horton's method of running a language model as an economic subject, without running that either. Five open-weight models of 4 to 8 billion parameters, executed locally and offline, have now played 220 matches of the same game against each other and against the same opponents, from openings they did not choose, with and without a non-binding message. <strong>Handed a mutually defecting opening in silence, three of the four readable models never leave it</strong>, defecting in all thirty rounds — the imitator's ratchet, reproduced in a language model. A message then frees exactly one of the three."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            { "label": "qwen2.5 7B", "from": 0, "to": 100 },
+            { "label": "gemma3 4B", "from": 0, "to": 0 },
+            { "label": "qwen3 8B", "from": 0, "to": 0 },
+            { "label": "mistral 7B", "from": 99, "to": 74 }
+          ],
+          "unit": "%"
+        },
+        "caption": "Cooperation out of an imposed mutually defecting opening, silent (pale) and with a non-binding message (dark), as a share of the thirty rounds. Four matches per bar. qwen2.5 is freed completely, gemma3 and qwen3 not at all, and mistral was never captured — for it the message <em>costs</em> cooperation. phi3:mini is left out: ten of its forty-four matches could not be parsed. Source: <code>llm/results/cooperation_rates.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "So the channel is <strong>neither necessary nor sufficient</strong> for escaping a regime an agent did not choose: mistral leaves without one, gemma3 and qwen3 stay put with one. Which models can leave is a property of the individual model rather than of language models — and five small quantised models on an 8 GB card are not a population, which is why this is reported as variation between models rather than as a fact about them."
       },
       { "type": "heading", "text": "The course project beside it" },
       {
@@ -67,7 +94,7 @@
       {
         "type": "caveat",
         "title": "This is a correction, not a rescue",
-        "html": "Nothing is overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such. The same is true of the internship's own half: the mirror-neuron model stands, and what was corrected sits beside it rather than over it."
+        "html": "Nothing is overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such. The same is true of the internship's own half: the model is preserved as submitted and what running it showed sits beside it rather than over it. The expectation that Tit-for-Tat would emerge from the update is the part that did not survive contact with seven opponents, and that is a result, not a repair."
       },
       { "type": "heading", "text": "Read it" },
       {
