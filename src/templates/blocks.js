@@ -6,7 +6,7 @@
    finds them and mounts them. No page carries an inline script. */
 
 import { resolve, resolveInHtml } from './links.js';
-import { SETS } from '../scripts/previews.js';
+import { SETS, text } from '../scripts/previews.js';
 
 const attr = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
@@ -98,7 +98,7 @@ const board = (b, ctx) => {
              ${pin.still ? `data-motion="${attr(asset(pin.src))}"` : ''}
              alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
         <span class="pin-face">
-          <span class="pin-what">${pin.alt}</span>
+          <span class="pin-what">${text(pin.alt, ctx.lang)}</span>
           <span class="pin-where">${pin.project.title}</span>
         </span>
       </a>

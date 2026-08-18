@@ -10,12 +10,19 @@
         "title": "How few multiplications does a product need?",
         "lede": "The rank of a bilinear map is the number of multiplications required to compute it. Strassen doing 2&times;2 matrix multiplication in seven instead of eight is where fast matrix multiplication comes from, and finding such decompositions in general is open."
       },
-      { "type": "preview", "mode": "head", "key": "bilinear" },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "bilinear"
+      },
       {
         "type": "meta",
         "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas<br>21 May to 15 July 2024 &middot; reimplemented in C++ on Givaro, 2026"
       },
-      { "type": "heading", "text": "What it does" },
+      {
+        "type": "heading",
+        "text": "What it does"
+      },
       {
         "type": "prose",
         "html": "The search is greedy. It takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. The rewrite is allowed to use <em>more</em> components than it started with, since it only has to generate the original map: that is what Karatsuba&rsquo;s five products for a four-coefficient product is."
@@ -24,16 +31,35 @@
         "type": "prose",
         "html": "The internship was written in Julia; it has since been redone in C++ on <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, the exact-arithmetic library from the same laboratory. Every rank is computed over GF(p) rather than in floating point, so a reported rank is a fact about the map and not an artefact of rounding, and every rewrite is checked to still generate the map it came from."
       },
-      { "type": "heading", "text": "Results" },
+      {
+        "type": "heading",
+        "text": "Results"
+      },
       {
         "type": "figure",
         "chart": {
           "kind": "beforeAfter",
           "rows": [
-            { "label": "F2  5x5", "from": 25, "to": 14 },
-            { "label": "F2  3x8", "from": 24, "to": 15 },
-            { "label": "F2  4x7", "from": 28, "to": 16 },
-            { "label": "F3  3x6", "from": 18, "to": 10 }
+            {
+              "label": "F2  5x5",
+              "from": 25,
+              "to": 14
+            },
+            {
+              "label": "F2  3x8",
+              "from": 24,
+              "to": 15
+            },
+            {
+              "label": "F2  4x7",
+              "from": 28,
+              "to": 16
+            },
+            {
+              "label": "F3  3x6",
+              "from": 18,
+              "to": 10
+            }
           ],
           "unit": " multiplications"
         },
@@ -55,17 +81,23 @@
         "type": "prose",
         "html": "<strong>And the expensive step turns out to earn very little.</strong> Across the four maps it improved the answer once. On 4&times;7 it spent 5 020 of its 5 044 seconds to return the rank the previous step already had. The step that costs almost everything buys almost nothing, which is why the result here came from finishing a run rather than accelerating one."
       },
-      { "type": "heading", "text": "The second strand" },
+      {
+        "type": "heading",
+        "text": "The second strand"
+      },
       {
         "type": "prose",
-        "html": "Sparsifying the operators fast multiplication relies on &mdash; fewer nonzero entries means fewer additions, the cost the multiplication count misses. The internship reported no measured result here, only that the program took too long for a simple problem. Over exact rationals it takes milliseconds: Strassen&rsquo;s two encoding operators go from 12 nonzeros to 10, and the alternative-basis operator the code was tested on goes from 21 to 10."
+        "html": "Sparsifying the operators fast multiplication relies on: fewer nonzero entries means fewer additions, the cost the multiplication count misses. The internship reported no measured result here, only that the program took too long for a simple problem. Over exact rationals it takes milliseconds: Strassen&rsquo;s two encoding operators go from 12 nonzeros to 10, and the alternative-basis operator the code was tested on goes from 21 to 10."
       },
       {
         "type": "caveat",
         "title": "Where this stops",
         "html": "Every method here is a heuristic. None proves the decomposition it finds is optimal, and none settles the bilinear rank problem, which is still open. The 10 for F3 3&times;6 is a better decomposition than the one on record, not a claim about the true rank."
       },
-      { "type": "heading", "text": "Read it" },
+      {
+        "type": "heading",
+        "text": "Read it"
+      },
       {
         "type": "cards",
         "items": [
@@ -80,6 +112,123 @@
             "tag": "PDF",
             "title": "The heuristic",
             "desc": "Derivation, the worked polynomial-multiplication example, and Table 1."
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Rang bilinéaire",
+    "title": "Rang des applications bilinéaires",
+    "description": "Une recherche heuristique sur des bases alternatives qui ramène la multiplication de polynômes 5x5 sur GF(2) de 25 multiplications à 14. Réimplémentée en C++, elle termine une recherche qui n'avait jamais abouti et atteint 10 là où 11 avait été publié. Stage au LJK encadré par Jean-Guillaume Dumas.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Combien de multiplications un produit exige-t-il ?",
+        "lede": "Le rang d'une application bilinéaire est le nombre de multiplications nécessaires pour la calculer. Strassen effectuant la multiplication de matrices 2&times;2 en sept au lieu de huit est à l'origine de la multiplication rapide de matrices, et trouver de telles décompositions dans le cas général reste ouvert."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "bilinear"
+      },
+      {
+        "type": "meta",
+        "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Encadré par Jean-Guillaume Dumas<br>21 mai au 15 juillet 2024 &middot; réimplémenté en C++ sur Givaro, 2026"
+      },
+      {
+        "type": "heading",
+        "text": "Ce que fait le programme"
+      },
+      {
+        "type": "prose",
+        "html": "La recherche est gloutonne. Elle prend une application bilinéaire sur un corps fini et la réécrit de façon répétée dans une base différente, à la recherche d'une famille génératrice comptant moins de composantes de rang 1 que celle dont elle est partie. La réécriture a le droit d'utiliser <em>plus</em> de composantes qu'au départ, puisqu'il lui suffit d'engendrer l'application d'origine : c'est ce que sont les cinq produits de Karatsuba pour un produit à quatre coefficients."
+      },
+      {
+        "type": "prose",
+        "html": "Le stage était écrit en Julia ; il a depuis été refait en C++ sur <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, la bibliothèque d'arithmétique exacte issue du même laboratoire. Chaque rang est calculé sur GF(p) plutôt qu'en virgule flottante, de sorte qu'un rang rapporté est un fait portant sur l'application et non un artefact d'arrondi, et chaque réécriture est vérifiée comme engendrant toujours l'application dont elle provient."
+      },
+      {
+        "type": "heading",
+        "text": "Résultats"
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "F2  5x5",
+              "from": 25,
+              "to": 14
+            },
+            {
+              "label": "F2  3x8",
+              "from": 24,
+              "to": 15
+            },
+            {
+              "label": "F2  4x7",
+              "from": 28,
+              "to": 16
+            },
+            {
+              "label": "F3  3x6",
+              "from": 18,
+              "to": 10
+            }
+          ],
+          "unit": " multiplications"
+        },
+        "caption": "Multiplications avant et après la recherche, sur quatre applications bilinéaires sur F2 et F3. Source : <code>rank/results.json</code>, produit par <code>minimise-rank</code>."
+      },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><thead><tr><th>Corps</th><th>Produit</th><th class=\"n\">Naïf</th><th class=\"n\">Résultat</th><th class=\"n\">Temps</th><th class=\"n\">Stage</th></tr></thead><tbody><tr><td>F2</td><td>5&times;5</td><td class=\"n\">25</td><td class=\"n\">14</td><td class=\"n\">2,52 s</td><td class=\"n\">14 &middot; 14,4 s</td></tr><tr><td>F2</td><td>3&times;8</td><td class=\"n\">24</td><td class=\"n\">15</td><td class=\"n\">5,95 s</td><td class=\"n\">15 &middot; 3 461 s</td></tr><tr><td>F2</td><td>4&times;7</td><td class=\"n\">28</td><td class=\"n\">16</td><td class=\"n\">17,8 s</td><td class=\"n\">16 &middot; 5 044 s</td></tr><tr><td>F3</td><td>3&times;6</td><td class=\"n\">18</td><td class=\"n\"><strong>10</strong></td><td class=\"n\">9,92 s</td><td class=\"n\">11 &middot; n'a pas terminé</td></tr></tbody></table></div>"
+      },
+      {
+        "type": "prose",
+        "html": "Les deux colonnes correspondent à l'exécution totale sur un seul cœur du même i5-12450H à 2,2 GHz, de sorte que la comparaison porte à matériel égal et non sur le langage."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>Un cas améliore ce qui avait été publié.</strong> L'étape finale du stage sur F3 3&times;6 n'a jamais terminé, si bien que son 11 provenait d'une exécution abandonnée ; cette recherche aboutit désormais en moins de dix secondes et atteint 10."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>Et l'étape coûteuse rapporte très peu.</strong> Sur les quatre applications, elle n'a amélioré la réponse qu'une seule fois. Sur 4&times;7, elle a consacré 5 020 de ses 5 044 secondes à renvoyer le rang que l'étape précédente avait déjà. L'étape qui coûte presque tout n'apporte presque rien, ce qui explique pourquoi le résultat obtenu ici vient d'avoir terminé une exécution plutôt que de l'avoir accélérée."
+      },
+      {
+        "type": "heading",
+        "text": "Le second volet"
+      },
+      {
+        "type": "prose",
+        "html": "Rendre creux les opérateurs sur lesquels repose la multiplication rapide : moins de coefficients non nuls signifie moins d'additions, le coût que le décompte des multiplications ignore. Le stage n'a rapporté aucun résultat mesuré sur ce point, seulement que le programme prenait trop de temps pour un problème simple. Sur les rationnels exacts, cela prend quelques millisecondes : les deux opérateurs d'encodage de Strassen passent de 12 coefficients non nuls à 10, et l'opérateur en base alternative sur lequel le code a été testé passe de 21 à 10."
+      },
+      {
+        "type": "caveat",
+        "title": "Où cela s'arrête",
+        "html": "Toutes les méthodes employées ici sont des heuristiques. Aucune ne prouve que la décomposition qu'elle trouve est optimale, et aucune ne résout le problème du rang bilinéaire, qui reste ouvert. Le 10 obtenu pour F3 3&times;6 est une meilleure décomposition que celle qui figure au dossier, et non une affirmation sur le rang véritable."
+      },
+      {
+        "type": "heading",
+        "text": "Lire"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://github.com/Tewf/bilinear-tensor-optimization",
+            "tag": "Dépôt",
+            "title": "Source et écrits",
+            "desc": "C++ sur Givaro, le stage étant gelé sous <code>original/</code>. L'intégration continue reproduit chaque chiffre de cette page en une minute environ."
+          },
+          {
+            "href": "https://github.com/Tewf/bilinear-tensor-optimization/blob/main/Bilinear_Rank_over_Finite_Field/bilinear_rank_problem_heuristic.pdf",
+            "tag": "PDF",
+            "title": "L'heuristique",
+            "desc": "La dérivation, l'exemple travaillé de multiplication de polynômes, et le tableau 1."
           }
         ]
       }

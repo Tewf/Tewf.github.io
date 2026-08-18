@@ -10,8 +10,15 @@
         "title": "What I build outside coursework",
         "lede": "Five self-contained projects in machine learning, computer algebra and applied mathematics. Nobody assigned any of it, every number is produced by code in the repository, and CI reruns the checks on every push."
       },
-      { "type": "preview", "mode": "head", "key": "after-hours" },
-      { "type": "heading", "text": "The one worth telling" },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "after-hours"
+      },
+      {
+        "type": "heading",
+        "text": "The one worth telling"
+      },
       {
         "type": "prose",
         "html": "A convolutional network learning Flappy Bird from nothing but rendered frames. The largest gain in the whole project came from the observation rather than from any hyperparameter. Reducing a frame to one channel is standard and the standard way is a luminance greyscale, but the bird is yellow and the sky is light blue, and those are nearly equiluminant: measured off the sprites, the bird stands out from the sky by 22 levels out of 255 in luminance and by 181 in the blue channel."
@@ -20,7 +27,10 @@
         "type": "prose",
         "html": "Greyscale was delivering the obstacles at three times the contrast of the bird itself, which is the one object whose position the policy most needs. With everything else held fixed, same seed and same hyperparameters, taking the blue channel instead moved the agent from <strong>0.4 pipes to 12.65</strong> at 250k steps. The greyscale run never passed 0.8 in 420k."
       },
-      { "type": "heading", "text": "The five" },
+      {
+        "type": "heading",
+        "text": "The five"
+      },
       {
         "type": "cards",
         "items": [
@@ -66,6 +76,85 @@
         "type": "caveat",
         "title": "What the SAT solver actually shows",
         "html": "Its own measurement is that the algebraic step is nearly inert: across the unsatisfiable instances tested, the elimination on its own caught almost none, and the branching does the work. The repository says so rather than burying it. It is also benchmarked below the phase transition, where most instances are satisfiable, which the write-up names as its own open item."
+      }
+    ]
+  },
+  "fr": {
+    "short": "after-hours",
+    "title": "after-hours",
+    "description": "after-hours : un CNN pour Flappy Bird, un solveur 3-SAT sur GF(2), des algorithmes matriciels repris de zéro, des tris animés dans Blender, et l'impôt sur le revenu français modélisé avec la fonction W de Lambert.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Ce que je construis en dehors des cours",
+        "lede": "Cinq projets autonomes en apprentissage automatique, calcul formel et mathématiques appliquées. Personne ne les a demandés, chaque chiffre est produit par du code présent dans le dépôt, et l'intégration continue rejoue les vérifications à chaque envoi."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "after-hours"
+      },
+      {
+        "type": "heading",
+        "text": "Celui qui mérite d'être raconté"
+      },
+      {
+        "type": "prose",
+        "html": "Un réseau convolutif apprenant Flappy Bird à partir des seules images rendues. Le plus grand gain de tout le projet est venu de l'observation et non d'un hyperparamètre. Réduire une image à un seul canal est courant, et la façon courante est un niveau de gris de luminance, mais l'oiseau est jaune et le ciel bleu clair, et ces deux couleurs sont presque équiluminantes : mesuré sur les sprites, l'oiseau se détache du ciel de 22 niveaux sur 255 en luminance, et de 181 dans le canal bleu."
+      },
+      {
+        "type": "prose",
+        "html": "Le niveau de gris livrait les obstacles à trois fois le contraste de l'oiseau lui-même, qui est pourtant l'objet dont la politique a le plus besoin de connaître la position. Tout le reste étant tenu fixe, même graine et mêmes hyperparamètres, prendre le canal bleu à la place a fait passer l'agent de <strong>0,4 tuyau à 12,65</strong> à 250 000 pas. L'exécution en niveau de gris n'a jamais dépassé 0,8 en 420 000 pas."
+      },
+      {
+        "type": "heading",
+        "text": "Les cinq"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/after-hours/",
+            "tag": "Site",
+            "title": "Les parcourir tous",
+            "desc": "Chaque projet sur une page, avec les animations et les graphiques en taille réelle."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN",
+            "tag": "Renforcement",
+            "title": "Flappy Bird à partir des pixels",
+            "desc": "Un DQN atteignant 12,21 tuyaux en moyenne sur 100 épisodes, et une exécution REINFORCE qui n'en a jamais franchi un, expliquée."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Groebner_Basis_SAT_Solver",
+            "tag": "Algèbre",
+            "title": "3-SAT sur GF(2)",
+            "desc": "Les clauses comme polynômes dans l'anneau booléen. 500 instances vérifiées contre une recherche exhaustive, sans aucun verdict erroné."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Linear_Algebra",
+            "tag": "Maths",
+            "title": "Algorithmes matriciels repris de zéro",
+            "desc": "FFT, déterminant par complément de Schur et inverse entier exact, vérifiés contre NumPy à 1e-13."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
+            "tag": "Appliqué",
+            "title": "L'impôt sur le revenu français",
+            "desc": "Le taux effectif ajusté par tranche, la fonction W de Lambert situant le point d'inflexion à 59 800 EUR."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts",
+            "tag": "Graphisme",
+            "title": "Les tris, rendus",
+            "desc": "Tri à bulles et tri fusion animés image par image via l'API Python de Blender, de sorte que le motif d'accès soit observable."
+          }
+        ]
+      },
+      {
+        "type": "caveat",
+        "title": "Ce que le solveur SAT montre réellement",
+        "html": "Sa propre mesure est que l'étape algébrique est presque inerte : sur les instances insatisfiables testées, l'élimination seule n'en a détecté presque aucune, et c'est le branchement qui fait le travail. Le dépôt le dit plutôt que de l'enfouir. Il est en outre évalué en deçà de la transition de phase, où la plupart des instances sont satisfiables, ce que l'écrit signale lui-même comme un point ouvert."
       }
     ]
   }

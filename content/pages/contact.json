@@ -12,12 +12,39 @@
       },
       {
         "type": "html",
-        "html": "<div class=\"tw\"><table><tbody><tr><th>Email</th><td><a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a></td></tr><tr><th>LinkedIn</th><td><a href=\"https://linkedin.com/in/mohamed-hamlil-4aa3a7335\">mohamed-hamlil</a></td></tr><tr><th>GitHub</th><td><a href=\"https://github.com/Tewf\">github.com/Tewf</a></td></tr><tr><th>Location</th><td>Grenoble, France</td></tr></tbody></table></div>"
+        "html": "<div class=\"tw\"><table><tbody><tr><th>Email</th><td><a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a></td></tr><tr><th>LinkedIn</th><td><a href=\"https://www.linkedin.com/in/mohamedalitewfikhamlil\">mohamedalitewfikhamlil</a></td></tr><tr><th>GitHub</th><td><a href=\"https://github.com/Tewf\">github.com/Tewf</a></td></tr><tr><th>Location</th><td>Grenoble, France</td></tr></tbody></table></div>"
       },
-      { "type": "heading", "text": "What I am looking for" },
+      {
+        "type": "heading",
+        "text": "What I am looking for"
+      },
       {
         "type": "prose",
         "html": "An M2 research internship, in computer algebra, optimisation, or the behaviour of learning agents. The two internships already done were supervised at the LJK and at GAEL, and both are published here in full, including the parts that did not work."
+      }
+    ]
+  },
+  "fr": {
+    "short": "Contact",
+    "title": "Contact",
+    "description": "Contacter Mohamed Hamlil : adresse universitaire, LinkedIn et GitHub.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Contact",
+        "lede": "Actuellement en M1 Intelligence Artificielle à l'Universit&eacute; Grenoble Alpes, à la recherche d'un stage de recherche de M2."
+      },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><tbody><tr><th>Courriel</th><td><a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a></td></tr><tr><th>LinkedIn</th><td><a href=\"https://www.linkedin.com/in/mohamedalitewfikhamlil\">mohamedalitewfikhamlil</a></td></tr><tr><th>GitHub</th><td><a href=\"https://github.com/Tewf\">github.com/Tewf</a></td></tr><tr><th>Localisation</th><td>Grenoble, France</td></tr></tbody></table></div>"
+      },
+      {
+        "type": "heading",
+        "text": "Ce que je cherche"
+      },
+      {
+        "type": "prose",
+        "html": "Un stage de recherche de M2, en calcul formel, en optimisation ou sur le comportement des agents apprenants. Les deux stages déjà effectués ont été encadrés au LJK et au GAEL, et tous deux sont publiés ici intégralement, y compris les parties qui n'ont pas fonctionné."
       }
     ]
   }

@@ -8,25 +8,105 @@
       {
         "type": "hero",
         "title": "Mohamed Hamlil",
-        "lines": ["Mohamed", "Hamlil"],
+        "lines": [
+          "Mohamed",
+          "Hamlil"
+        ],
         "lede": "M1 Artificial Intelligence at Universit&eacute; Grenoble Alpes, with research internships in computer algebra and in industrial economics. Everything below is something I built, running.",
         "actions": [
-          { "href": "#board", "label": "See the work" },
-          { "href": "contact/", "label": "Contact" }
+          {
+            "href": "#board",
+            "label": "See the work"
+          },
+          {
+            "href": "contact/",
+            "label": "Contact"
+          }
         ]
       },
       {
         "type": "board",
         "projects": [
-          { "key": "after-hours", "href": "work/after-hours/", "title": "after-hours" },
-          { "key": "university-coursework", "href": "work/university-coursework/", "title": "University coursework" },
-          { "key": "strategic-pricing", "href": "research/strategic-pricing/", "title": "AI and strategic pricing" },
-          { "key": "bilinear", "href": "research/bilinear-tensor-optimization/", "title": "Rank of bilinear maps" }
+          {
+            "key": "after-hours",
+            "href": "work/after-hours/",
+            "title": "after-hours"
+          },
+          {
+            "key": "university-coursework",
+            "href": "work/university-coursework/",
+            "title": "University coursework"
+          },
+          {
+            "key": "strategic-pricing",
+            "href": "research/strategic-pricing/",
+            "title": "AI and strategic pricing"
+          },
+          {
+            "key": "bilinear",
+            "href": "research/bilinear-tensor-optimization/",
+            "title": "Rank of bilinear maps"
+          }
         ]
       },
       {
         "type": "prose",
-        "html": "Each picture opens the project it came from, where the numbers behind it name the file that produced them. Reachable at <a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a>, on <a href=\"https://linkedin.com/in/mohamed-hamlil-4aa3a7335\">LinkedIn</a>, and on <a href=\"https://github.com/Tewf\">GitHub</a>. <a href=\"contact/\">More ways and what I am looking for</a>."
+        "html": "Each picture opens the project it came from, where the numbers behind it name the file that produced them. Reachable at <a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a>, on <a href=\"https://www.linkedin.com/in/mohamedalitewfikhamlil\">LinkedIn</a>, and on <a href=\"https://github.com/Tewf\">GitHub</a>. <a href=\"contact/\">More ways and what I am looking for</a>."
+      }
+    ]
+  },
+  "fr": {
+    "short": "Accueil",
+    "title": "Mohamed Hamlil",
+    "description": "Mohamed Hamlil, M1 Intelligence Artificielle à l'Université Grenoble Alpes. Recherche sur le rang des applications bilinéaires et sur la tarification algorithmique, et des projets aux résultats mesurés.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Mohamed Hamlil",
+        "lines": [
+          "Mohamed",
+          "Hamlil"
+        ],
+        "lede": "M1 Intelligence Artificielle à l'Université Grenoble Alpes, avec des stages de recherche en calcul formel et en économie industrielle. Tout ce qui suit est une chose que j'ai construite, et qui tourne.",
+        "actions": [
+          {
+            "href": "#board",
+            "label": "Voir les travaux"
+          },
+          {
+            "href": "contact/",
+            "label": "Contact"
+          }
+        ]
+      },
+      {
+        "type": "board",
+        "projects": [
+          {
+            "key": "after-hours",
+            "href": "work/after-hours/",
+            "title": "after-hours"
+          },
+          {
+            "key": "university-coursework",
+            "href": "work/university-coursework/",
+            "title": "Travaux universitaires"
+          },
+          {
+            "key": "strategic-pricing",
+            "href": "research/strategic-pricing/",
+            "title": "IA et tarification stratégique"
+          },
+          {
+            "key": "bilinear",
+            "href": "research/bilinear-tensor-optimization/",
+            "title": "Rang des applications bilinéaires"
+          }
+        ]
+      },
+      {
+        "type": "prose",
+        "html": "Chaque image ouvre le projet dont elle provient, où les chiffres qui la sous-tendent nomment le fichier qui les a produits. Joignable à <a href=\"mailto:mohamed.hamlil@etu.univ-grenoble-alpes.fr\">mohamed.hamlil@etu.univ-grenoble-alpes.fr</a>, sur <a href=\"https://www.linkedin.com/in/mohamedalitewfikhamlil\">LinkedIn</a> et sur <a href=\"https://github.com/Tewf\">GitHub</a>. <a href=\"contact/\">Les autres moyens de me joindre, et ce que je cherche</a>."
       }
     ]
   }

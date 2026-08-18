@@ -10,7 +10,11 @@
         "title": "Do algorithms learn to collude?",
         "lede": "In repeated price competition, human players tend to settle on tacitly collusive prices rather than on the competitive equilibrium. Whether algorithms sustain that behaviour, break it or intensify it is open, and it matters directly for competition policy."
       },
-      { "type": "preview", "mode": "head", "key": "strategic-pricing" },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "strategic-pricing"
+      },
       {
         "type": "meta",
         "html": "GAEL, Grenoble Applied Economics Laboratory, UGA and INRAE<br>Supervised by Alexis Garapin and Olivier Bonroy<br>23 January to 14 April 2025"
@@ -19,12 +23,18 @@
         "type": "prose",
         "html": "The internship surveyed where the literature stands, modelled the imitation mechanism that might underpin cooperation, and built agents to watch it happen. <strong>It did not settle the question.</strong> The report is a study rather than a finding, and it says so."
       },
-      { "type": "heading", "text": "What it produced" },
+      {
+        "type": "heading",
+        "text": "What it produced"
+      },
       {
         "type": "prose",
         "html": "A survey of three papers on whether AI sustains cooperation, and a model of the imitation mechanism that might underpin it: two weights on a simplex, where observing an action multiplies its weight and renormalises. Tit-for-Tat is meant to fall out of that update without being programmed. Going back to it afterwards showed the growth is logistic rather than concave as the write-up says, and named two claims the code was never asked to check, including that the agent resembles a human when no human data is in the simulation."
       },
-      { "type": "heading", "text": "What running them showed" },
+      {
+        "type": "heading",
+        "text": "What running them showed"
+      },
       {
         "type": "prose",
         "html": "Both mechanisms have since been run, which the internship never did. The imitation model was expected to produce Tit-for-Tat without being programmed. Against seven opponents from the literature it finishes <strong>eighth of eight, behind a coin flip</strong>: what the update implements is frequency matching, whose state is a pair of counts and so cannot depend on the last round at all. In self-play it is something else, a ratchet. Over 700 runs it locked onto whichever regime it was dropped into, mutual defection or mutual cooperation, and not once onto anything between."
@@ -38,10 +48,26 @@
         "chart": {
           "kind": "beforeAfter",
           "rows": [
-            { "label": "qwen2.5 7B", "from": 0, "to": 100 },
-            { "label": "gemma3 4B", "from": 0, "to": 0 },
-            { "label": "qwen3 8B", "from": 0, "to": 0 },
-            { "label": "mistral 7B", "from": 99, "to": 74 }
+            {
+              "label": "qwen2.5 7B",
+              "from": 0,
+              "to": 100
+            },
+            {
+              "label": "gemma3 4B",
+              "from": 0,
+              "to": 0
+            },
+            {
+              "label": "qwen3 8B",
+              "from": 0,
+              "to": 0
+            },
+            {
+              "label": "mistral 7B",
+              "from": 99,
+              "to": 74
+            }
           ],
           "unit": "%"
         },
@@ -51,7 +77,10 @@
         "type": "prose",
         "html": "So the channel is <strong>neither necessary nor sufficient</strong> for escaping a regime an agent did not choose: mistral leaves without one, gemma3 and qwen3 stay put with one. Which models can leave is a property of the individual model rather than of language models. Five small quantised models on an 8 GB card are not a population, which is why this is reported as variation between models rather than as a fact about them."
       },
-      { "type": "heading", "text": "The course project beside it" },
+      {
+        "type": "heading",
+        "text": "The course project beside it"
+      },
       {
         "type": "prose",
         "html": "A Prolog strategy tournament, run for a logic programming course during the same months and submitted in the same repository. It is coursework rather than internship work: its game does not appear in the report, and it has since moved to the coursework repository. It is the better story of the two, so it is here rather than dropped."
@@ -61,14 +90,48 @@
         "chart": {
           "kind": "logBars",
           "rows": [
-            { "label": "best_duo", "value": 2.02e62, "display": "2.0e62" },
-            { "label": "naenae", "value": 2.58e57, "display": "2.6e57" },
-            { "label": "youxi", "value": 4.14e54, "display": "4.1e54" },
-            { "label": "lesStrateges", "value": 8.88e32, "display": "8.9e32" },
-            { "label": "lesCowBoys", "value": 8.88e32, "display": "8.9e32" },
-            { "label": "syntax_terror", "value": 6.34e29, "display": "6.3e29" },
-            { "label": "stage_test", "value": 6163877, "display": "6,163,877", "highlight": true },
-            { "label": "nash_equilibrium", "value": 1490429, "display": "1,490,429", "highlight": true }
+            {
+              "label": "best_duo",
+              "value": 2.02e+62,
+              "display": "2.0e62"
+            },
+            {
+              "label": "naenae",
+              "value": 2.58e+57,
+              "display": "2.6e57"
+            },
+            {
+              "label": "youxi",
+              "value": 4.14e+54,
+              "display": "4.1e54"
+            },
+            {
+              "label": "lesStrateges",
+              "value": 8.88e+32,
+              "display": "8.9e32"
+            },
+            {
+              "label": "lesCowBoys",
+              "value": 8.88e+32,
+              "display": "8.9e32"
+            },
+            {
+              "label": "syntax_terror",
+              "value": 6.34e+29,
+              "display": "6.3e29"
+            },
+            {
+              "label": "stage_test",
+              "value": 6163877,
+              "display": "6,163,877",
+              "highlight": true
+            },
+            {
+              "label": "nash_equilibrium",
+              "value": 1490429,
+              "display": "1,490,429",
+              "highlight": true
+            }
           ],
           "note": "cumulative score, log scale, top 8 of 16"
         },
@@ -78,7 +141,10 @@
         "type": "prose",
         "html": "Two agents were entered against thirteen other students'. They placed <strong>7th and 8th of 16</strong>. The three leaders are ahead by more than fifty orders of magnitude, which is what a scoring rule that compounds does to a strategy built to win single matches."
       },
-      { "type": "heading", "text": "The part worth reading" },
+      {
+        "type": "heading",
+        "text": "The part worth reading"
+      },
       {
         "type": "prose",
         "html": "Returning to that project's equilibrium analysis afterwards turned up an error in it. It searched for a Nash point by minimising the sum of squared payoff gradients. On a simplex that is the wrong condition: a player's payoff is linear in their own strategy, so the gradient is constant and never zero unless every action pays nothing. Minimising its norm searches for the strategies that pay <em>least</em>."
@@ -96,7 +162,10 @@
         "title": "This is a correction, not a rescue",
         "html": "Nothing is overturned. The head-to-head result holds and reproduces exactly. What changed is that the derivation behind it was redone with a condition that is correct on a simplex, checked first against two textbook games, and that the claims the code never supported are now named as such. The same is true of the internship's own half: the model is preserved as submitted and what running it showed sits beside it rather than over it. The expectation that Tit-for-Tat would emerge from the update is the part that did not survive contact with seven opponents, and that is a result, not a repair."
       },
-      { "type": "heading", "text": "Read it" },
+      {
+        "type": "heading",
+        "text": "Read it"
+      },
       {
         "type": "cards",
         "items": [
@@ -117,6 +186,197 @@
             "tag": "Coursework",
             "title": "The Prolog tournament",
             "desc": "The two agents, the 636-page log turned into data, and the equilibrium recomputed."
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Tarification stratégique",
+    "title": "IA et tarification stratégique",
+    "description": "Stage au GAEL sur la question de savoir si les agents d'IA entretiennent une collusion tacite dans la concurrence en prix répétée, et les deux mécanismes qu'il a proposés sans les exécuter : un agent d'imitation qui finit dernier sur huit, et cinq modèles de langue locaux sur 220 parties.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Les algorithmes apprennent-ils à s'entendre ?",
+        "lede": "Dans la concurrence en prix répétée, les joueurs humains tendent à se fixer sur des prix tacitement collusifs plutôt que sur l'équilibre concurrentiel. Savoir si les algorithmes entretiennent ce comportement, le rompent ou l'intensifient reste ouvert, et la question importe directement pour la politique de la concurrence."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "strategic-pricing"
+      },
+      {
+        "type": "meta",
+        "html": "GAEL, Grenoble Applied Economics Laboratory, UGA et INRAE<br>Encadré par Alexis Garapin et Olivier Bonroy<br>23 janvier au 14 avril 2025"
+      },
+      {
+        "type": "prose",
+        "html": "Le stage a fait le point sur l'état de la littérature, modélisé le mécanisme d'imitation susceptible de fonder la coopération, et construit des agents pour l'observer. <strong>Il n'a pas tranché la question.</strong> Le rapport est une étude et non un résultat, et il le dit."
+      },
+      {
+        "type": "heading",
+        "text": "Ce qu'il a produit"
+      },
+      {
+        "type": "prose",
+        "html": "Une revue de trois articles sur la question de savoir si l'IA entretient la coopération, et un modèle du mécanisme d'imitation qui pourrait la fonder : deux poids sur un simplexe, où observer une action multiplie son poids puis renormalise. Le donnant-donnant (Tit-for-Tat) est censé en découler sans être programmé. Y revenir ensuite a montré que la croissance est logistique et non concave comme l'écrit le rapport, et a nommé deux affirmations que le code n'a jamais été chargé de vérifier, dont celle selon laquelle l'agent ressemble à un humain alors qu'aucune donnée humaine ne figure dans la simulation."
+      },
+      {
+        "type": "heading",
+        "text": "Ce que leur exécution a montré"
+      },
+      {
+        "type": "prose",
+        "html": "Les deux mécanismes ont depuis été exécutés, ce que le stage n'avait pas fait. Le modèle d'imitation était censé produire le donnant-donnant sans être programmé. Face à sept adversaires issus de la littérature, il finit <strong>huitième sur huit, derrière un tirage à pile ou face</strong> : ce que la mise à jour implémente est un appariement de fréquences, dont l'état se réduit à un couple de compteurs et qui ne peut donc pas dépendre du tour précédent. En jeu contre lui-même, c'est autre chose, un cliquet. Sur 700 exécutions, il s'est verrouillé sur le régime dans lequel il avait été placé, défection mutuelle ou coopération mutuelle, et pas une seule fois sur un état intermédiaire."
+      },
+      {
+        "type": "prose",
+        "html": "La conclusion du rapport nomme aussi l'homo silicus, la méthode de Horton consistant à faire jouer un modèle de langue comme sujet économique, sans l'exécuter non plus. Cinq modèles à poids ouverts, de 4 à 8 milliards de paramètres, exécutés localement et hors ligne, ont désormais disputé 220 parties du même jeu les uns contre les autres et contre les mêmes adversaires, à partir d'ouvertures qu'ils n'avaient pas choisies, avec et sans message non contraignant. <strong>Placés en silence dans une ouverture de défection mutuelle, trois des quatre modèles exploitables n'en sortent jamais</strong>, faisant défection aux trente tours. C'est le cliquet de l'imitateur, reproduit dans un modèle de langue. Un message en libère alors exactement un sur les trois."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "qwen2.5 7B",
+              "from": 0,
+              "to": 100
+            },
+            {
+              "label": "gemma3 4B",
+              "from": 0,
+              "to": 0
+            },
+            {
+              "label": "qwen3 8B",
+              "from": 0,
+              "to": 0
+            },
+            {
+              "label": "mistral 7B",
+              "from": 99,
+              "to": 74
+            }
+          ],
+          "unit": "%"
+        },
+        "caption": "Coopération à partir d'une ouverture de défection mutuelle imposée, en silence (clair) et avec un message non contraignant (foncé), en part des trente tours. Quatre parties par barre. qwen2.5 est entièrement libéré, gemma3 et qwen3 pas du tout, et mistral n'a jamais été capturé. Pour lui, le message <em>coûte</em> de la coopération. phi3:mini est écarté : dix de ses quarante-quatre parties n'ont pas pu être analysées. Source : <code>llm/results/cooperation_rates.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Le canal n'est donc <strong>ni nécessaire ni suffisant</strong> pour sortir d'un régime que l'agent n'a pas choisi : mistral en sort sans message, gemma3 et qwen3 y restent avec. Quels modèles peuvent en sortir est une propriété du modèle particulier plutôt que des modèles de langue. Cinq petits modèles quantisés sur une carte de 8 Go ne constituent pas une population, ce qui explique pourquoi ceci est rapporté comme une variation entre modèles et non comme un fait les concernant."
+      },
+      {
+        "type": "heading",
+        "text": "Le projet de cours mené en parallèle"
+      },
+      {
+        "type": "prose",
+        "html": "Un tournoi de stratégies en Prolog, mené pour un cours de programmation logique durant les mêmes mois et rendu dans le même dépôt. Il relève du travail universitaire et non du stage : son jeu ne figure pas dans le rapport, et il a depuis été déplacé vers le dépôt de travaux universitaires. C'est la meilleure histoire des deux, il est donc ici plutôt qu'écarté."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            {
+              "label": "best_duo",
+              "value": 2.02e+62,
+              "display": "2,0e62"
+            },
+            {
+              "label": "naenae",
+              "value": 2.58e+57,
+              "display": "2,6e57"
+            },
+            {
+              "label": "youxi",
+              "value": 4.14e+54,
+              "display": "4,1e54"
+            },
+            {
+              "label": "lesStrateges",
+              "value": 8.88e+32,
+              "display": "8,9e32"
+            },
+            {
+              "label": "lesCowBoys",
+              "value": 8.88e+32,
+              "display": "8,9e32"
+            },
+            {
+              "label": "syntax_terror",
+              "value": 6.34e+29,
+              "display": "6,3e29"
+            },
+            {
+              "label": "stage_test",
+              "value": 6163877,
+              "display": "6 163 877",
+              "highlight": true
+            },
+            {
+              "label": "nash_equilibrium",
+              "value": 1490429,
+              "display": "1 490 429",
+              "highlight": true
+            }
+          ],
+          "note": "score cumulé, échelle logarithmique, 8 premiers sur 16"
+        },
+        "caption": "Score cumulé au tournoi d'avril 2025, seize agents, échelle logarithmique. Source : <code>StrategyTournament/results/</code> dans le dépôt de travaux universitaires, page 1 d'un journal de 636 pages."
+      },
+      {
+        "type": "prose",
+        "html": "Deux agents ont été engagés contre ceux de treize autres étudiants. Ils se sont classés <strong>7e et 8e sur 16</strong>. Les trois premiers ont plus de cinquante ordres de grandeur d'avance, ce qu'une règle de score qui compose fait à une stratégie conçue pour gagner des parties isolées."
+      },
+      {
+        "type": "heading",
+        "text": "La partie qui mérite lecture"
+      },
+      {
+        "type": "prose",
+        "html": "Revenir ensuite sur l'analyse d'équilibre de ce projet y a fait apparaître une erreur. Elle cherchait un point de Nash en minimisant la somme des carrés des gradients de gain. Sur un simplexe, ce n'est pas la bonne condition : le gain d'un joueur est linéaire en sa propre stratégie, donc le gradient est constant et n'est jamais nul à moins qu'aucune action ne rapporte quoi que ce soit. Minimiser sa norme revient à chercher les stratégies qui rapportent le <em>moins</em>."
+      },
+      {
+        "type": "prose",
+        "html": "Deux éléments le rendent concret. La version d'origine affichait un résidu de stationnarité de 80,89 juste sous une coche de réussite, n'ayant vérifié que la convergence de l'optimiseur et jamais que son propre objectif était atteint. Et exécutée sur la Bataille des sexes, un jeu dont les trois équilibres sont connus, elle renvoie un point qui n'en est aucun et rapporte 0,48 aux deux joueurs, contre 2,0, 1,0 et 0,667 pour les véritables."
+      },
+      {
+        "type": "prose",
+        "html": "Recalculé avec la bonne condition, le résultat en face-à-face d'origine subsiste exactement : la stratégie rendue bat Nash 3,5552 contre 3,1521. Ce qu'il montre en outre, c'est pourquoi cela ne s'est pas traduit dans le tournoi. Contre le même adversaire, jouer simplement Nash rapporte 3,8889. La stratégie gagne son duel en coûtant à l'adversaire plus qu'elle ne se coûte à elle-même, ce qu'il faut vouloir en face-à-face et ce qu'il ne faut pas vouloir quand le score se compose."
+      },
+      {
+        "type": "caveat",
+        "title": "Il s'agit d'une correction, non d'un sauvetage",
+        "html": "Rien n'est renversé. Le résultat en face-à-face tient et se reproduit exactement. Ce qui a changé, c'est que la dérivation qui le sous-tend a été refaite avec une condition correcte sur un simplexe, vérifiée d'abord sur deux jeux classiques, et que les affirmations que le code n'a jamais étayées sont désormais nommées comme telles. Il en va de même pour la moitié relevant du stage : le modèle est conservé tel qu'il a été rendu, et ce que son exécution a montré figure à côté plutôt qu'au-dessus. L'attente que le donnant-donnant émerge de la mise à jour est la partie qui n'a pas survécu au contact de sept adversaires, et c'est un résultat, non une réparation."
+      },
+      {
+        "type": "heading",
+        "text": "Lire"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/IA-Economie-Strategique/",
+            "tag": "Site",
+            "title": "Les résultats",
+            "desc": "Figures et résultats sur une page, avec le rapport lisible dans le navigateur."
+          },
+          {
+            "href": "https://github.com/Tewf/IA-Economie-Strategique",
+            "tag": "Dépôt",
+            "title": "Source",
+            "desc": "Le stage conservé tel qu'il a été rendu sous original/, avec les corrections à côté."
+          },
+          {
+            "href": "https://tewf.github.io/University-Coursework/Bachelor/SecondSemestreLanguage/Prolog/StrategyTournament/",
+            "tag": "Travaux universitaires",
+            "title": "Le tournoi Prolog",
+            "desc": "Les deux agents, le journal de 636 pages transformé en données, et l'équilibre recalculé."
           }
         ]
       }

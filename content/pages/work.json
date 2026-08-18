@@ -3,7 +3,7 @@
   "en": {
     "short": "Work",
     "title": "Work",
-    "description": "Projects: after-hours, university coursework, and a browser game.",
+    "description": "Projects: after-hours and university coursework.",
     "blocks": [
       {
         "type": "hero",
@@ -12,7 +12,9 @@
       },
       {
         "type": "showcase",
-        "preview": { "mode": "chooser" },
+        "preview": {
+          "mode": "chooser"
+        },
         "blocks": [
           {
             "type": "cards",
@@ -30,6 +32,45 @@
                 "tag": "Degree",
                 "title": "University coursework",
                 "desc": "The Licence MIASHS and the M1 AI, end to end."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Travaux",
+    "title": "Travaux",
+    "description": "Projets : after-hours et les travaux universitaires.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Travaux",
+        "lede": "Ce qui a été construit en dehors des deux stages : les soirées, et le diplôme lui-même."
+      },
+      {
+        "type": "showcase",
+        "preview": {
+          "mode": "chooser"
+        },
+        "blocks": [
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "work/after-hours/",
+                "preview": "after-hours",
+                "tag": "Personnel",
+                "title": "after-hours",
+                "desc": "Apprentissage par renforcement, calcul formel et mathématiques appliquées, rien de tout cela n'était demandé."
+              },
+              {
+                "href": "work/university-coursework/",
+                "preview": "university-coursework",
+                "tag": "Diplôme",
+                "title": "Travaux universitaires",
+                "desc": "La Licence MIASHS et le M1 IA, de bout en bout."
               }
             ]
           }
