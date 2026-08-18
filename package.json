@@ -7,12 +7,12 @@
     "node": ">=22"
   },
   "scripts": {
-    "generate": "node tools/build-pages.mjs --allow-missing-translations",
+    "generate": "node tools/build-pages.mjs",
     "tokens:check": "node tools/check-tokens.mjs",
     "prebuild": "pnpm run tokens:check",
-    "dev": "ALLOW_MISSING_TRANSLATIONS=1 vite",
-    "build": "ALLOW_MISSING_TRANSLATIONS=1 vite build",
-    "preview": "ALLOW_MISSING_TRANSLATIONS=1 vite preview",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "preview:sibling": "node tools/preview-sibling.mjs"
   },
   "devDependencies": {
