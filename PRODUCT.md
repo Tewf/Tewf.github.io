@@ -48,11 +48,13 @@ results, not omissions.
 
 ## Operating Context
 
-- One origin, six sites. `tewf.github.io/` is this product. `after-hours`,
-  `University-Coursework`, `IA-Economie-Strategique`, `bilinear-tensor-optimization`
-  and `shots` are separate repositories publishing their own sites at
-  `tewf.github.io/<repo>/`. This site writes a page *about* several of them and
-  links out; it never duplicates their content.
+- One origin, five sites. `tewf.github.io/` is this product. `after-hours`,
+  `University-Coursework`, `IA-Economie-Strategique` and
+  `bilinear-tensor-optimization` are separate repositories publishing their own
+  sites at `tewf.github.io/<repo>/`. This site writes a page *about* several of
+  them and links out; it never duplicates their content. `shots` was a sixth: it
+  is private as of August 2026 and `/shots/` no longer resolves, but the path
+  stays reserved in case it comes back.
 - Project thumbnails are loaded from each project's own published site, so the
   pictures on this site cannot drift from the work they depict.
 - The reader is often on a laptop, mid-triage, with the tab open beside an email or
@@ -62,7 +64,8 @@ results, not omissions.
 
 - Eight pages: home, `research/` and two research pages, `work/` and two work
   pages, `contact/`. Confirmed to stay as they are; Odophone, the playable game
-  `shots`, and `backend-systems` were each offered and declined for now.
+  `shots`, and `backend-systems` were each offered and declined for now. `shots`
+  is moot while it is private.
 - Static. Content lives in `content/`, is rendered by `tools/build-pages.mjs`
   through `src/templates/`, built by Vite, deployed by GitHub Actions.
 - **Nothing may be loaded from a CDN**, and no third-party code may run in the
