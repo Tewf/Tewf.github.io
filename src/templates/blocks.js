@@ -118,6 +118,7 @@ const board = (b, ctx) => {
       <a href="${attr(resolve(pin.project.href, ctx.base))}">
         <img src="${attr(asset(pin.still ?? pin.src))}"
              ${pin.still ? `data-motion="${attr(asset(pin.src))}"` : ''}
+             ${pin.w ? `width="${attr(pin.w)}" height="${attr(pin.h)}"` : ''}
              alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
         <span class="pin-face">
           <span class="pin-what">${text(pin.alt, ctx.lang)}</span>
