@@ -20,7 +20,7 @@ const OWNED_BY_PROJECT_SITES = new Set([
   'bilinear-tensor-optimization', 'shots',
 ]);
 
-async function jsonFiles (dir) {
+export async function jsonFiles (dir) {
   const out = [];
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
