@@ -10,7 +10,10 @@ import { beforeAfter, logBars } from './scripts/chart.js';
 const CHARTS = { beforeAfter, logBars };
 
 const panel = document.querySelector('[data-preview-panel]');
-if (panel) mountPreview(panel, resolveSets(), panel.dataset.previewRest || undefined);
+if (panel) {
+  const lang = document.documentElement.lang;
+  mountPreview(panel, resolveSets(undefined, lang), panel.dataset.previewRest || undefined);
+}
 
 /* The board ships stills and moves only if the visitor has not asked otherwise.
    No CSS rule stops an animated WebP looping, so this is the only place the

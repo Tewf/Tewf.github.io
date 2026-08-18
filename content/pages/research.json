@@ -12,7 +12,9 @@
       },
       {
         "type": "showcase",
-        "preview": { "mode": "chooser" },
+        "preview": {
+          "mode": "chooser"
+        },
         "blocks": [
           {
             "type": "cards",
@@ -30,6 +32,45 @@
                 "tag": "GAEL &middot; January to April 2025",
                 "title": "AI and strategic pricing",
                 "desc": "Supervised by Alexis Garapin and Olivier Bonroy. A survey of three papers, a model of imitation, and the Prolog course project entered alongside it."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Recherche",
+    "title": "Recherche",
+    "description": "Stages de recherche au LJK (rang des applications bilinéaires) et au GAEL (tarification algorithmique).",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Recherche",
+        "lede": "Deux stages encadrés, l'un en calcul formel, l'autre en économie industrielle. Les deux sont publiés intégralement, y compris les parties qui n'ont pas fonctionné."
+      },
+      {
+        "type": "showcase",
+        "preview": {
+          "mode": "chooser"
+        },
+        "blocks": [
+          {
+            "type": "cards",
+            "items": [
+              {
+                "href": "research/bilinear-tensor-optimization/",
+                "preview": "bilinear",
+                "tag": "LJK &middot; mai à juillet 2024",
+                "title": "Rang des applications bilinéaires",
+                "desc": "Encadré par Jean-Guillaume Dumas. Ramène la multiplication de polynômes 5&times;5 sur GF(2) de 25 multiplications à 14."
+              },
+              {
+                "href": "research/strategic-pricing/",
+                "preview": "strategic-pricing",
+                "tag": "GAEL &middot; janvier à avril 2025",
+                "title": "IA et tarification stratégique",
+                "desc": "Encadré par Alexis Garapin et Olivier Bonroy. Une revue de trois articles, un modèle d'imitation, et le projet Prolog rendu en parallèle."
               }
             ]
           }

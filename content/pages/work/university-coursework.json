@@ -10,13 +10,23 @@
         "title": "The whole degree, with the numbers attached",
         "lede": "The Licence MIASHS and the M1 Artificial Intelligence at Universit&eacute; Grenoble Alpes, published so that every report renders from the source that produced it."
       },
-      { "type": "preview", "mode": "head", "key": "university-coursework" },
-      { "type": "heading", "text": "Four projects that carry a number" },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "university-coursework"
+      },
+      {
+        "type": "heading",
+        "text": "Four projects that carry a number"
+      },
       {
         "type": "html",
         "html": "<div class=\"tw\"><table><thead><tr><th>Project</th><th>Result</th></tr></thead><tbody><tr><td><b>Battleship AI</b><br><span class=\"meta\">Java, pair project</span></td><td>Four targeting strategies over 300 games each. A placement-density heatmap wins <b>74.3%</b> and clears the board in 54.8 shots against 94.3 for random fire, while beating a Monte Carlo simulation that costs far more to run.</td></tr><tr><td><b>Grenoble housing prices</b><br><span class=\"meta\">R and Python, group project</span></td><td>Hedonic pricing on DVF open data. The log transform is what makes the linear model work, lifting R&sup2; from 0.096 to 0.275; a random forest then cuts error from <b>&euro;265,214 to &euro;58,750</b> by giving up the interpretable implicit prices the method exists to produce.</td></tr><tr><td><b>Perfume satisfaction</b><br><span class=\"meta\">R and Quarto, group project</span></td><td>Binary classification over roughly 24 000 fragrances. Four models compared on ROC and confusion matrices; the random forest leads at <b>AUC 0.693</b>, and every model sits between 0.65 and 0.69, which is the honest finding.</td></tr><tr><td><b>Full-stack web</b><br><span class=\"meta\">Node, Express, SQLite, solo</span></td><td>Nine practicals ending in a complete server with persistence, password hashing, sessions and authentication.</td></tr></tbody></table></div>"
       },
-      { "type": "heading", "text": "Browse it" },
+      {
+        "type": "heading",
+        "text": "Browse it"
+      },
       {
         "type": "cards",
         "items": [
@@ -31,6 +41,52 @@
             "tag": "Repository",
             "title": "Source",
             "desc": "Source next to rendered output, so everything reads without cloning."
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Travaux universitaires",
+    "title": "Travaux universitaires",
+    "description": "Travaux de Licence MIASHS et de M1 IA, avec quatre projets qui rapportent chacun un résultat mesuré.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Tout le cursus, chiffres à l'appui",
+        "lede": "La Licence MIASHS et le M1 Intelligence Artificielle à l'Universit&eacute; Grenoble Alpes, publiés de sorte que chaque rapport se rende à partir de la source qui l'a produit."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "university-coursework"
+      },
+      {
+        "type": "heading",
+        "text": "Quatre projets qui portent un chiffre"
+      },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><thead><tr><th>Projet</th><th>Résultat</th></tr></thead><tbody><tr><td><b>Battleship AI</b><br><span class=\"meta\">Java, projet en binôme</span></td><td>Quatre stratégies de tir sur 300 parties chacune. Une carte de densité de placement gagne <b>74,3 %</b> et vide le plateau en 54,8 tirs contre 94,3 pour un tir aléatoire, tout en battant une simulation de Monte-Carlo bien plus coûteuse à exécuter.</td></tr><tr><td><b>Prix de l'immobilier grenoblois</b><br><span class=\"meta\">R et Python, projet de groupe</span></td><td>Prix hédoniques sur les données ouvertes DVF. C'est la transformation logarithmique qui fait fonctionner le modèle linéaire, portant le R&sup2; de 0,096 à 0,275 ; une forêt aléatoire réduit ensuite l'erreur de <b>265 214 &euro; à 58 750 &euro;</b> en renonçant aux prix implicites interprétables que la méthode existe précisément pour produire.</td></tr><tr><td><b>Satisfaction parfum</b><br><span class=\"meta\">R et Quarto, projet de groupe</span></td><td>Classification binaire sur environ 24 000 parfums. Quatre modèles comparés sur les courbes ROC et les matrices de confusion ; la forêt aléatoire est en tête avec une <b>AUC de 0,693</b>, et tous les modèles se situent entre 0,65 et 0,69, ce qui est le résultat honnête.</td></tr><tr><td><b>Web full-stack</b><br><span class=\"meta\">Node, Express, SQLite, seul</span></td><td>Neuf travaux pratiques aboutissant à un serveur complet avec persistance, hachage des mots de passe, sessions et authentification.</td></tr></tbody></table></div>"
+      },
+      {
+        "type": "heading",
+        "text": "Parcourir"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/University-Coursework/",
+            "tag": "Site",
+            "title": "Le site publié",
+            "desc": "Une page par cours, des graphiques tracés à partir des fichiers de résultats, et le bot Battleship jouant une partie enregistrée."
+          },
+          {
+            "href": "https://github.com/Tewf/University-Coursework",
+            "tag": "Dépôt",
+            "title": "Source",
+            "desc": "La source à côté du rendu, de sorte que tout se lise sans cloner."
           }
         ]
       }
