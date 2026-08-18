@@ -175,6 +175,16 @@ h1.stacked .line.dim { font-weight: 500; font-variation-settings: "wdth" 112; }
 
 .pin-face { display: block; padding: .85rem .95rem 1rem; }
 .pin-what { display: block; font-size: .9rem; font-weight: 550; letter-spacing: -0.015em; line-height: 1.35; }
+/* What the thing measured, directly under its name. Monospace and lining
+   figures because it is a number rather than prose, and Ink rather than Label
+   Grey so it outranks the project name below it. Pins without an honest number
+   omit it entirely. */
+.pin-result {
+  display: block; font-family: var(--mono); font-size: .74rem;
+  font-variant-numeric: tabular-nums lining;
+  color: var(--ink); margin-top: .4rem;
+}
+
 .pin-where {
   display: block; font-family: var(--mono); font-size: .72rem;
   color: var(--muted); margin-top: .35rem;

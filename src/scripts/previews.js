@@ -18,15 +18,20 @@
    Flappy Bird", not "an agent playing". Someone who reads only the board should
    come away knowing what was built.
 
+   `result` is what that thing measured, shown on the board under the name. It is
+   optional on purpose: a pin carries one only where there is an honest number,
+   so the sorting loop and the correlation matrix have none rather than a
+   sentence dressed up as a finding.
+
    `lead` orders the board. Anything that moves goes first whatever its lead,
    because a two-second loop of the thing running is worth more than any still;
    `lead` then ranks the stills, lowest first, by how much a stranger gets from
    the picture alone. Images without one fall to the end in declaration order.
 
-   Every `caption` and `alt` here is read by a visitor, so each one carries a
+   Every `caption`, `alt` and `result` is read by a visitor, so each carries a
    value per language rather than a string. The pictures do not: an image is the
-   same picture in both. `text` below is what turns one into the other, and a
-   bare string still works so that a set can be added before it is translated. */
+   same picture in both. `text` below turns one into the other, and a bare string
+   still works, so a set can be added before it is translated. */
 
 const AH = 'https://tewf.github.io/after-hours/';
 const UC = 'https://tewf.github.io/University-Coursework/';
@@ -72,19 +77,27 @@ export const SETS = {
     images: [
       { src: AH + 'thumbs/flappy_bird.webp', still: 'still-flappy.webp',
         alt: { en: 'A neural network learning to play Flappy Bird from raw pixels',
-               fr: 'Un réseau de neurones apprenant à jouer à Flappy Bird à partir des pixels bruts' } },
+               fr: 'Un réseau de neurones apprenant à jouer à Flappy Bird à partir des pixels bruts' },
+        result: { en: '0.4 to 12.65 pipes, from one colour channel',
+                  fr: 'de 0,4 à 12,65 tuyaux, par un seul canal de couleur' } },
       { src: AH + 'Blender_Python_Scripts/sorting_algorithms/bubble_sort.webp', still: 'still-sorting.webp',
         alt: { en: 'Sorting algorithms rendered in Blender, one swap per frame',
                fr: 'Des algorithmes de tri rendus dans Blender, un échange par image' } },
       { src: AH + 'thumbs/sat_solver.png', lead: 1,
         alt: { en: 'A SAT solver that turns logic into algebra over GF(2)',
-               fr: 'Un solveur SAT qui transforme la logique en algèbre sur GF(2)' } },
-      { src: AH + 'thumbs/income_tax.png', lead: 5,
+               fr: 'Un solveur SAT qui transforme la logique en algèbre sur GF(2)' },
+        result: { en: '500 instances, zero wrong verdicts',
+                  fr: '500 instances, aucun verdict erroné' } },
+      { src: AH + 'thumbs/income_tax.png', lead: 7,
         alt: { en: 'What French income tax actually costs, marginal against average',
-               fr: "Ce que coûte réellement l'impôt sur le revenu français, marginal contre moyen" } },
-      { src: AH + 'thumbs/matrix_algorithms.png', lead: 6,
+               fr: "Ce que coûte réellement l'impôt sur le revenu français, marginal contre moyen" },
+        result: { en: 'inflection at €59,800',
+                  fr: "point d'inflexion à 59 800 €" } },
+      { src: AH + 'thumbs/matrix_algorithms.png', lead: 8,
         alt: { en: 'An FFT written from scratch, checked against NumPy',
-               fr: 'Une FFT écrite de zéro, vérifiée contre NumPy' } },
+               fr: 'Une FFT écrite de zéro, vérifiée contre NumPy' },
+        result: { en: 'agreeing with NumPy to 1e-13',
+                  fr: 'en accord avec NumPy à 1e-13' } },
     ],
   },
 
@@ -96,11 +109,15 @@ export const SETS = {
     images: [
       { src: 'anim-battleship.webp', still: 'still-battleship.webp',
         alt: { en: 'A Battleship bot working out where the ships are',
-               fr: 'Un bot de bataille navale déduisant où sont les navires' } },
-      { src: RAPPORT + '07_comparaison_files/figure-html/fig-roc-comp-1.png', lead: 3,
+               fr: 'Un bot de bataille navale déduisant où sont les navires' },
+        result: { en: '74.3% of games, 54.8 shots to clear',
+                  fr: '74,3 % des parties, 54,8 tirs pour vider le plateau' } },
+      { src: RAPPORT + '07_comparaison_files/figure-html/fig-roc-comp-1.png', lead: 4,
         alt: { en: 'Predicting how a perfume will be rated, four models compared',
-               fr: "Prédire la note d'un parfum, quatre modèles comparés" } },
-      { src: RAPPORT + '01_exploration_files/figure-html/fig-corr-1.png', lead: 2,
+               fr: "Prédire la note d'un parfum, quatre modèles comparés" },
+        result: { en: 'best AUC 0.693, all four between 0.65 and 0.69',
+                  fr: 'meilleure AUC 0,693, les quatre entre 0,65 et 0,69' } },
+      { src: RAPPORT + '01_exploration_files/figure-html/fig-corr-1.png', lead: 3,
         alt: { en: 'What actually moves together in 24 000 fragrances',
                fr: 'Ce qui varie réellement ensemble dans 24 000 parfums' } },
     ],
@@ -108,19 +125,35 @@ export const SETS = {
 
   'strategic-pricing': {
     caption: {
-      en: 'Imitation as a weight update · the agent against a cooperator, a defector and a coin flip · the tournament the course project entered',
-      fr: "L'imitation comme mise à jour de poids · l'agent face à un coopérateur, un défecteur et un tirage à pile ou face · le tournoi auquel le projet de cours a participé",
+      en: 'Imitation as a weight update · the agent against a cooperator, a defector and a coin flip · five language models over 220 matches · the tournament the course project entered',
+      fr: "L'imitation comme mise à jour de poids · l'agent face à un coopérateur, un défecteur et un tirage à pile ou face · cinq modèles de langue sur 220 parties · le tournoi auquel le projet de cours a participé",
     },
     images: [
-      { src: IA + 'mirror_neurons/results/standings.png', lead: 4,
+      { src: IA + 'llm/results/message_content.png', lead: 2,
+        alt: { en: 'What the models actually put in the message',
+               fr: 'Ce que les modèles mettent réellement dans le message' },
+        result: { en: '0.39 of messages name an action, down to 0.00',
+                  fr: "0,39 des messages nomme une action, jusqu'à 0,00" } },
+      { src: IA + 'mirror_neurons/results/standings.png', lead: 5,
         alt: { en: 'An imitating agent meeting a cooperator, a defector and a coin flip',
-               fr: 'Un agent imitateur face à un coopérateur, un défecteur et un tirage à pile ou face' } },
-      { src: IA + 'mirror_neurons/results/reciprocity_decay.png', lead: 8,
-        alt: { en: 'How an agent that copies what it sees changes its mind',
-               fr: "Comment un agent qui copie ce qu'il voit change d'avis" } },
-      { src: TOURNAMENT + 'results/leaderboard.png', lead: 7,
+               fr: 'Un agent imitateur face à un coopérateur, un défecteur et un tirage à pile ou face' },
+        result: { en: '8th of 8, behind a coin flip',
+                  fr: '8e sur 8, derrière un tirage à pile ou face' } },
+      { src: IA + 'llm/results/self_play_lock_in.png', lead: 6,
+        alt: { en: 'Two models keeping whatever regime they were handed',
+               fr: "Deux modèles conservant le régime qu'on leur a donné" },
+        result: { en: '0.21 cooperating out of a defecting opening, 0.47 with a message',
+                  fr: "0,21 coopère depuis une ouverture de défection, 0,47 avec un message" } },
+      { src: TOURNAMENT + 'results/leaderboard.png', lead: 9,
         alt: { en: 'Sixteen Prolog strategies played against each other',
-               fr: 'Seize stratégies Prolog jouées les unes contre les autres' } },
+               fr: 'Seize stratégies Prolog jouées les unes contre les autres' },
+        result: { en: '7th and 8th of 16',
+                  fr: '7e et 8e sur 16' } },
+      { src: IA + 'mirror_neurons/results/reciprocity_decay.png', lead: 10,
+        alt: { en: 'How an agent that copies what it sees changes its mind',
+               fr: "Comment un agent qui copie ce qu'il voit change d'avis" },
+        result: { en: 'reciprocity to zero, Tit-for-Tat holds at one',
+                  fr: 'réciprocité à zéro, le donnant-donnant tient à un' } },
     ],
   },
 
@@ -132,7 +165,9 @@ export const SETS = {
     images: [
       { src: 'anim-bilinear.svg', still: 'thumb-bilinear.svg',
         alt: { en: 'Cutting the multiplications a polynomial product needs',
-               fr: "Réduire les multiplications qu'exige un produit de polynômes" } },
+               fr: "Réduire les multiplications qu'exige un produit de polynômes" },
+        result: { en: '25 multiplications down to 14',
+                  fr: 'de 25 multiplications à 14' } },
     ],
   },
 };
