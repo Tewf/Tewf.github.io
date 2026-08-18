@@ -71,7 +71,7 @@
           ],
           "unit": "%"
         },
-        "caption": "Cooperation out of an imposed mutually defecting opening, silent (pale) and with a non-binding message (dark), as a share of the thirty rounds. Four matches per bar. qwen2.5 is freed completely, gemma3 and qwen3 not at all, and mistral was never captured. For it the message <em>costs</em> cooperation. phi3:mini is left out: ten of its forty-four matches could not be parsed. Source: <code>llm/results/cooperation_rates.csv</code>."
+        "caption": "Cooperation out of an imposed mutually defecting opening, silent (pale) and with a non-binding message (dark), as a share of the thirty rounds. Four matches per bar. qwen2.5 is freed completely, gemma3 and qwen3 not at all, and mistral was never captured. For it the message <em>costs</em> cooperation. phi3:mini is left out: ten of its forty-four matches could not be parsed. Replaying its stage on a finer quantisation of the same weights takes that from 22.7% to 9.1%, so part of the fault is the build and the residue is the model. Source: <code>llm/results/cooperation_rates.csv</code>."
       },
       {
         "type": "prose",
@@ -91,7 +91,7 @@
       },
       {
         "type": "prose",
-        "html": "The report's frame defines two one-shot games as well: the Dictator game, where the other player cannot refuse, and the Ultimatum game, where they can. The gap between the two offers is what a model pays not to be refused. <strong>qwen3 gives half when refusal is impossible and 99 points of 100 when it becomes possible</strong>, a premium of 49 for a risk that an offer of 60 would have removed just as well. gemma3 and qwen2.5 both offer exactly 50 and both state a minimum of 51, so each would refuse the split it had just called fair."
+        "html": "The report's frame defines two one-shot games as well: the Dictator game, where the other player cannot refuse, and the Ultimatum game, where they can. The gap between the two offers is what a model pays not to be refused. <strong>qwen3 gives half when refusal is impossible and 99 points of 100 when it becomes possible</strong>, a premium of 49 for a risk that an offer of 60 would have removed just as well. gemma3 and qwen2.5 both offer exactly 50 and both state a minimum of 51, so each would refuse the split it had just called fair. The worst-case reasoning behind qwen3's 99 is the same one that makes it defect from a neutral silent start, so a single game is a poor read of a model."
       },
       {
         "type": "figure",
@@ -130,15 +130,7 @@
       },
       {
         "type": "prose",
-        "html": "That reads like the opposite of the same model defecting from a neutral silent start, and it is one rule rather than two. In the Prisoner's Dilemma it wrote that defecting guarantees at least a point against possibly none; in the Ultimatum game it offers 99 to avoid getting nothing. Both are worst-case avoidance applied to a payoff table, which is a caution against reading a single game as a personality."
-      },
-      {
-        "type": "prose",
         "html": "The grid runs every model without explicit reasoning, because turning it on costs qwen3 34 seconds a call against 1.9 and would have added days. Turned on in the cell that traps it, it moves the model off an exact zero: still 0.00 in silence, and 0.09 with a channel, where the pair begins probing and says so. <strong>Deliberation is the only thing that produced any cooperation in that cell</strong>, which is the opposite sign from the study this arm extends, where ablating the chain of thought reduces a cooperation collapse. Two matches per condition make that a disagreement rather than a refutation, and it is reported as one."
-      },
-      {
-        "type": "prose",
-        "html": "The model set aside above was also the only one at a coarser 4-bit format, so that confound was tested rather than assumed. Replaying its whole stage on a finer quantisation of the same weights, holding the seeds, the prompts and the context length, takes its unreadable matches from 22.7% to 9.1%. Part of the fault is the build and the residue is the model, so its cells stay uninterpreted rather than rehabilitated."
       },
       {
         "type": "heading",
@@ -331,7 +323,7 @@
           ],
           "unit": "%"
         },
-        "caption": "Coopération à partir d'une ouverture de défection mutuelle imposée, en silence (clair) et avec un message non contraignant (foncé), en part des trente tours. Quatre parties par barre. qwen2.5 est entièrement libéré, gemma3 et qwen3 pas du tout, et mistral n'a jamais été capturé. Pour lui, le message <em>coûte</em> de la coopération. phi3:mini est écarté : dix de ses quarante-quatre parties n'ont pas pu être analysées. Source : <code>llm/results/cooperation_rates.csv</code>."
+        "caption": "Coopération à partir d'une ouverture de défection mutuelle imposée, en silence (clair) et avec un message non contraignant (foncé), en part des trente tours. Quatre parties par barre. qwen2.5 est entièrement libéré, gemma3 et qwen3 pas du tout, et mistral n'a jamais été capturé. Pour lui, le message <em>coûte</em> de la coopération. phi3:mini est écarté : dix de ses quarante-quatre parties n'ont pas pu être analysées. Rejouer son volet sur une quantisation plus fine des mêmes poids fait passer ce taux de 22,7 % à 9,1 % : une part du défaut vient de la version compilée, le reste du modèle. Source : <code>llm/results/cooperation_rates.csv</code>."
       },
       {
         "type": "prose",
@@ -351,7 +343,7 @@
       },
       {
         "type": "prose",
-        "html": "Le cadre du rapport définit aussi deux jeux à un coup : le jeu du dictateur, où l'autre joueur ne peut pas refuser, et le jeu de l'ultimatum, où il le peut. L'écart entre les deux offres est ce qu'un modèle paie pour ne pas être refusé. <strong>qwen3 donne la moitié quand le refus est impossible et 99 points sur 100 quand il devient possible</strong>, une prime de 49 pour un risque qu'une offre de 60 aurait écarté tout aussi bien. gemma3 et qwen2.5 offrent tous deux exactement 50 et déclarent tous deux un minimum de 51 : chacun refuserait donc le partage qu'il venait d'appeler équitable."
+        "html": "Le cadre du rapport définit aussi deux jeux à un coup : le jeu du dictateur, où l'autre joueur ne peut pas refuser, et le jeu de l'ultimatum, où il le peut. L'écart entre les deux offres est ce qu'un modèle paie pour ne pas être refusé. <strong>qwen3 donne la moitié quand le refus est impossible et 99 points sur 100 quand il devient possible</strong>, une prime de 49 pour un risque qu'une offre de 60 aurait écarté tout aussi bien. gemma3 et qwen2.5 offrent tous deux exactement 50 et déclarent tous deux un minimum de 51 : chacun refuserait donc le partage qu'il venait d'appeler équitable. Le raisonnement du pire qui dicte le 99 de qwen3 est celui-là même qui le fait faire défection depuis une ouverture neutre et silencieuse : un seul jeu se lit mal comme une personnalité."
       },
       {
         "type": "figure",
@@ -390,15 +382,7 @@
       },
       {
         "type": "prose",
-        "html": "Cela ressemble à l'inverse du même modèle faisant défection depuis une ouverture neutre et silencieuse, et c'est pourtant une seule règle. Dans le dilemme du prisonnier, il écrit que faire défection garantit au moins un point contre zéro possible ; dans le jeu de l'ultimatum, il offre 99 pour ne pas repartir les mains vides. Les deux sont un évitement du pire appliqué à une matrice de gains, ce qui invite à ne pas lire une personnalité dans un seul jeu."
-      },
-      {
-        "type": "prose",
         "html": "La grille exécute tous les modèles sans raisonnement explicite, car l'activer coûte à qwen3 34 secondes par appel contre 1,9 et aurait ajouté des jours. Activé dans la case qui le piège, il décolle le modèle d'un zéro exact : toujours 0,00 en silence, et 0,09 avec un canal, où la paire se met à sonder et le dit. <strong>La délibération est la seule chose qui ait produit de la coopération dans cette case</strong>, soit le signe inverse de l'étude que ce volet prolonge, où retirer la chaîne de raisonnement réduit l'effondrement de la coopération. Deux parties par condition en font un désaccord et non une réfutation, et c'est ainsi qu'il est rapporté."
-      },
-      {
-        "type": "prose",
-        "html": "Le modèle écarté plus haut était aussi le seul dans un format 4 bits plus grossier : ce facteur confondant a été testé plutôt que supposé. Rejouer tout son volet sur une quantisation plus fine des mêmes poids, à graines, invites et fenêtre de contexte identiques, fait passer ses parties illisibles de 22,7 % à 9,1 %. Une part du défaut vient de la version compilée et le reste vient du modèle : ses cases restent non interprétées plutôt que réhabilitées."
       },
       {
         "type": "heading",
