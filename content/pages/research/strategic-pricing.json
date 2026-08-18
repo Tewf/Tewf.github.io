@@ -27,11 +27,11 @@
       { "type": "heading", "text": "What running them showed" },
       {
         "type": "prose",
-        "html": "Both mechanisms have since been run, which the internship never did. The imitation model was expected to produce Tit-for-Tat without being programmed. Against seven opponents from the literature it finishes <strong>eighth of eight, behind a coin flip</strong>: what the update implements is frequency matching, whose state is a pair of counts and so cannot depend on the last round at all. In self-play it is something else — a ratchet. Over 700 runs it locked onto whichever regime it was dropped into, mutual defection or mutual cooperation, and not once onto anything between."
+        "html": "Both mechanisms have since been run, which the internship never did. The imitation model was expected to produce Tit-for-Tat without being programmed. Against seven opponents from the literature it finishes <strong>eighth of eight, behind a coin flip</strong>: what the update implements is frequency matching, whose state is a pair of counts and so cannot depend on the last round at all. In self-play it is something else, a ratchet. Over 700 runs it locked onto whichever regime it was dropped into, mutual defection or mutual cooperation, and not once onto anything between."
       },
       {
         "type": "prose",
-        "html": "The report's conclusion also names homo silicus, Horton's method of running a language model as an economic subject, without running that either. Five open-weight models of 4 to 8 billion parameters, executed locally and offline, have now played 220 matches of the same game against each other and against the same opponents, from openings they did not choose, with and without a non-binding message. <strong>Handed a mutually defecting opening in silence, three of the four readable models never leave it</strong>, defecting in all thirty rounds — the imitator's ratchet, reproduced in a language model. A message then frees exactly one of the three."
+        "html": "The report's conclusion also names homo silicus, Horton's method of running a language model as an economic subject, without running that either. Five open-weight models of 4 to 8 billion parameters, executed locally and offline, have now played 220 matches of the same game against each other and against the same opponents, from openings they did not choose, with and without a non-binding message. <strong>Handed a mutually defecting opening in silence, three of the four readable models never leave it</strong>, defecting in all thirty rounds. That is the imitator's ratchet, reproduced in a language model. A message then frees exactly one of the three."
       },
       {
         "type": "figure",
@@ -45,11 +45,11 @@
           ],
           "unit": "%"
         },
-        "caption": "Cooperation out of an imposed mutually defecting opening, silent (pale) and with a non-binding message (dark), as a share of the thirty rounds. Four matches per bar. qwen2.5 is freed completely, gemma3 and qwen3 not at all, and mistral was never captured — for it the message <em>costs</em> cooperation. phi3:mini is left out: ten of its forty-four matches could not be parsed. Source: <code>llm/results/cooperation_rates.csv</code>."
+        "caption": "Cooperation out of an imposed mutually defecting opening, silent (pale) and with a non-binding message (dark), as a share of the thirty rounds. Four matches per bar. qwen2.5 is freed completely, gemma3 and qwen3 not at all, and mistral was never captured. For it the message <em>costs</em> cooperation. phi3:mini is left out: ten of its forty-four matches could not be parsed. Source: <code>llm/results/cooperation_rates.csv</code>."
       },
       {
         "type": "prose",
-        "html": "So the channel is <strong>neither necessary nor sufficient</strong> for escaping a regime an agent did not choose: mistral leaves without one, gemma3 and qwen3 stay put with one. Which models can leave is a property of the individual model rather than of language models — and five small quantised models on an 8 GB card are not a population, which is why this is reported as variation between models rather than as a fact about them."
+        "html": "So the channel is <strong>neither necessary nor sufficient</strong> for escaping a regime an agent did not choose: mistral leaves without one, gemma3 and qwen3 stay put with one. Which models can leave is a property of the individual model rather than of language models. Five small quantised models on an 8 GB card are not a population, which is why this is reported as variation between models rather than as a fact about them."
       },
       { "type": "heading", "text": "The course project beside it" },
       {
