@@ -49,9 +49,31 @@ const cards = (b, ctx) => `
     </a>`).join('')}
   </div>`;
 
+/* A chart is drawn by script, so with JavaScript off the figure is an empty box
+   and the number it carried is simply gone. The same rows go out as a table
+   inside <noscript>. It has no header row on purpose: `beforeAfter` is used for
+   before and after in one place and for silent against spoken in another, so a
+   column called "before" would assert something the data does not say. The
+   figcaption carries the meaning either way. */
+const chartRows = (chart) => {
+  if (chart.kind === 'beforeAfter') return chart.rows.map((r) => [r.label, r.from, r.to]);
+  if (chart.kind === 'logBars') return chart.rows.map((r) => [r.label, r.display ?? r.value]);
+  return null;
+};
+
+const chartTable = (chart) => {
+  const rows = chartRows(chart);
+  if (!rows) return '';
+  const cells = (row) => row
+    .map((cell, i) => `<td${i ? ' class="n"' : ''}>${attr(cell)}</td>`).join('');
+  return `<noscript><div class="tw"><table><tbody>${
+    rows.map((row) => `<tr>${cells(row)}</tr>`).join('')}</tbody></table></div></noscript>`;
+};
+
 const figure = (b) => `
   <figure>
     <div class="chart" data-chart="${attr(JSON.stringify(b.chart))}"></div>
+    ${chartTable(b.chart)}
     <figcaption>${b.caption}</figcaption>
   </figure>`;
 
