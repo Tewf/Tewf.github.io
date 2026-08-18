@@ -99,6 +99,7 @@ const board = (b, ctx) => {
              alt="" loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
         <span class="pin-face">
           <span class="pin-what">${text(pin.alt, ctx.lang)}</span>
+          ${pin.result ? `<span class="pin-result">${text(pin.result, ctx.lang)}</span>` : ''}
           <span class="pin-where">${pin.project.title}</span>
         </span>
       </a>
