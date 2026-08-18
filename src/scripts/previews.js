@@ -112,10 +112,10 @@ export const SETS = {
       fr: "L'imitation comme mise à jour de poids · l'agent face à un coopérateur, un défecteur et un tirage à pile ou face · le tournoi auquel le projet de cours a participé",
     },
     images: [
-      { src: IA + 'mirror_neurons/opponents_sequential.png', lead: 4,
+      { src: IA + 'mirror_neurons/results/standings.png', lead: 4,
         alt: { en: 'An imitating agent meeting a cooperator, a defector and a coin flip',
                fr: 'Un agent imitateur face à un coopérateur, un défecteur et un tirage à pile ou face' } },
-      { src: IA + 'mirror_neurons/update_shape.png', lead: 8,
+      { src: IA + 'mirror_neurons/results/reciprocity_decay.png', lead: 8,
         alt: { en: 'How an agent that copies what it sees changes its mind',
                fr: "Comment un agent qui copie ce qu'il voit change d'avis" } },
       { src: TOURNAMENT + 'results/leaderboard.png', lead: 7,
