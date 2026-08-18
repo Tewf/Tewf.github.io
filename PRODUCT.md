@@ -67,9 +67,10 @@ results, not omissions.
   through `src/templates/`, built by Vite, deployed by GitHub Actions.
 - **Nothing may be loaded from a CDN**, and no third-party code may run in the
   browser. Every dependency is bundled from source.
-- Bilingual EN/FR is committed but not yet written: only English exists today, and
-  the build fails on a missing translation unless `ALLOW_MISSING_TRANSLATIONS` is
-  set. FR is still to be written.
+- Bilingual EN/FR, both written. Every page carries both languages, and the build
+  fails on a page missing one. `ALLOW_MISSING_TRANSLATIONS` remains as an env var
+  for a translation in progress; nothing sets it by default, which is the whole
+  point of it.
 - `public/site/tokens.css` is served unhashed at a stable URL because four sibling
   project sites will link it across the origin. Its custom-property names are a
   contract pinned in `site/tokens.lock.json`.
