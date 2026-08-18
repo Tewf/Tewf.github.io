@@ -3,7 +3,7 @@
   "en": {
     "short": "Strategic pricing",
     "title": "AI and strategic pricing",
-    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the two mechanisms it proposed without running: an imitation agent that finishes last of eight, and five local language models over 220 matches.",
+    "description": "GAEL internship on whether AI agents sustain tacit collusion in repeated price competition, and the two mechanisms it proposed without running: an imitation agent that finishes last of eight, and five local language models over 220 matches, where a fabricated history outranks a live message.",
     "blocks": [
       {
         "type": "hero",
@@ -76,6 +76,69 @@
       {
         "type": "prose",
         "html": "So the channel is <strong>neither necessary nor sufficient</strong> for escaping a regime an agent did not choose: mistral leaves without one, gemma3 and qwen3 stay put with one. Which models can leave is a property of the individual model rather than of language models. Five small quantised models on an 8 GB card are not a population, which is why this is reported as variation between models rather than as a fact about them."
+      },
+      {
+        "type": "prose",
+        "html": "Almost every match is decided in the first round the pair controls, so the result is a claim about a single decision, and it is the one decision where what a model holds is known exactly. Crossing the openings with the channel separates those sources of evidence, and one model settles the mechanism by behaving three ways: qwen3 defects when the payoff matrix is all it has, cooperates when a message is the only signal, and defects again when a message and an imposed defecting round arrive together, its stated reason citing the imposed round and never the message. <strong>A fabricated history outranks a live non-binding signal</strong>, and which of the two wins is a property of the model: given the identical treatment, qwen2.5 goes the other way. Source: <code>llm/results/opening_round.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "The third case is different again, and reading the messages rather than counting them is what shows it. The models a message does not free are the models whose messages never propose anything: phatic fragments averaging twenty-one characters in one case, and in the other fluent collaborative prose sent while defecting in all thirty rounds. Where the channel fails it is usually not being used, and that second failure is the one to worry about, because at the surface it is indistinguishable from cooperation talk. Source: <code>llm/results/message_content.csv</code>."
+      },
+      {
+        "type": "heading",
+        "text": "The same panel, asked twice more"
+      },
+      {
+        "type": "prose",
+        "html": "The report's frame defines two one-shot games as well: the Dictator game, where the other player cannot refuse, and the Ultimatum game, where they can. The gap between the two offers is what a model pays not to be refused. <strong>qwen3 gives half when refusal is impossible and 99 points of 100 when it becomes possible</strong>, a premium of 49 for a risk that an offer of 60 would have removed just as well. gemma3 and qwen2.5 both offer exactly 50 and both state a minimum of 51, so each would refuse the split it had just called fair."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "qwen3 8B",
+              "from": 50,
+              "to": 99
+            },
+            {
+              "label": "mistral 7B",
+              "from": 73.75,
+              "to": 72.5
+            },
+            {
+              "label": "phi3 3.8B",
+              "from": 62.5,
+              "to": 68
+            },
+            {
+              "label": "qwen2.5 7B",
+              "from": 50,
+              "to": 50
+            },
+            {
+              "label": "gemma3 4B",
+              "from": 50,
+              "to": 50
+            }
+          ],
+          "unit": ""
+        },
+        "caption": "Points of 100 left to the other player: the Dictator game, where the offer cannot be refused (pale), against the Ultimatum game, where it can (dark). Four decisions per cell. The responder's minimum is asked before any proposal is shown, so it cannot be an accommodation to one. Source: <code>llm/results/one_shot_offers.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "That reads like the opposite of the same model defecting from a neutral silent start, and it is one rule rather than two. In the Prisoner's Dilemma it wrote that defecting guarantees at least a point against possibly none; in the Ultimatum game it offers 99 to avoid getting nothing. Both are worst-case avoidance applied to a payoff table, which is a caution against reading a single game as a personality."
+      },
+      {
+        "type": "prose",
+        "html": "The grid runs every model without explicit reasoning, because turning it on costs qwen3 34 seconds a call against 1.9 and would have added days. Turned on in the cell that traps it, it moves the model off an exact zero: still 0.00 in silence, and 0.09 with a channel, where the pair begins probing and says so. <strong>Deliberation is the only thing that produced any cooperation in that cell</strong>, which is the opposite sign from the study this arm extends, where ablating the chain of thought reduces a cooperation collapse. Two matches per condition make that a disagreement rather than a refutation, and it is reported as one."
+      },
+      {
+        "type": "prose",
+        "html": "The model set aside above was also the only one at a coarser 4-bit format, so that confound was tested rather than assumed. Replaying its whole stage on a finer quantisation of the same weights, holding the seeds, the prompts and the context length, takes its unreadable matches from 22.7% to 9.1%. Part of the fault is the build and the residue is the model, so its cells stay uninterpreted rather than rehabilitated."
       },
       {
         "type": "heading",
@@ -170,6 +233,12 @@
         "type": "cards",
         "items": [
           {
+            "href": "https://tewf.github.io/IA-Economie-Strategique/article/paper.html",
+            "tag": "Article",
+            "title": "The write-up",
+            "desc": "Both mechanisms on one measure, with the literature each is positioned against."
+          },
+          {
             "href": "https://tewf.github.io/IA-Economie-Strategique/",
             "tag": "Site",
             "title": "The findings",
@@ -194,7 +263,7 @@
   "fr": {
     "short": "Tarification stratégique",
     "title": "IA et tarification stratégique",
-    "description": "Stage au GAEL sur la question de savoir si les agents d'IA entretiennent une collusion tacite dans la concurrence en prix répétée, et les deux mécanismes qu'il a proposés sans les exécuter : un agent d'imitation qui finit dernier sur huit, et cinq modèles de langue locaux sur 220 parties.",
+    "description": "Stage au GAEL sur la question de savoir si les agents d'IA entretiennent une collusion tacite dans la concurrence en prix répétée, et les deux mécanismes qu'il a proposés sans les exécuter : un agent d'imitation qui finit dernier sur huit, et cinq modèles de langue locaux sur 220 parties, où un historique fabriqué l'emporte sur un message en direct.",
     "blocks": [
       {
         "type": "hero",
@@ -267,6 +336,69 @@
       {
         "type": "prose",
         "html": "Le canal n'est donc <strong>ni nécessaire ni suffisant</strong> pour sortir d'un régime que l'agent n'a pas choisi : mistral en sort sans message, gemma3 et qwen3 y restent avec. Quels modèles peuvent en sortir est une propriété du modèle particulier plutôt que des modèles de langue. Cinq petits modèles quantisés sur une carte de 8 Go ne constituent pas une population, ce qui explique pourquoi ceci est rapporté comme une variation entre modèles et non comme un fait les concernant."
+      },
+      {
+        "type": "prose",
+        "html": "Presque toutes les parties se décident au premier tour que la paire contrôle : le résultat porte donc sur une seule décision, et c'est la seule dont on sache exactement ce dont le modèle disposait. Croiser les ouvertures et le canal sépare ces sources d'information, et un modèle tranche le mécanisme en se conduisant de trois façons : qwen3 fait défection quand il n'a que la matrice des gains, coopère quand un message est le seul signal, et fait de nouveau défection quand un message et un tour de défection imposé arrivent ensemble, sa justification citant le tour imposé et jamais le message. <strong>Un historique fabriqué l'emporte sur un signal non contraignant émis au même instant</strong>, et lequel des deux gagne est une propriété du modèle : sur le traitement identique, qwen2.5 fait l'inverse. Source : <code>llm/results/opening_round.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Le troisième cas est encore différent, et c'est la lecture des messages, non leur décompte, qui le montre. Les modèles qu'un message ne libère pas sont ceux dont les messages ne proposent jamais rien : des fragments phatiques de vingt et un caractères en moyenne dans un cas, et dans l'autre une prose collaborative fluide envoyée tout en faisant défection aux trente tours. Là où le canal échoue, il n'est le plus souvent pas utilisé, et c'est le second échec qui inquiète, car en surface il ne se distingue pas d'un discours de coopération. Source : <code>llm/results/message_content.csv</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Le même panel, interrogé deux fois de plus"
+      },
+      {
+        "type": "prose",
+        "html": "Le cadre du rapport définit aussi deux jeux à un coup : le jeu du dictateur, où l'autre joueur ne peut pas refuser, et le jeu de l'ultimatum, où il le peut. L'écart entre les deux offres est ce qu'un modèle paie pour ne pas être refusé. <strong>qwen3 donne la moitié quand le refus est impossible et 99 points sur 100 quand il devient possible</strong>, une prime de 49 pour un risque qu'une offre de 60 aurait écarté tout aussi bien. gemma3 et qwen2.5 offrent tous deux exactement 50 et déclarent tous deux un minimum de 51 : chacun refuserait donc le partage qu'il venait d'appeler équitable."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "qwen3 8B",
+              "from": 50,
+              "to": 99
+            },
+            {
+              "label": "mistral 7B",
+              "from": 73.75,
+              "to": 72.5
+            },
+            {
+              "label": "phi3 3.8B",
+              "from": 62.5,
+              "to": 68
+            },
+            {
+              "label": "qwen2.5 7B",
+              "from": 50,
+              "to": 50
+            },
+            {
+              "label": "gemma3 4B",
+              "from": 50,
+              "to": 50
+            }
+          ],
+          "unit": ""
+        },
+        "caption": "Points sur 100 laissés à l'autre joueur : le jeu du dictateur, où l'offre ne peut pas être refusée (clair), face au jeu de l'ultimatum, où elle le peut (foncé). Quatre décisions par case. Le minimum du répondant est demandé avant toute proposition, il ne peut donc pas s'y ajuster. Source : <code>llm/results/one_shot_offers.csv</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Cela ressemble à l'inverse du même modèle faisant défection depuis une ouverture neutre et silencieuse, et c'est pourtant une seule règle. Dans le dilemme du prisonnier, il écrit que faire défection garantit au moins un point contre zéro possible ; dans le jeu de l'ultimatum, il offre 99 pour ne pas repartir les mains vides. Les deux sont un évitement du pire appliqué à une matrice de gains, ce qui invite à ne pas lire une personnalité dans un seul jeu."
+      },
+      {
+        "type": "prose",
+        "html": "La grille exécute tous les modèles sans raisonnement explicite, car l'activer coûte à qwen3 34 secondes par appel contre 1,9 et aurait ajouté des jours. Activé dans la case qui le piège, il décolle le modèle d'un zéro exact : toujours 0,00 en silence, et 0,09 avec un canal, où la paire se met à sonder et le dit. <strong>La délibération est la seule chose qui ait produit de la coopération dans cette case</strong>, soit le signe inverse de l'étude que ce volet prolonge, où retirer la chaîne de raisonnement réduit l'effondrement de la coopération. Deux parties par condition en font un désaccord et non une réfutation, et c'est ainsi qu'il est rapporté."
+      },
+      {
+        "type": "prose",
+        "html": "Le modèle écarté plus haut était aussi le seul dans un format 4 bits plus grossier : ce facteur confondant a été testé plutôt que supposé. Rejouer tout son volet sur une quantisation plus fine des mêmes poids, à graines, invites et fenêtre de contexte identiques, fait passer ses parties illisibles de 22,7 % à 9,1 %. Une part du défaut vient de la version compilée et le reste vient du modèle : ses cases restent non interprétées plutôt que réhabilitées."
       },
       {
         "type": "heading",
@@ -360,6 +492,12 @@
       {
         "type": "cards",
         "items": [
+          {
+            "href": "https://tewf.github.io/IA-Economie-Strategique/article/paper.fr.html",
+            "tag": "Article",
+            "title": "L'étude",
+            "desc": "Les deux mécanismes sur une seule mesure, avec la littérature face à laquelle chacun se situe."
+          },
           {
             "href": "https://tewf.github.io/IA-Economie-Strategique/",
             "tag": "Site",
