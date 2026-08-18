@@ -3,6 +3,7 @@ import { resolve, dirname, join } from 'node:path';
 import { readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { buildPages } from './tools/build-pages.mjs';
+import { buildDiscovery, readContent } from './tools/build-discovery.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const GEN = resolve(ROOT, '.gen');
@@ -37,6 +38,19 @@ const content = () => ({
   },
 });
 
+/* sitemap.xml and robots.txt describe the pages, so they are written from the
+   same content rather than kept by hand, and after the bundle because the build
+   empties dist first. */
+const discovery = (outDir) => ({
+  name: 'discovery',
+  apply: 'build',
+  async closeBundle () {
+    const { site, pages } = await readContent();
+    const { urls } = await buildDiscovery({ out: outDir, pages, site });
+    this.info(`discovery: sitemap.xml with ${urls} urls, robots.txt`);
+  },
+});
+
 export default defineConfig(async () => {
   await buildPages({ out: GEN, strict: STRICT });
 
@@ -44,7 +58,7 @@ export default defineConfig(async () => {
     root: GEN,
     publicDir: resolve(ROOT, 'public'),
     base: '/',
-    plugins: [content()],
+    plugins: [content(), discovery(resolve(ROOT, 'dist'))],
     // Generated documents reference /src/... even though the root is .gen.
     resolve: { alias: { '/src': resolve(ROOT, 'src') } },
     server: { fs: { allow: [ROOT] } },
