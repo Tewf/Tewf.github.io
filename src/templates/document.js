@@ -28,6 +28,17 @@ export function document ({ site, lang, title, description, canonical, links, bo
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${attr(description)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tewf.github.io">
+<meta property="og:locale" content="${attr(lang)}">
+<meta property="og:title" content="${attr(title)}">
+<meta property="og:description" content="${attr(description)}">
+<meta property="og:url" content="${attr(site.origin + canonical)}">
+<meta property="og:image" content="${attr(site.origin + '/og.png')}">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Mohamed Hamlil, M1 Artificial Intelligence at Université Grenoble Alpes">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="${attr(site.origin + canonical)}">
 ${hreflang}
 <link rel="icon" href="/site/favicon.svg" type="image/svg+xml">
