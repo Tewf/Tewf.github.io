@@ -14,10 +14,16 @@ const CONTENT = join(ROOT, 'content');
 
 /* Project sites published from sibling repositories are served at these paths
    on this same origin, and they win over anything the root site emits. A page
-   generated here at one of them would be silently unreachable. */
+   generated here at one of them would be silently unreachable.
+
+   `bilinear-tensor-optimization` and `shots` no longer publish a site: the
+   bilinear work continues as `tensor-rank-toolkit` and the archived repository
+   has Pages switched off, and `shots` went private in August 2026. Both paths
+   stay reserved, because either repository can turn Pages back on without this
+   build hearing about it. */
 const OWNED_BY_PROJECT_SITES = new Set([
   'after-hours', 'University-Coursework', 'IA-Economie-Strategique',
-  'bilinear-tensor-optimization', 'shots',
+  'tensor-rank-toolkit', 'bilinear-tensor-optimization', 'shots',
 ]);
 
 export async function jsonFiles (dir) {
