@@ -1,401 +1,401 @@
 {
- "path": "research/bilinear-tensor-optimization/",
- "en": {
-  "short": "Bilinear rank",
-  "title": "Rank of bilinear maps",
-  "description": "Exact tensor and bilinear rank over finite fields: thirteen tools across ten strands. The rank of 2x2 matrix multiplication is decided at exactly 7 and 5x5 polynomial multiplication over GF(2) at 13, both sides proved. Grew out of an LJK internship supervised by Jean-Guillaume Dumas.",
-  "blocks": [
-   {
-    "type": "hero",
-    "title": "How few multiplications does a product need?",
-    "lede": "The rank of a bilinear map is the number of multiplications required to compute it. Strassen doing 2&times;2 matrix multiplication in seven instead of eight is where fast matrix multiplication comes from, and finding such decompositions in general is open. This began as a heuristic that proposed decompositions; it now proves them, on the maps small enough to settle."
-   },
-   {
-    "type": "preview",
-    "mode": "head",
-    "key": "bilinear"
-   },
-   {
-    "type": "meta",
-    "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas &middot; 21 May to 15 July 2024<br><code>tensor-rank-toolkit</code> is later, independent work that grew out of it, C++ on Givaro, mostly built in 2026"
-   },
-   {
-    "type": "heading",
-    "text": "Where it started"
-   },
-   {
-    "type": "prose",
-    "html": "Eight weeks at LJK, in Julia. The method is a greedy descent: it takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. The rewrite is allowed to use <em>more</em> components than it started with, since it only has to generate the original map: that is what Karatsuba&rsquo;s five products for a four-coefficient product is."
-   },
-   {
-    "type": "prose",
-    "html": "It was redone in C++ on <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, the exact-arithmetic library from the same laboratory. Nothing is ever a float, so a reported rank is a fact about the map and not an artefact of rounding, and every decomposition is rebuilt and multiplied back out against the map before it is printed."
-   },
-   {
-    "type": "prose",
-    "html": "<strong>The descent&rsquo;s expensive step is priced badly, and that is the finding the internship left behind.</strong> Step 3 scans the full pool of rank-one maps. Across the four polynomial fixtures it improved the answer in <em>two</em> of four cases, by one product each, and cost between 58 and 184 times what the first two steps cost together. Any continuation that only makes step 3 faster optimises the part that mostly does not pay. Source: <code>fixtures/README.md</code>."
-   },
-   {
-    "type": "figure",
-    "chart": {
-     "kind": "beforeAfter",
-     "rows": [
+  "path": "research/bilinear-tensor-optimization/",
+  "en": {
+    "short": "Bilinear rank",
+    "title": "Rank of bilinear maps",
+    "description": "Exact tensor and bilinear rank over finite fields: thirteen tools across ten strands. The rank of 2x2 matrix multiplication is decided at exactly 7 and 5x5 polynomial multiplication over GF(2) at 13, both sides proved. Grew out of an LJK internship supervised by Jean-Guillaume Dumas.",
+    "blocks": [
       {
-       "label": "F2  5x5",
-       "from": 25,
-       "to": 14
+        "type": "hero",
+        "title": "How few multiplications does a product need?",
+        "lede": "The rank of a bilinear map is the number of multiplications required to compute it. Strassen doing 2&times;2 matrix multiplication in seven instead of eight is where fast matrix multiplication comes from, and finding such decompositions in general is open. This began as a heuristic that proposed decompositions; it now proves them, on the maps small enough to settle."
       },
       {
-       "label": "F2  3x8",
-       "from": 24,
-       "to": 15
+        "type": "preview",
+        "mode": "head",
+        "key": "bilinear"
       },
       {
-       "label": "F2  4x7",
-       "from": 28,
-       "to": 16
+        "type": "meta",
+        "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Supervised by Jean-Guillaume Dumas &middot; 21 May to 15 July 2024<br><code>tensor-rank-toolkit</code> is later, independent work that grew out of it, C++ on Givaro, mostly built in 2026"
       },
       {
-       "label": "F3  3x6",
-       "from": 18,
-       "to": 10
+        "type": "heading",
+        "text": "Where it started"
+      },
+      {
+        "type": "prose",
+        "html": "Eight weeks at LJK, in Julia. The method is a greedy descent: it takes a bilinear map over a finite field and repeatedly rewrites it in a different basis, looking for a spanning set with fewer rank-1 components than the one it started from. The rewrite is allowed to use <em>more</em> components than it started with, since it only has to generate the original map: that is what Karatsuba&rsquo;s five products for a four-coefficient product is."
+      },
+      {
+        "type": "prose",
+        "html": "It was redone in C++ on <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, the exact-arithmetic library from the same laboratory. Nothing is ever a float, so a reported rank is a fact about the map and not an artefact of rounding, and every decomposition is rebuilt and multiplied back out against the map before it is printed."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>The descent&rsquo;s expensive step is priced badly, and that is the finding the internship left behind.</strong> Step 3 scans the full pool of rank-one maps. Across the four polynomial fixtures it improved the answer in <em>two</em> of four cases, by one product each, and cost between 58 and 184 times what the first two steps cost together. Any continuation that only makes step 3 faster optimises the part that mostly does not pay. Source: <code>fixtures/README.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "F2  5x5",
+              "from": 25,
+              "to": 14
+            },
+            {
+              "label": "F2  3x8",
+              "from": 24,
+              "to": 15
+            },
+            {
+              "label": "F2  4x7",
+              "from": 28,
+              "to": 16
+            },
+            {
+              "label": "F3  3x6",
+              "from": 18,
+              "to": 10
+            }
+          ],
+          "unit": " multiplications"
+        },
+        "caption": "What the descent alone reaches on the four polynomial fixtures, naive count against result. Source: <code>fixtures/README.md</code> and <code>descent_search/results.json</code>, produced by <code>minimise-rank</code>."
+      },
+      {
+        "type": "heading",
+        "text": "What it is now"
+      },
+      {
+        "type": "prose",
+        "html": "That descent is one strand of ten. <code>tensor-rank-toolkit</code> attacks the same question from ten directions with <strong>thirteen command-line tools</strong>, each answering one question no other answers: the cheap descent, an exhaustive search that returns a proof, lower bounds with no search at all, a SAT encoding whose refutations are written as DRAT and rechecked by <code>drat-trim</code>, a quotient by the symmetry group, isomorph-free enumeration, and a canonical form for two-slice tensors that answers a 4&times;4 pencil in about 50 microseconds in polynomial time. The thirteenth reads somebody else&rsquo;s published &lang;L,&nbsp;R,&nbsp;P&rang; back into a tensor, because nobody distributes tensors &mdash; PLinOpt ships 153 SMS operator triples and no tensor at all. Sources: <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "The internship&rsquo;s second strand is a strand here too. Sparsifying the operators is the cost the multiplication count misses: fewer nonzero entries means fewer additions. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong> and an alternative-basis operator from 21 to 10, in milliseconds, which takes Strassen&rsquo;s 18 additions to 12. The source article reported no measured result for this operator, only that its program took too long for a simple problem. Source: <code>matrix_sparsification/README.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Decided, not proposed"
+      },
+      {
+        "type": "prose",
+        "html": "A heuristic proposes and never proves: a decomposition is a witness, and only a refutation settles a rank. The exhaustive search refutes. Four maps are now settled outright, in exact arithmetic, each answer rebuilt and multiplied back out against the map it claims to compute."
+      },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><thead><tr><th>Map</th><th>Both halves, from the tensor</th><th class=\"n\">Naive</th><th class=\"n\">Rank</th></tr></thead><tbody><tr><td>2&times;2 matrix multiplication</td><td>6 refuted in 25 399 nodes, 7 found in 7 436</td><td class=\"n\">8</td><td class=\"n\"><strong>7</strong></td></tr><tr><td>GF(16) over GF(2)</td><td>8 refuted in 105 600 301 nodes, 9 reached</td><td class=\"n\">16</td><td class=\"n\"><strong>9</strong></td></tr><tr><td>F2 5&times;5 polynomial</td><td>12 refuted in 146 402 553 nodes, 13 exhibited in 80</td><td class=\"n\">25</td><td class=\"n\"><strong>13</strong></td></tr><tr><td>F3 3&times;6 polynomial</td><td>9 refuted in 4 729 nodes, 10 reached</td><td class=\"n\">18</td><td class=\"n\"><strong>10</strong></td></tr></tbody></table></div>"
+      },
+      {
+        "type": "prose",
+        "html": "Strassen&rsquo;s seven products and Winograd&rsquo;s proof that six are impossible, neither assumed and both recomputed from the tensor, in 0.55 s in all. GF(16) is the expensive one, 38.8 minutes for the refutation alone; F3 3&times;6&rsquo;s refutation of nine takes 7.65 s. <strong>The 13 and the 10 are the values Barbulescu, Detrey, Estibals and Zimmermann published in 2012</strong>, so nothing here beats them; what changed is that both halves are now proved inside the repository instead of half of each being cited. Sources: <code>famous_tensors/decided-exactly.md</code>, <code>what-it-computes.md</code>, <code>incumbent_search/what-it-reaches.md</code>, <code>state-of-the-art/what-is-missing.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "One case shows what the extra levels are for. Length-7 cyclic convolution over F2 sits at 15 after the descent, and its step-3 shortlist is <strong>0 of 16 129</strong>: not one rank-one map strictly improves it, so a first-improvement greedy has nowhere to step. Cutting the same tree at the incumbent instead of at a target reaches <strong>13 in 22 nodes</strong>, which is the published rank. Source: <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Against the published state of the art"
+      },
+      {
+        "type": "prose",
+        "html": "&ldquo;State of the art&rdquo; is only earned against somebody else&rsquo;s code on the same question, so the baseline is <a href=\"https://github.com/coolcomputery/tensor-cpd-search\"><code>yang2025</code>&rsquo;s own public implementation</a>, cloned outside the tree and run on this machine. Same question, one core, 2&times;2 matrix multiplication over GF(2): refuting six products costs their Java <strong>0.954 s</strong> and their Python <strong>30.45 s</strong>, against <strong>0.0362 s</strong> here, and <strong>0.0013 s</strong> with the orbit quotient. The whole sweep is 1.385 s against 0.0554 s. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>That wall clock is an implementation result and must not be read as an algorithmic one.</strong> It is C++ against Java, and a bit-packed leaf against a general one. The two searches visit 25 426 nodes and 25 399, and two independently written programs agreeing that closely on a tree size is evidence they are the same algorithm, which is what both papers say. <strong>The algorithmic difference is the orbit quotient: 648 nodes, 39.2 times fewer, and that one survives any language.</strong>"
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            {
+              "label": "yang2025, Java",
+              "value": 25426,
+              "display": "25 426"
+            },
+            {
+              "label": "decide-rank, C++",
+              "value": 25399,
+              "display": "25 399"
+            },
+            {
+              "label": "+ orbit quotient",
+              "value": 648,
+              "display": "648",
+              "highlight": true
+            }
+          ],
+          "note": "nodes to refute six products for 2x2 matmul over GF(2), log scale"
+        },
+        "caption": "Nodes visited refuting six products for 2&times;2 matrix multiplication. The first two are the same algorithm written twice, in two languages; the third is a different algorithm. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "A second strand hands the same question to a SAT solver, and on the one instance both were run to the end it wins by an order of magnitude: ruling out eight products for GF(16) multiplication costs the tree <strong>2 328 s</strong> and kissat <strong>108.0 s</strong>, <strong>21 times</strong> less. The advantage grows with the instance, which is the interesting part: level on 2&times;2 matrix multiplication, twenty-one times on GF(16). Source: <code>satisfiability/measurements.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Where it is behind"
+      },
+      {
+        "type": "prose",
+        "html": "Two published values are matched and two are not. <code>gf32_multiplication</code> reaches <strong>14</strong> against a published <code>mu_2(5) = 13</code>, and <code>gf64_multiplication</code> reaches <strong>20</strong> against <code>mu_2(6) = 15</code>. On 3&times;3&times;3 matrix multiplication the plateau walk reaches 24 where Laderman published 23 in 1976, and the exhaustive search does not reach that shape at all: its refutation is projected at about ten hours and has not been run. Sources: <code>fixtures/published-targets.md</code>, <code>famous_tensors/README.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "The one genuinely open map here is F2 4&times;7, bracketed at 15 &le; rank &le; 16: the lower bound is the literature&rsquo;s, the upper one is this repository&rsquo;s, and neither side has closed it. Source: <code>state-of-the-art/where-we-stand.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "What is open, and what would come next"
+      },
+      {
+        "type": "prose",
+        "html": "<code>yang2025</code> prunes by rank sums and by rref; <code>covanov2019</code>&rsquo;s quotient removes whole orbits. <strong>They are different mechanisms, and nothing shows they cannot be combined.</strong> No paper found publishes that combination, and neither does this repository: it is an open direction rather than a result, and it is the one this work would take next. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "caveat",
+        "title": "What is proved, and what is not",
+        "html": "Each proof above is an exhaustion over one map at one size; the bilinear rank problem itself is still open, and every upper bound on this page proves nothing on its own. Every timing is one core of an i5-12450H, fastest of three runs on a quiet machine, and is evidence of an order of magnitude rather than of a digit: no test asserts a timing and CI does not check one. The counts are the opposite kind of number. They are exact, asserted by the test suite, and rerun on every push. Protocol: <code>MEASURING.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Read it"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/tensor-rank-toolkit/",
+            "tag": "Live",
+            "title": "What it computes",
+            "desc": "The project&rsquo;s own site: every headline number beside the file that produced it, with the charts drawn in the browser."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit",
+            "tag": "Repository",
+            "title": "Source and tests",
+            "desc": "C++20 on Givaro, thirteen tools, MIT. Every count on this page is asserted by the test suite and rerun by CI."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
+            "tag": "PDF",
+            "title": "The write-up",
+            "desc": "Definitions, theorems and proofs: step 1 exact by Rado-Edmonds, the descent sound and terminating, the orbit quotient invariant."
+          },
+          {
+            "href": "https://github.com/Tewf/bilinear-tensor-optimization",
+            "tag": "Archive",
+            "title": "The internship, as submitted",
+            "desc": "The 2024 Julia and Python code and the two write-ups, left as they were handed in."
+          }
+        ]
       }
-     ],
-     "unit": " multiplications"
-    },
-    "caption": "What the descent alone reaches on the four polynomial fixtures, naive count against result. Source: <code>fixtures/README.md</code> and <code>descent_search/results.json</code>, produced by <code>minimise-rank</code>."
-   },
-   {
-    "type": "heading",
-    "text": "What it is now"
-   },
-   {
-    "type": "prose",
-    "html": "That descent is one strand of ten. <code>tensor-rank-toolkit</code> attacks the same question from ten directions with <strong>thirteen command-line tools</strong>, each answering one question no other answers: the cheap descent, an exhaustive search that returns a proof, lower bounds with no search at all, a SAT encoding whose refutations are written as DRAT and rechecked by <code>drat-trim</code>, a quotient by the symmetry group, isomorph-free enumeration, and a canonical form for two-slice tensors that answers a 4&times;4 pencil in about 50 microseconds in polynomial time. The thirteenth reads somebody else&rsquo;s published &lang;L,&nbsp;R,&nbsp;P&rang; back into a tensor, because nobody distributes tensors &mdash; PLinOpt ships 153 SMS operator triples and no tensor at all. Sources: <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "The internship&rsquo;s second strand is a strand here too. Sparsifying the operators is the cost the multiplication count misses: fewer nonzero entries means fewer additions. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong> and an alternative-basis operator from 21 to 10, in milliseconds, which takes Strassen&rsquo;s 18 additions to 12. The source article reported no measured result for this operator, only that its program took too long for a simple problem. Source: <code>matrix_sparsification/README.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Decided, not proposed"
-   },
-   {
-    "type": "prose",
-    "html": "A heuristic proposes and never proves: a decomposition is a witness, and only a refutation settles a rank. The exhaustive search refutes. Four maps are now settled outright, in exact arithmetic, each answer rebuilt and multiplied back out against the map it claims to compute."
-   },
-   {
-    "type": "html",
-    "html": "<div class=\"tw\"><table><thead><tr><th>Map</th><th>Both halves, from the tensor</th><th class=\"n\">Naive</th><th class=\"n\">Rank</th></tr></thead><tbody><tr><td>2&times;2 matrix multiplication</td><td>6 refuted in 25 399 nodes, 7 found in 7 436</td><td class=\"n\">8</td><td class=\"n\"><strong>7</strong></td></tr><tr><td>GF(16) over GF(2)</td><td>8 refuted in 105 600 301 nodes, 9 reached</td><td class=\"n\">16</td><td class=\"n\"><strong>9</strong></td></tr><tr><td>F2 5&times;5 polynomial</td><td>12 refuted in 146 402 553 nodes, 13 exhibited in 80</td><td class=\"n\">25</td><td class=\"n\"><strong>13</strong></td></tr><tr><td>F3 3&times;6 polynomial</td><td>9 refuted in 4 729 nodes, 10 reached</td><td class=\"n\">18</td><td class=\"n\"><strong>10</strong></td></tr></tbody></table></div>"
-   },
-   {
-    "type": "prose",
-    "html": "Strassen&rsquo;s seven products and Winograd&rsquo;s proof that six are impossible, neither assumed and both recomputed from the tensor, in 0.55 s in all. GF(16) is the expensive one, 38.8 minutes for the refutation alone; F3 3&times;6&rsquo;s refutation of nine takes 7.65 s. <strong>The 13 and the 10 are the values Barbulescu, Detrey, Estibals and Zimmermann published in 2012</strong>, so nothing here beats them; what changed is that both halves are now proved inside the repository instead of half of each being cited. Sources: <code>famous_tensors/decided-exactly.md</code>, <code>what-it-computes.md</code>, <code>incumbent_search/what-it-reaches.md</code>, <code>state-of-the-art/what-is-missing.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "One case shows what the extra levels are for. Length-7 cyclic convolution over F2 sits at 15 after the descent, and its step-3 shortlist is <strong>0 of 16 129</strong>: not one rank-one map strictly improves it, so a first-improvement greedy has nowhere to step. Cutting the same tree at the incumbent instead of at a target reaches <strong>13 in 22 nodes</strong>, which is the published rank. Source: <code>incumbent_search/what-it-reaches.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Against the published state of the art"
-   },
-   {
-    "type": "prose",
-    "html": "&ldquo;State of the art&rdquo; is only earned against somebody else&rsquo;s code on the same question, so the baseline is <a href=\"https://github.com/coolcomputery/tensor-cpd-search\"><code>yang2025</code>&rsquo;s own public implementation</a>, cloned outside the tree and run on this machine. Same question, one core, 2&times;2 matrix multiplication over GF(2): refuting six products costs their Java <strong>0.954 s</strong> and their Python <strong>30.45 s</strong>, against <strong>0.0362 s</strong> here, and <strong>0.0013 s</strong> with the orbit quotient. The whole sweep is 1.385 s against 0.0554 s. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "<strong>That wall clock is an implementation result and must not be read as an algorithmic one.</strong> It is C++ against Java, and a bit-packed leaf against a general one. The two searches visit 25 426 nodes and 25 399, and two independently written programs agreeing that closely on a tree size is evidence they are the same algorithm, which is what both papers say. <strong>The algorithmic difference is the orbit quotient: 648 nodes, 39.2 times fewer, and that one survives any language.</strong>"
-   },
-   {
-    "type": "figure",
-    "chart": {
-     "kind": "logBars",
-     "rows": [
-      {
-       "label": "yang2025, Java",
-       "value": 25426,
-       "display": "25 426"
-      },
-      {
-       "label": "decide-rank, C++",
-       "value": 25399,
-       "display": "25 399"
-      },
-      {
-       "label": "+ orbit quotient",
-       "value": 648,
-       "display": "648",
-       "highlight": true
-      }
-     ],
-     "note": "nodes to refute six products for 2x2 matmul over GF(2), log scale"
-    },
-    "caption": "Nodes visited refuting six products for 2&times;2 matrix multiplication. The first two are the same algorithm written twice, in two languages; the third is a different algorithm. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "A second strand hands the same question to a SAT solver, and on the one instance both were run to the end it wins by an order of magnitude: ruling out eight products for GF(16) multiplication costs the tree <strong>2 328 s</strong> and kissat <strong>108.0 s</strong>, <strong>21 times</strong> less. The advantage grows with the instance, which is the interesting part: level on 2&times;2 matrix multiplication, twenty-one times on GF(16). Source: <code>satisfiability/measurements.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Where it is behind"
-   },
-   {
-    "type": "prose",
-    "html": "Two published values are matched and two are not. <code>gf32_multiplication</code> reaches <strong>14</strong> against a published <code>mu_2(5) = 13</code>, and <code>gf64_multiplication</code> reaches <strong>20</strong> against <code>mu_2(6) = 15</code>. On 3&times;3&times;3 matrix multiplication the plateau walk reaches 24 where Laderman published 23 in 1976, and the exhaustive search does not reach that shape at all: its refutation is projected at about ten hours and has not been run. Sources: <code>fixtures/published-targets.md</code>, <code>famous_tensors/README.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "The one genuinely open map here is F2 4&times;7, bracketed at 15 &le; rank &le; 16: the lower bound is the literature&rsquo;s, the upper one is this repository&rsquo;s, and neither side has closed it. Source: <code>state-of-the-art/where-we-stand.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "What is open, and what would come next"
-   },
-   {
-    "type": "prose",
-    "html": "<code>yang2025</code> prunes by rank sums and by rref; <code>covanov2019</code>&rsquo;s quotient removes whole orbits. <strong>They are different mechanisms, and nothing shows they cannot be combined.</strong> No paper found publishes that combination, and neither does this repository: it is an open direction rather than a result, and it is the one this work would take next. Source: <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "caveat",
-    "title": "What is proved, and what is not",
-    "html": "Each proof above is an exhaustion over one map at one size; the bilinear rank problem itself is still open, and every upper bound on this page proves nothing on its own. Every timing is one core of an i5-12450H, fastest of three runs on a quiet machine, and is evidence of an order of magnitude rather than of a digit: no test asserts a timing and CI does not check one. The counts are the opposite kind of number. They are exact, asserted by the test suite, and rerun on every push. Protocol: <code>MEASURING.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Read it"
-   },
-   {
-    "type": "cards",
-    "items": [
-     {
-      "href": "https://tewf.github.io/tensor-rank-toolkit/",
-      "tag": "Live",
-      "title": "What it computes",
-      "desc": "The project&rsquo;s own site: every headline number beside the file that produced it, with the charts drawn in the browser."
-     },
-     {
-      "href": "https://github.com/Tewf/tensor-rank-toolkit",
-      "tag": "Repository",
-      "title": "Source and tests",
-      "desc": "C++20 on Givaro, thirteen tools, MIT. Every count on this page is asserted by the test suite and rerun by CI."
-     },
-     {
-      "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
-      "tag": "PDF",
-      "title": "The write-up",
-      "desc": "Definitions, theorems and proofs: step 1 exact by Rado-Edmonds, the descent sound and terminating, the orbit quotient invariant."
-     },
-     {
-      "href": "https://github.com/Tewf/bilinear-tensor-optimization",
-      "tag": "Archive",
-      "title": "The internship, as submitted",
-      "desc": "The 2024 Julia and Python code and the two write-ups, left as they were handed in."
-     }
     ]
-   }
-  ]
- },
- "fr": {
-  "short": "Rang bilinéaire",
-  "title": "Rang des applications bilinéaires",
-  "description": "Rang exact des tenseurs et des applications bilinéaires sur les corps finis : douze outils, dix volets. Le rang de la multiplication de matrices 2x2 est décidé à exactement 7 et celui de la multiplication de polynômes 5x5 sur GF(2) à 13, des deux côtés. Né d'un stage au LJK encadré par Jean-Guillaume Dumas.",
-  "blocks": [
-   {
-    "type": "hero",
-    "title": "Combien de multiplications un produit exige-t-il ?",
-    "lede": "Le rang d'une application bilinéaire est le nombre de multiplications nécessaires pour la calculer. Strassen effectuant la multiplication de matrices 2&times;2 en sept au lieu de huit est à l'origine de la multiplication rapide de matrices, et trouver de telles décompositions dans le cas général reste ouvert. Cela a commencé par une heuristique qui proposait des décompositions ; elle les démontre désormais, sur les applications assez petites pour être tranchées."
-   },
-   {
-    "type": "preview",
-    "mode": "head",
-    "key": "bilinear"
-   },
-   {
-    "type": "meta",
-    "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Encadré par Jean-Guillaume Dumas &middot; 21 mai au 15 juillet 2024<br><code>tensor-rank-toolkit</code> est un travail ultérieur et indépendant qui en est issu, en C++ sur Givaro, construit pour l'essentiel en 2026"
-   },
-   {
-    "type": "heading",
-    "text": "D'où cela vient"
-   },
-   {
-    "type": "prose",
-    "html": "Huit semaines au LJK, en Julia. La méthode est une descente gloutonne : elle prend une application bilinéaire sur un corps fini et la réécrit de façon répétée dans une base différente, à la recherche d'une famille génératrice comptant moins de composantes de rang 1 que celle dont elle est partie. La réécriture a le droit d'utiliser <em>plus</em> de composantes qu'au départ, puisqu'il lui suffit d'engendrer l'application d'origine : c'est ce que sont les cinq produits de Karatsuba pour un produit à quatre coefficients."
-   },
-   {
-    "type": "prose",
-    "html": "Elle a été refaite en C++ sur <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, la bibliothèque d'arithmétique exacte issue du même laboratoire. Rien n'y est jamais un flottant, de sorte qu'un rang rapporté est un fait portant sur l'application et non un artefact d'arrondi, et chaque décomposition est reconstruite et remultipliée contre l'application avant d'être affichée."
-   },
-   {
-    "type": "prose",
-    "html": "<strong>L'étape coûteuse de la descente est mal tarifée, et c'est le résultat que le stage a laissé derrière lui.</strong> L'étape 3 balaie le vivier complet des applications de rang un. Sur les quatre applications polynomiales, elle a amélioré la réponse dans <em>deux</em> cas sur quatre, d'un produit chacun, pour un coût compris entre 58 et 184 fois celui des deux premières étapes réunies. Toute suite qui ne ferait qu'accélérer l'étape 3 optimiserait la partie qui, le plus souvent, ne rapporte rien. Source : <code>fixtures/README.md</code>."
-   },
-   {
-    "type": "figure",
-    "chart": {
-     "kind": "beforeAfter",
-     "rows": [
+  },
+  "fr": {
+    "short": "Rang bilinéaire",
+    "title": "Rang des applications bilinéaires",
+    "description": "Rang exact des tenseurs et des applications bilinéaires sur les corps finis : douze outils, dix volets. Le rang de la multiplication de matrices 2x2 est décidé à exactement 7 et celui de la multiplication de polynômes 5x5 sur GF(2) à 13, des deux côtés. Né d'un stage au LJK encadré par Jean-Guillaume Dumas.",
+    "blocks": [
       {
-       "label": "F2  5x5",
-       "from": 25,
-       "to": 14
+        "type": "hero",
+        "title": "Combien de multiplications un produit exige-t-il ?",
+        "lede": "Le rang d'une application bilinéaire est le nombre de multiplications nécessaires pour la calculer. Strassen effectuant la multiplication de matrices 2&times;2 en sept au lieu de huit est à l'origine de la multiplication rapide de matrices, et trouver de telles décompositions dans le cas général reste ouvert. Cela a commencé par une heuristique qui proposait des décompositions ; elle les démontre désormais, sur les applications assez petites pour être tranchées."
       },
       {
-       "label": "F2  3x8",
-       "from": 24,
-       "to": 15
+        "type": "preview",
+        "mode": "head",
+        "key": "bilinear"
       },
       {
-       "label": "F2  4x7",
-       "from": 28,
-       "to": 16
+        "type": "meta",
+        "html": "Laboratoire Jean Kuntzmann, Universit&eacute; Grenoble Alpes<br>Encadré par Jean-Guillaume Dumas &middot; 21 mai au 15 juillet 2024<br><code>tensor-rank-toolkit</code> est un travail ultérieur et indépendant qui en est issu, en C++ sur Givaro, construit pour l'essentiel en 2026"
       },
       {
-       "label": "F3  3x6",
-       "from": 18,
-       "to": 10
+        "type": "heading",
+        "text": "D'où cela vient"
+      },
+      {
+        "type": "prose",
+        "html": "Huit semaines au LJK, en Julia. La méthode est une descente gloutonne : elle prend une application bilinéaire sur un corps fini et la réécrit de façon répétée dans une base différente, à la recherche d'une famille génératrice comptant moins de composantes de rang 1 que celle dont elle est partie. La réécriture a le droit d'utiliser <em>plus</em> de composantes qu'au départ, puisqu'il lui suffit d'engendrer l'application d'origine : c'est ce que sont les cinq produits de Karatsuba pour un produit à quatre coefficients."
+      },
+      {
+        "type": "prose",
+        "html": "Elle a été refaite en C++ sur <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a>, la bibliothèque d'arithmétique exacte issue du même laboratoire. Rien n'y est jamais un flottant, de sorte qu'un rang rapporté est un fait portant sur l'application et non un artefact d'arrondi, et chaque décomposition est reconstruite et remultipliée contre l'application avant d'être affichée."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>L'étape coûteuse de la descente est mal tarifée, et c'est le résultat que le stage a laissé derrière lui.</strong> L'étape 3 balaie le vivier complet des applications de rang un. Sur les quatre applications polynomiales, elle a amélioré la réponse dans <em>deux</em> cas sur quatre, d'un produit chacun, pour un coût compris entre 58 et 184 fois celui des deux premières étapes réunies. Toute suite qui ne ferait qu'accélérer l'étape 3 optimiserait la partie qui, le plus souvent, ne rapporte rien. Source : <code>fixtures/README.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "F2  5x5",
+              "from": 25,
+              "to": 14
+            },
+            {
+              "label": "F2  3x8",
+              "from": 24,
+              "to": 15
+            },
+            {
+              "label": "F2  4x7",
+              "from": 28,
+              "to": 16
+            },
+            {
+              "label": "F3  3x6",
+              "from": 18,
+              "to": 10
+            }
+          ],
+          "unit": " multiplications"
+        },
+        "caption": "Ce que la descente seule atteint sur les quatre applications polynomiales, décompte naïf contre résultat. Source : <code>fixtures/README.md</code> et <code>descent_search/results.json</code>, produits par <code>minimise-rank</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Ce que c'est devenu"
+      },
+      {
+        "type": "prose",
+        "html": "Cette descente n'est qu'un volet sur dix. <code>tensor-rank-toolkit</code> attaque la même question par dix directions avec <strong>douze outils en ligne de commande</strong>, chacun répondant à une question qu'aucun autre ne traite : la descente bon marché, une recherche exhaustive qui rend une preuve, des bornes inférieures sans aucune recherche, un codage SAT dont les réfutations sont écrites en DRAT et revérifiées par <code>drat-trim</code>, un quotient par le groupe de symétries, une énumération sans isomorphes, et une forme canonique pour les tenseurs à deux tranches qui traite un faisceau 4&times;4 en une cinquantaine de microsecondes, en temps polynomial. Sources : <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Le second volet du stage est ici un volet à part entière. Rendre creux les opérateurs, c'est le coût que le décompte des multiplications ignore : moins de coefficients non nuls signifie moins d'additions. Les deux opérateurs d'encodage de Strassen passent de <strong>12 coefficients non nuls à 10</strong> et un opérateur en base alternative de 21 à 10, en quelques millisecondes, ce qui ramène les 18 additions de Strassen à 12. L'article d'origine ne rapportait aucun résultat mesuré sur cet opérateur, seulement que son programme prenait trop de temps pour un problème simple. Source : <code>matrix_sparsification/README.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Décidé, et non plus proposé"
+      },
+      {
+        "type": "prose",
+        "html": "Une heuristique propose et ne démontre jamais : une décomposition est un témoin, et seule une réfutation fixe un rang. La recherche exhaustive, elle, réfute. Quatre applications sont désormais tranchées entièrement, en arithmétique exacte, chaque réponse étant reconstruite et remultipliée contre l'application qu'elle prétend calculer."
+      },
+      {
+        "type": "html",
+        "html": "<div class=\"tw\"><table><thead><tr><th>Application</th><th>Les deux moitiés, depuis le tenseur</th><th class=\"n\">Naïf</th><th class=\"n\">Rang</th></tr></thead><tbody><tr><td>Multiplication de matrices 2&times;2</td><td>6 réfuté en 25 399 nœuds, 7 trouvé en 7 436</td><td class=\"n\">8</td><td class=\"n\"><strong>7</strong></td></tr><tr><td>GF(16) sur GF(2)</td><td>8 réfuté en 105 600 301 nœuds, 9 atteint</td><td class=\"n\">16</td><td class=\"n\"><strong>9</strong></td></tr><tr><td>Polynômes F2 5&times;5</td><td>12 réfuté en 146 402 553 nœuds, 13 exhibé en 80</td><td class=\"n\">25</td><td class=\"n\"><strong>13</strong></td></tr><tr><td>Polynômes F3 3&times;6</td><td>9 réfuté en 4 729 nœuds, 10 atteint</td><td class=\"n\">18</td><td class=\"n\"><strong>10</strong></td></tr></tbody></table></div>"
+      },
+      {
+        "type": "prose",
+        "html": "Les sept produits de Strassen et la preuve de Winograd que six sont impossibles, ni l'un ni l'autre supposés, tous deux recalculés depuis le tenseur, en 0,55 s au total. GF(16) est le cas coûteux, 38,8 minutes pour la seule réfutation ; celle de neuf pour F3 3&times;6 prend 7,65 s. <strong>Le 13 et le 10 sont les valeurs publiées par Barbulescu, Detrey, Estibals et Zimmermann en 2012</strong> : rien ici ne les dépasse. Ce qui a changé, c'est que les deux moitiés sont désormais démontrées à l'intérieur du dépôt, au lieu que la moitié de chacune soit citée. Sources : <code>famous_tensors/decided-exactly.md</code>, <code>what-it-computes.md</code>, <code>incumbent_search/what-it-reaches.md</code>, <code>state-of-the-art/what-is-missing.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Un cas montre à quoi servent les niveaux supplémentaires. La convolution cyclique de longueur 7 sur F2 reste à 15 après la descente, et la liste courte de son étape 3 est de <strong>0 sur 16 129</strong> : pas une seule application de rang un ne l'améliore strictement, si bien qu'un glouton à première amélioration n'a nulle part où aller. Couper le même arbre au meilleur candidat courant plutôt qu'à une cible atteint <strong>13 en 22 nœuds</strong>, ce qui est le rang publié. Source : <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Face à l'état de l'art publié"
+      },
+      {
+        "type": "prose",
+        "html": "L'« état de l'art » ne se gagne que contre le code de quelqu'un d'autre sur la même question : la référence est donc <a href=\"https://github.com/coolcomputery/tensor-cpd-search\">l'implémentation publique de <code>yang2025</code></a>, clonée hors de l'arborescence et exécutée sur cette machine. Même question, un seul cœur, multiplication de matrices 2&times;2 sur GF(2) : réfuter six produits coûte <strong>0,954 s</strong> à leur Java et <strong>30,45 s</strong> à leur Python, contre <strong>0,0362 s</strong> ici, et <strong>0,0013 s</strong> avec le quotient par les orbites. Le balayage complet est de 1,385 s contre 0,0554 s. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>Ce temps d'exécution est un résultat d'implémentation et ne doit pas se lire comme un résultat algorithmique.</strong> C'est du C++ contre du Java, et une feuille en bits compactés contre une feuille générale. Les deux recherches visitent 25 426 nœuds et 25 399, et deux programmes écrits indépendamment qui s'accordent d'aussi près sur la taille d'un arbre témoignent qu'il s'agit du même algorithme, ce que disent les deux articles. <strong>La différence algorithmique, c'est le quotient par les orbites : 648 nœuds, 39,2 fois moins, et celle-là survit à n'importe quel langage.</strong>"
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            {
+              "label": "yang2025, Java",
+              "value": 25426,
+              "display": "25 426"
+            },
+            {
+              "label": "decide-rank, C++",
+              "value": 25399,
+              "display": "25 399"
+            },
+            {
+              "label": "quotient d'orbite",
+              "value": 648,
+              "display": "648",
+              "highlight": true
+            }
+          ],
+          "note": "nœuds pour réfuter six produits, matmul 2x2 sur GF(2), échelle log"
+        },
+        "caption": "Nœuds visités pour réfuter six produits pour la multiplication de matrices 2&times;2. Les deux premiers sont le même algorithme écrit deux fois, dans deux langages ; le troisième est un algorithme différent. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Un second volet confie la même question à un solveur SAT, et sur la seule instance où les deux ont été menés au bout, il l'emporte d'un ordre de grandeur : écarter huit produits pour la multiplication dans GF(16) coûte <strong>2 328 s</strong> à l'arbre et <strong>108,0 s</strong> à kissat, <strong>21 fois</strong> moins. L'avantage croît avec l'instance, ce qui en fait l'intérêt : à égalité sur la multiplication de matrices 2&times;2, vingt et une fois sur GF(16). Source : <code>satisfiability/measurements.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Là où c'est en retard"
+      },
+      {
+        "type": "prose",
+        "html": "Deux valeurs publiées sont égalées, deux ne le sont pas. <code>gf32_multiplication</code> atteint <strong>14</strong> face à un <code>mu_2(5) = 13</code> publié, et <code>gf64_multiplication</code> atteint <strong>20</strong> face à <code>mu_2(6) = 15</code>. Sur la multiplication de matrices 3&times;3&times;3, la marche sur plateau atteint 24 là où Laderman a publié 23 en 1976, et la recherche exhaustive n'atteint pas cette taille du tout : sa réfutation est projetée à une dizaine d'heures et n'a pas été lancée. Sources : <code>fixtures/published-targets.md</code>, <code>famous_tensors/README.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "La seule application véritablement ouverte ici est F2 4&times;7, encadrée par 15 &le; rang &le; 16 : la borne inférieure est celle de la littérature, la borne supérieure est celle de ce dépôt, et aucun des deux côtés ne l'a refermée. Source : <code>state-of-the-art/where-we-stand.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Ce qui est ouvert, et la suite"
+      },
+      {
+        "type": "prose",
+        "html": "<code>yang2025</code> élague par sommes de rangs et par rref ; le quotient de <code>covanov2019</code> retire des orbites entières. <strong>Ce sont des mécanismes différents, et rien ne montre qu'ils ne peuvent pas être combinés.</strong> Aucun article trouvé ne publie cette combinaison, et ce dépôt non plus : c'est une direction ouverte et non un résultat, et c'est celle que ce travail prendrait ensuite. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
+      },
+      {
+        "type": "caveat",
+        "title": "Ce qui est démontré, et ce qui ne l'est pas",
+        "html": "Chaque preuve ci-dessus est une exhaustion sur une application et à une taille ; le problème du rang bilinéaire lui-même reste ouvert, et toute borne supérieure de cette page ne démontre rien à elle seule. Chaque temps est mesuré sur un seul cœur d'un i5-12450H, meilleur de trois exécutions sur une machine au repos, et vaut comme indice d'un ordre de grandeur et non d'un chiffre : aucun test n'assertit un temps et l'intégration continue n'en vérifie aucun. Les décomptes sont de l'autre espèce. Ils sont exacts, assertis par la suite de tests, et rejoués à chaque poussée. Protocole : <code>MEASURING.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Lire"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/tensor-rank-toolkit/",
+            "tag": "En ligne",
+            "title": "Ce que cela calcule",
+            "desc": "Le site du projet : chaque chiffre en vue à côté du fichier qui l'a produit, les graphiques étant dessinés dans le navigateur."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit",
+            "tag": "Dépôt",
+            "title": "Source et tests",
+            "desc": "C++20 sur Givaro, douze outils, licence MIT. Chaque décompte de cette page est asserti par la suite de tests et rejoué par l'intégration continue."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
+            "tag": "PDF",
+            "title": "L'écrit",
+            "desc": "Définitions, théorèmes et preuves : l'étape 1 exacte par Rado-Edmonds, la descente correcte et terminante, le quotient par les orbites invariant."
+          },
+          {
+            "href": "https://github.com/Tewf/bilinear-tensor-optimization",
+            "tag": "Archive",
+            "title": "Le stage, tel que rendu",
+            "desc": "Le code Julia et Python de 2024 et les deux écrits, laissés dans l'état où ils ont été rendus."
+          }
+        ]
       }
-     ],
-     "unit": " multiplications"
-    },
-    "caption": "Ce que la descente seule atteint sur les quatre applications polynomiales, décompte naïf contre résultat. Source : <code>fixtures/README.md</code> et <code>descent_search/results.json</code>, produits par <code>minimise-rank</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Ce que c'est devenu"
-   },
-   {
-    "type": "prose",
-    "html": "Cette descente n'est qu'un volet sur dix. <code>tensor-rank-toolkit</code> attaque la même question par dix directions avec <strong>douze outils en ligne de commande</strong>, chacun répondant à une question qu'aucun autre ne traite : la descente bon marché, une recherche exhaustive qui rend une preuve, des bornes inférieures sans aucune recherche, un codage SAT dont les réfutations sont écrites en DRAT et revérifiées par <code>drat-trim</code>, un quotient par le groupe de symétries, une énumération sans isomorphes, et une forme canonique pour les tenseurs à deux tranches qui traite un faisceau 4&times;4 en une cinquantaine de microsecondes, en temps polynomial. Sources : <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "Le second volet du stage est ici un volet à part entière. Rendre creux les opérateurs, c'est le coût que le décompte des multiplications ignore : moins de coefficients non nuls signifie moins d'additions. Les deux opérateurs d'encodage de Strassen passent de <strong>12 coefficients non nuls à 10</strong> et un opérateur en base alternative de 21 à 10, en quelques millisecondes, ce qui ramène les 18 additions de Strassen à 12. L'article d'origine ne rapportait aucun résultat mesuré sur cet opérateur, seulement que son programme prenait trop de temps pour un problème simple. Source : <code>matrix_sparsification/README.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Décidé, et non plus proposé"
-   },
-   {
-    "type": "prose",
-    "html": "Une heuristique propose et ne démontre jamais : une décomposition est un témoin, et seule une réfutation fixe un rang. La recherche exhaustive, elle, réfute. Quatre applications sont désormais tranchées entièrement, en arithmétique exacte, chaque réponse étant reconstruite et remultipliée contre l'application qu'elle prétend calculer."
-   },
-   {
-    "type": "html",
-    "html": "<div class=\"tw\"><table><thead><tr><th>Application</th><th>Les deux moitiés, depuis le tenseur</th><th class=\"n\">Naïf</th><th class=\"n\">Rang</th></tr></thead><tbody><tr><td>Multiplication de matrices 2&times;2</td><td>6 réfuté en 25 399 nœuds, 7 trouvé en 7 436</td><td class=\"n\">8</td><td class=\"n\"><strong>7</strong></td></tr><tr><td>GF(16) sur GF(2)</td><td>8 réfuté en 105 600 301 nœuds, 9 atteint</td><td class=\"n\">16</td><td class=\"n\"><strong>9</strong></td></tr><tr><td>Polynômes F2 5&times;5</td><td>12 réfuté en 146 402 553 nœuds, 13 exhibé en 80</td><td class=\"n\">25</td><td class=\"n\"><strong>13</strong></td></tr><tr><td>Polynômes F3 3&times;6</td><td>9 réfuté en 4 729 nœuds, 10 atteint</td><td class=\"n\">18</td><td class=\"n\"><strong>10</strong></td></tr></tbody></table></div>"
-   },
-   {
-    "type": "prose",
-    "html": "Les sept produits de Strassen et la preuve de Winograd que six sont impossibles, ni l'un ni l'autre supposés, tous deux recalculés depuis le tenseur, en 0,55 s au total. GF(16) est le cas coûteux, 38,8 minutes pour la seule réfutation ; celle de neuf pour F3 3&times;6 prend 7,65 s. <strong>Le 13 et le 10 sont les valeurs publiées par Barbulescu, Detrey, Estibals et Zimmermann en 2012</strong> : rien ici ne les dépasse. Ce qui a changé, c'est que les deux moitiés sont désormais démontrées à l'intérieur du dépôt, au lieu que la moitié de chacune soit citée. Sources : <code>famous_tensors/decided-exactly.md</code>, <code>what-it-computes.md</code>, <code>incumbent_search/what-it-reaches.md</code>, <code>state-of-the-art/what-is-missing.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "Un cas montre à quoi servent les niveaux supplémentaires. La convolution cyclique de longueur 7 sur F2 reste à 15 après la descente, et la liste courte de son étape 3 est de <strong>0 sur 16 129</strong> : pas une seule application de rang un ne l'améliore strictement, si bien qu'un glouton à première amélioration n'a nulle part où aller. Couper le même arbre au meilleur candidat courant plutôt qu'à une cible atteint <strong>13 en 22 nœuds</strong>, ce qui est le rang publié. Source : <code>incumbent_search/what-it-reaches.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Face à l'état de l'art publié"
-   },
-   {
-    "type": "prose",
-    "html": "L'« état de l'art » ne se gagne que contre le code de quelqu'un d'autre sur la même question : la référence est donc <a href=\"https://github.com/coolcomputery/tensor-cpd-search\">l'implémentation publique de <code>yang2025</code></a>, clonée hors de l'arborescence et exécutée sur cette machine. Même question, un seul cœur, multiplication de matrices 2&times;2 sur GF(2) : réfuter six produits coûte <strong>0,954 s</strong> à leur Java et <strong>30,45 s</strong> à leur Python, contre <strong>0,0362 s</strong> ici, et <strong>0,0013 s</strong> avec le quotient par les orbites. Le balayage complet est de 1,385 s contre 0,0554 s. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "<strong>Ce temps d'exécution est un résultat d'implémentation et ne doit pas se lire comme un résultat algorithmique.</strong> C'est du C++ contre du Java, et une feuille en bits compactés contre une feuille générale. Les deux recherches visitent 25 426 nœuds et 25 399, et deux programmes écrits indépendamment qui s'accordent d'aussi près sur la taille d'un arbre témoignent qu'il s'agit du même algorithme, ce que disent les deux articles. <strong>La différence algorithmique, c'est le quotient par les orbites : 648 nœuds, 39,2 fois moins, et celle-là survit à n'importe quel langage.</strong>"
-   },
-   {
-    "type": "figure",
-    "chart": {
-     "kind": "logBars",
-     "rows": [
-      {
-       "label": "yang2025, Java",
-       "value": 25426,
-       "display": "25 426"
-      },
-      {
-       "label": "decide-rank, C++",
-       "value": 25399,
-       "display": "25 399"
-      },
-      {
-       "label": "quotient d'orbite",
-       "value": 648,
-       "display": "648",
-       "highlight": true
-      }
-     ],
-     "note": "nœuds pour réfuter six produits, matmul 2x2 sur GF(2), échelle log"
-    },
-    "caption": "Nœuds visités pour réfuter six produits pour la multiplication de matrices 2&times;2. Les deux premiers sont le même algorithme écrit deux fois, dans deux langages ; le troisième est un algorithme différent. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "Un second volet confie la même question à un solveur SAT, et sur la seule instance où les deux ont été menés au bout, il l'emporte d'un ordre de grandeur : écarter huit produits pour la multiplication dans GF(16) coûte <strong>2 328 s</strong> à l'arbre et <strong>108,0 s</strong> à kissat, <strong>21 fois</strong> moins. L'avantage croît avec l'instance, ce qui en fait l'intérêt : à égalité sur la multiplication de matrices 2&times;2, vingt et une fois sur GF(16). Source : <code>satisfiability/measurements.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Là où c'est en retard"
-   },
-   {
-    "type": "prose",
-    "html": "Deux valeurs publiées sont égalées, deux ne le sont pas. <code>gf32_multiplication</code> atteint <strong>14</strong> face à un <code>mu_2(5) = 13</code> publié, et <code>gf64_multiplication</code> atteint <strong>20</strong> face à <code>mu_2(6) = 15</code>. Sur la multiplication de matrices 3&times;3&times;3, la marche sur plateau atteint 24 là où Laderman a publié 23 en 1976, et la recherche exhaustive n'atteint pas cette taille du tout : sa réfutation est projetée à une dizaine d'heures et n'a pas été lancée. Sources : <code>fixtures/published-targets.md</code>, <code>famous_tensors/README.md</code>."
-   },
-   {
-    "type": "prose",
-    "html": "La seule application véritablement ouverte ici est F2 4&times;7, encadrée par 15 &le; rang &le; 16 : la borne inférieure est celle de la littérature, la borne supérieure est celle de ce dépôt, et aucun des deux côtés ne l'a refermée. Source : <code>state-of-the-art/where-we-stand.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Ce qui est ouvert, et la suite"
-   },
-   {
-    "type": "prose",
-    "html": "<code>yang2025</code> élague par sommes de rangs et par rref ; le quotient de <code>covanov2019</code> retire des orbites entières. <strong>Ce sont des mécanismes différents, et rien ne montre qu'ils ne peuvent pas être combinés.</strong> Aucun article trouvé ne publie cette combinaison, et ce dépôt non plus : c'est une direction ouverte et non un résultat, et c'est celle que ce travail prendrait ensuite. Source : <code>state-of-the-art/comparing-against-the-baseline.md</code>."
-   },
-   {
-    "type": "caveat",
-    "title": "Ce qui est démontré, et ce qui ne l'est pas",
-    "html": "Chaque preuve ci-dessus est une exhaustion sur une application et à une taille ; le problème du rang bilinéaire lui-même reste ouvert, et toute borne supérieure de cette page ne démontre rien à elle seule. Chaque temps est mesuré sur un seul cœur d'un i5-12450H, meilleur de trois exécutions sur une machine au repos, et vaut comme indice d'un ordre de grandeur et non d'un chiffre : aucun test n'assertit un temps et l'intégration continue n'en vérifie aucun. Les décomptes sont de l'autre espèce. Ils sont exacts, assertis par la suite de tests, et rejoués à chaque poussée. Protocole : <code>MEASURING.md</code>."
-   },
-   {
-    "type": "heading",
-    "text": "Lire"
-   },
-   {
-    "type": "cards",
-    "items": [
-     {
-      "href": "https://tewf.github.io/tensor-rank-toolkit/",
-      "tag": "En ligne",
-      "title": "Ce que cela calcule",
-      "desc": "Le site du projet : chaque chiffre en vue à côté du fichier qui l'a produit, les graphiques étant dessinés dans le navigateur."
-     },
-     {
-      "href": "https://github.com/Tewf/tensor-rank-toolkit",
-      "tag": "Dépôt",
-      "title": "Source et tests",
-      "desc": "C++20 sur Givaro, douze outils, licence MIT. Chaque décompte de cette page est asserti par la suite de tests et rejoué par l'intégration continue."
-     },
-     {
-      "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
-      "tag": "PDF",
-      "title": "L'écrit",
-      "desc": "Définitions, théorèmes et preuves : l'étape 1 exacte par Rado-Edmonds, la descente correcte et terminante, le quotient par les orbites invariant."
-     },
-     {
-      "href": "https://github.com/Tewf/bilinear-tensor-optimization",
-      "tag": "Archive",
-      "title": "Le stage, tel que rendu",
-      "desc": "Le code Julia et Python de 2024 et les deux écrits, laissés dans l'état où ils ont été rendus."
-     }
     ]
-   }
-  ]
- }
+  }
 }
