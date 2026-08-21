@@ -6,9 +6,9 @@
 
    Most pictures are served from the project's own repository site on this same
    domain rather than copied here, so they stay whatever that project currently
-   says. The local ones are the exceptions: the bilinear repository ships PDFs
-   and no figures, and the Battleship loop is rendered from that project's
-   recorded game data.
+   says. The local ones are the exceptions: tensor-rank-toolkit draws its charts
+   in the browser and so publishes no figure file to point at, and the Battleship
+   loop is rendered from that project's recorded game data.
 
    Every animated image carries a `still`, used when the visitor has asked for
    reduced motion.

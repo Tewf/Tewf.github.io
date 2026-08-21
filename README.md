@@ -53,4 +53,5 @@ The project sites it links to live in their own repositories:
 [University-Coursework](https://tewf.github.io/University-Coursework/),
 [after-hours](https://tewf.github.io/after-hours/),
 [IA-Economie-Strategique](https://tewf.github.io/IA-Economie-Strategique/) and
-[bilinear-tensor-optimization](https://tewf.github.io/bilinear-tensor-optimization/).
+[tensor-rank-toolkit](https://tewf.github.io/tensor-rank-toolkit/), which is where
+the bilinear rank work continued after the internship repository was archived.

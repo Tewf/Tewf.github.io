@@ -49,12 +49,14 @@ results, not omissions.
 ## Operating Context
 
 - One origin, five sites. `tewf.github.io/` is this product. `after-hours`,
-  `University-Coursework`, `IA-Economie-Strategique` and
-  `bilinear-tensor-optimization` are separate repositories publishing their own
-  sites at `tewf.github.io/<repo>/`. This site writes a page *about* several of
-  them and links out; it never duplicates their content. `shots` was a sixth: it
-  is private as of August 2026 and `/shots/` no longer resolves, but the path
-  stays reserved in case it comes back.
+  `University-Coursework`, `IA-Economie-Strategique` and `tensor-rank-toolkit`
+  are separate repositories publishing their own sites at
+  `tewf.github.io/<repo>/`. This site writes a page *about* several of them and
+  links out; it never duplicates their content. Two paths resolve to nothing and
+  stay reserved anyway, because either repository can switch Pages back on:
+  `/shots/`, private as of August 2026, and `/bilinear-tensor-optimization/`,
+  the 2024 internship repository, kept as an archive now that the bilinear rank
+  work continues in `tensor-rank-toolkit`.
 - Project thumbnails are loaded from each project's own published site, so the
   pictures on this site cannot drift from the work they depict.
 - The reader is often on a laptop, mid-triage, with the tab open beside an email or
@@ -79,7 +81,8 @@ results, not omissions.
   contract pinned in `site/tokens.lock.json`.
 - Never emit a page at a top-level path a project site owns (`/after-hours/`,
   `/University-Coursework/`, `/IA-Economie-Strategique/`,
-  `/bilinear-tensor-optimization/`, `/shots/`); project sites win on this origin.
+  `/tensor-rank-toolkit/`, `/bilinear-tensor-optimization/`, `/shots/`);
+  project sites win on this origin.
 
 ## Brand Commitments
 
@@ -95,10 +98,16 @@ results, not omissions.
 
 Real, verifiable, and already published:
 
-- **Bilinear map rank** (LJK, supervised by Jean-Guillaume Dumas): 5x5 polynomial
-  multiplication over GF(2) from 25 multiplications to 14; 3x8 24 to 15; 4x7 28 to
-  16; F3 3x6 18 to **10**, improving on the 11 that was published from a run that
-  never terminated. Source `rank/results.json`. C++ on Givaro, CI reproduces it.
+- **Bilinear map rank** (LJK, supervised by Jean-Guillaume Dumas, then continued
+  alone as `tensor-rank-toolkit`): the descent takes 5x5 polynomial multiplication
+  over GF(2) from 25 multiplications to 14, 3x8 24 to 15, 4x7 28 to 16 and F3 3x6
+  18 to **10**, source `descent_search/results.json` and `fixtures/README.md`.
+  Four maps are then settled *exactly* by exhaustion: 2x2 matrix multiplication
+  at **7**, GF(16) over GF(2) at **9**, F2 5x5 at **13** and F3 3x6 at **10**,
+  the last two matching values published in 2012. Sources
+  `famous_tensors/decided-exactly.md` and `incumbent_search/what-it-reaches.md`.
+  Two published values are *not* reached, and the page says so. C++20 on Givaro,
+  CI reproduces every count.
 - **Strategic pricing** (GAEL, supervised by Alexis Garapin and Olivier Bonroy):
   a survey, an imitation model, and a correction to the equilibrium analysis of the
   Prolog course project entered alongside it. The submitted strategy beats Nash
