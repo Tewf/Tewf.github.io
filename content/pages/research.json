@@ -8,7 +8,7 @@
       {
         "type": "hero",
         "title": "Research",
-        "lede": "Two supervised internships, one in computer algebra and one in industrial economics. Both are published in full, including the parts that did not work."
+        "lede": "Two supervised internships, one in computer algebra and one in industrial economics, and the toolkit the first of them grew into. Both are published in full, including the parts that did not work."
       },
       {
         "type": "showcase",
@@ -22,9 +22,9 @@
               {
                 "href": "research/bilinear-tensor-optimization/",
                 "preview": "bilinear",
-                "tag": "LJK &middot; May to July 2024",
+                "tag": "LJK &middot; May to July 2024, and since",
                 "title": "Rank of bilinear maps",
-                "desc": "Supervised by Jean-Guillaume Dumas. Cuts 5&times;5 polynomial multiplication over GF(2) from 25 multiplications to 14."
+                "desc": "Supervised by Jean-Guillaume Dumas, then carried on alone. Twelve tools that decide a rank rather than propose one: 2&times;2 matrix multiplication at exactly 7, F2 5&times;5 polynomial multiplication at 13."
               },
               {
                 "href": "research/strategic-pricing/",
@@ -47,7 +47,7 @@
       {
         "type": "hero",
         "title": "Recherche",
-        "lede": "Deux stages encadrés, l'un en calcul formel, l'autre en économie industrielle. Les deux sont publiés intégralement, y compris les parties qui n'ont pas fonctionné."
+        "lede": "Deux stages encadrés, l'un en calcul formel, l'autre en économie industrielle, et la boîte à outils issue du premier. Les deux sont publiés intégralement, y compris les parties qui n'ont pas fonctionné."
       },
       {
         "type": "showcase",
@@ -61,9 +61,9 @@
               {
                 "href": "research/bilinear-tensor-optimization/",
                 "preview": "bilinear",
-                "tag": "LJK &middot; mai à juillet 2024",
+                "tag": "LJK &middot; mai à juillet 2024, et depuis",
                 "title": "Rang des applications bilinéaires",
-                "desc": "Encadré par Jean-Guillaume Dumas. Ramène la multiplication de polynômes 5&times;5 sur GF(2) de 25 multiplications à 14."
+                "desc": "Encadré par Jean-Guillaume Dumas, puis poursuivi seul. Douze outils qui décident un rang au lieu d'en proposer un : la multiplication de matrices 2&times;2 à exactement 7, les polynômes F2 5&times;5 à 13."
               },
               {
                 "href": "research/strategic-pricing/",

@@ -165,15 +165,15 @@ export const SETS = {
 
   bilinear: {
     caption: {
-      en: 'Multiplications falling, on four bilinear maps over F2 and F3',
-      fr: 'Les multiplications qui tombent, sur quatre applications bilinéaires sur F2 et F3',
+      en: 'Multiplications falling on four bilinear maps over F2 and F3, and the rank of the first since proved to be 13',
+      fr: "Les multiplications qui tombent sur quatre applications bilinéaires sur F2 et F3, et le rang de la première depuis démontré égal à 13",
     },
     images: [
       { src: 'anim-bilinear.svg', still: 'thumb-bilinear.svg', w: 400, h: 264,
         alt: { en: 'Cutting the multiplications a polynomial product needs',
                fr: "Réduire les multiplications qu'exige un produit de polynômes" },
-        result: { en: '25 multiplications down to 14',
-                  fr: 'de 25 multiplications à 14' } },
+        result: { en: '25 multiplications to 14, and the rank proved to be 13',
+                  fr: 'de 25 multiplications à 14, et le rang démontré égal à 13' } },
     ],
   },
 };
