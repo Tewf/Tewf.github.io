@@ -77,8 +77,8 @@ export const SETS = {
 
   'after-hours': {
     caption: {
-      en: 'Flappy Bird from raw pixels · sorting, rendered · 3-SAT over GF(2) · the French income tax · matrix algorithms',
-      fr: "Flappy Bird à partir des pixels bruts · les tris, rendus · 3-SAT sur GF(2) · l'impôt sur le revenu français · les algorithmes matriciels",
+      en: 'Flappy Bird from raw pixels · sorting, rendered · 3-SAT over GF(2) · integer programming · the French income tax · matrix algorithms',
+      fr: "Flappy Bird à partir des pixels bruts · les tris, rendus · 3-SAT sur GF(2) · la programmation en nombres entiers · l'impôt sur le revenu français · les algorithmes matriciels",
     },
     images: [
       { src: AH + 'thumbs/flappy_bird.webp', still: 'still-flappy.webp', w: 640, h: 480,
@@ -99,6 +99,11 @@ export const SETS = {
                fr: "Ce que coûte réellement l'impôt sur le revenu français, marginal contre moyen" },
         result: { en: 'inflection at €59,800',
                   fr: "point d'inflexion à 59 800 €" } },
+      { src: AH + 'thumbs/branch_and_bound.svg', lead: 5, w: 438, h: 452,
+        alt: { en: 'Branch and bound solving a knapsack in exact rationals',
+               fr: 'Séparation et évaluation résolvant un sac à dos en rationnels exacts' },
+        result: { en: '200 programmes, none disagreeing with enumeration',
+                  fr: '200 programmes, aucun en désaccord avec l\'énumération' } },
       { src: AH + 'thumbs/matrix_algorithms.png', lead: 8, w: 640, h: 480,
         alt: { en: 'An FFT written from scratch, checked against NumPy',
                fr: 'Une FFT écrite de zéro, vérifiée contre NumPy' },

@@ -315,29 +315,7 @@
       },
       {
         "type": "heading",
-        "text": "One format, two pictures"
-      },
-      {
-        "type": "prose",
-        "html": "An algorithm and the animation of it are separate programs here. A sort, or a branch and bound, runs under plain Python and emits a <em>trace</em>: a line per thing it did, in the vocabulary of the problem rather than of geometry. No coordinate, no colour and no frame number ever appears in one. Put a position in and it stops being a trace and becomes a scene graph wearing a trace&rsquo;s clothes."
-      },
-      {
-        "type": "prose",
-        "html": "That split is what lets CI check the algorithm actually did what the picture claims, which a video cannot show you. It also means a second renderer can tell the same run differently: the sorts are keyframed in Blender, and the tree below is drawn in SVG in your browser, from the same five verbs. The two agree about what happened and disagree about everything visual, which is the point."
-      },
-      {
-        "type": "figure",
-        "chart": {
-          "kind": "searchTree",
-          "trace": {
-            "$shared": "knapsack_trace"
-          }
-        },
-        "caption": "The branch and bound solving a four-item knapsack, replayed from its own trace. Drag the scrubber, or press play. A node is opened, bounded by its relaxation, and then pruned (grey), or found whole (gold), or split in two. The relaxation gives 44&frasl;5 at the root and the answer is 44, settled in nine nodes. Every bound is an exact rational: nothing here is ever a float, so a pruned branch provably cannot hold the answer."
-      },
-      {
-        "type": "heading",
-        "text": "The five"
+        "text": "The six"
       },
       {
         "type": "cards",
@@ -347,6 +325,12 @@
             "tag": "Site",
             "title": "Browse them all",
             "desc": "Every project on one page, with the animations and charts at full size."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Integer_Programming",
+            "tag": "Optimisation",
+            "title": "Integer programming, exactly",
+            "desc": "A two-phase simplex over exact rationals, then branch and bound. 200 random programmes agree with an enumeration of every whole point."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN",
@@ -367,18 +351,36 @@
             "desc": "FFT, Schur-complement determinant and an exact integer inverse, checked against NumPy to 1e-13."
           },
           {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
-            "tag": "Applied",
-            "title": "French income tax",
-            "desc": "The effective rate fitted per bracket, with Lambert W locating the inflection at 59 800 EUR."
-          },
-          {
             "href": "https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts",
             "tag": "Graphics",
             "title": "Sorting, rendered",
             "desc": "Bubble and merge sort keyframed through Blender's Python API so the access pattern is watchable."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
+            "tag": "Applied",
+            "title": "French income tax",
+            "desc": "The effective rate fitted per bracket, with Lambert W locating the inflection at 59 800 EUR."
           }
         ]
+      },
+      {
+        "type": "heading",
+        "text": "How the animations are checked"
+      },
+      {
+        "type": "prose",
+        "html": "The sorting animations and the branch and bound share one thing: the algorithm and the picture of it are separate programs. Each runs under plain Python and emits a <em>trace</em> \u2014 a line per thing it did, in the vocabulary of the problem, never of geometry. That is what lets CI check the algorithm actually did what the picture claims, which a video cannot show you, and it means two renderers can tell the same run differently. The sorts are keyframed in Blender; the tree below is drawn in SVG in your browser, from the same five verbs."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "searchTree",
+          "trace": {
+            "$shared": "knapsack_trace"
+          }
+        },
+        "caption": "The branch and bound solving a four-item knapsack, replayed from its own trace. Drag the scrubber, or press play. A node is opened, bounded by its relaxation, and then pruned (grey), or found whole (gold), or split in two. The relaxation gives 44&frasl;5 at the root and the answer is 44, settled in nine nodes. Every bound is an exact rational: nothing here is ever a float, so a pruned branch provably cannot hold the answer."
       },
       {
         "type": "caveat",
@@ -416,15 +418,62 @@
       },
       {
         "type": "heading",
-        "text": "Un format, deux images"
+        "text": "Les six"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/after-hours/",
+            "tag": "Site",
+            "title": "Les parcourir tous",
+            "desc": "Chaque projet sur une page, avec les animations et les graphiques en taille r\u00e9elle."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Integer_Programming",
+            "tag": "Optimisation",
+            "title": "Programmation en nombres entiers",
+            "desc": "Un simplexe en deux phases sur des rationnels exacts, puis s\u00e9paration et \u00e9valuation. 200 programmes tir\u00e9s au hasard donnent le m\u00eame optimum qu'une \u00e9num\u00e9ration de tous les points entiers."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN",
+            "tag": "Renforcement",
+            "title": "Flappy Bird \u00e0 partir des pixels",
+            "desc": "Un DQN atteignant 12,21 tuyaux en moyenne sur 100 \u00e9pisodes, et une ex\u00e9cution REINFORCE qui n'en a jamais franchi un, expliqu\u00e9e."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Groebner_Basis_SAT_Solver",
+            "tag": "Alg\u00e8bre",
+            "title": "3-SAT sur GF(2)",
+            "desc": "Les clauses comme polyn\u00f4mes dans l'anneau bool\u00e9en. 500 instances v\u00e9rifi\u00e9es contre une recherche exhaustive, sans aucun verdict erron\u00e9."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Linear_Algebra",
+            "tag": "Maths",
+            "title": "Algorithmes matriciels repris de z\u00e9ro",
+            "desc": "FFT, d\u00e9terminant par compl\u00e9ment de Schur et inverse entier exact, v\u00e9rifi\u00e9s contre NumPy \u00e0 1e-13."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts",
+            "tag": "Graphisme",
+            "title": "Les tris, rendus",
+            "desc": "Tri \u00e0 bulles et tri fusion anim\u00e9s image par image via l'API Python de Blender, de sorte que le motif d'acc\u00e8s soit observable."
+          },
+          {
+            "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
+            "tag": "Appliqu\u00e9",
+            "title": "L'imp\u00f4t sur le revenu fran\u00e7ais",
+            "desc": "Le taux effectif ajust\u00e9 par tranche, la fonction W de Lambert situant le point d'inflexion \u00e0 59 800 EUR."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Comment les animations sont v\u00e9rifi\u00e9es"
       },
       {
         "type": "prose",
-        "html": "Ici, un algorithme et son animation sont deux programmes distincts. Un tri, ou une s&eacute;paration et &eacute;valuation, s&rsquo;ex&eacute;cute en Python pur et &eacute;met une <em>trace</em> : une ligne par chose faite, dans le vocabulaire du probl&egrave;me et non dans celui de la g&eacute;om&eacute;trie. Aucune coordonn&eacute;e, aucune couleur, aucun num&eacute;ro d&rsquo;image n&rsquo;y figure jamais. Ajoutez-y une position et ce n&rsquo;est plus une trace : c&rsquo;est un graphe de sc&egrave;ne d&eacute;guis&eacute; en trace."
-      },
-      {
-        "type": "prose",
-        "html": "C&rsquo;est cette s&eacute;paration qui permet &agrave; l&rsquo;int&eacute;gration continue de v&eacute;rifier que l&rsquo;algorithme a bien fait ce que l&rsquo;image pr&eacute;tend, ce qu&rsquo;une vid&eacute;o ne montrera jamais. Elle permet aussi &agrave; un second moteur de rendu de raconter la m&ecirc;me ex&eacute;cution autrement : les tris sont anim&eacute;s par images cl&eacute;s dans Blender, l&rsquo;arbre ci-dessous est dessin&eacute; en SVG dans votre navigateur, &agrave; partir des m&ecirc;mes cinq verbes. Les deux s&rsquo;accordent sur ce qui s&rsquo;est pass&eacute; et divergent sur tout le visuel, et c&rsquo;est bien l&agrave; l&rsquo;int&eacute;r&ecirc;t."
+        "html": "Les animations de tri et la s\u00e9paration et \u00e9valuation partagent une chose : l&rsquo;algorithme et son image sont deux programmes distincts. Chacun s&rsquo;ex&eacute;cute en Python pur et &eacute;met une <em>trace</em> \u2014 une ligne par chose faite, dans le vocabulaire du probl&egrave;me, jamais dans celui de la g&eacute;om&eacute;trie. C&rsquo;est ce qui permet &agrave; l&rsquo;int&eacute;gration continue de v&eacute;rifier que l&rsquo;algorithme a bien fait ce que l&rsquo;image pr&eacute;tend, ce qu&rsquo;une vid&eacute;o ne montrera jamais, et deux moteurs de rendu peuvent raconter la m&ecirc;me ex&eacute;cution autrement. Les tris sont anim&eacute;s dans Blender ; l&rsquo;arbre ci-dessous est dessin&eacute; en SVG dans votre navigateur, &agrave; partir des m&ecirc;mes cinq verbes."
       },
       {
         "type": "figure",
@@ -451,51 +500,6 @@
           }
         },
         "caption": "La s&eacute;paration et &eacute;valuation r&eacute;solvant un sac &agrave; dos de quatre objets, rejou&eacute;e depuis sa propre trace. Faites glisser le curseur, ou lancez la lecture. Un n&oelig;ud est ouvert, born&eacute; par sa relaxation, puis &eacute;lagu&eacute; (gris), ou trouv&eacute; entier (or), ou coup&eacute; en deux. La relaxation donne 44&frasl;5 &agrave; la racine et la r&eacute;ponse est 44, r&eacute;gl&eacute;e en neuf n&oelig;uds. Chaque borne est un rationnel exact : rien ici n&rsquo;est jamais un flottant, donc une branche &eacute;lagu&eacute;e ne peut d&eacute;montrablement pas contenir la r&eacute;ponse."
-      },
-      {
-        "type": "heading",
-        "text": "Les cinq"
-      },
-      {
-        "type": "cards",
-        "items": [
-          {
-            "href": "https://tewf.github.io/after-hours/",
-            "tag": "Site",
-            "title": "Les parcourir tous",
-            "desc": "Chaque projet sur une page, avec les animations et les graphiques en taille r\u00e9elle."
-          },
-          {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN",
-            "tag": "Renforcement",
-            "title": "Flappy Bird \u00e0 partir des pixels",
-            "desc": "Un DQN atteignant 12,21 tuyaux en moyenne sur 100 \u00e9pisodes, et une ex\u00e9cution REINFORCE qui n'en a jamais franchi un, expliqu\u00e9e."
-          },
-          {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Groebner_Basis_SAT_Solver",
-            "tag": "Alg\u00e8bre",
-            "title": "3-SAT sur GF(2)",
-            "desc": "Les clauses comme polyn\u00f4mes dans l'anneau bool\u00e9en. 500 instances v\u00e9rifi\u00e9es contre une recherche exhaustive, sans aucun verdict erron\u00e9."
-          },
-          {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Linear_Algebra",
-            "tag": "Maths",
-            "title": "Algorithmes matriciels repris de z\u00e9ro",
-            "desc": "FFT, d\u00e9terminant par compl\u00e9ment de Schur et inverse entier exact, v\u00e9rifi\u00e9s contre NumPy \u00e0 1e-13."
-          },
-          {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
-            "tag": "Appliqu\u00e9",
-            "title": "L'imp\u00f4t sur le revenu fran\u00e7ais",
-            "desc": "Le taux effectif ajust\u00e9 par tranche, la fonction W de Lambert situant le point d'inflexion \u00e0 59 800 EUR."
-          },
-          {
-            "href": "https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts",
-            "tag": "Graphisme",
-            "title": "Les tris, rendus",
-            "desc": "Tri \u00e0 bulles et tri fusion anim\u00e9s image par image via l'API Python de Blender, de sorte que le motif d'acc\u00e8s soit observable."
-          }
-        ]
       },
       {
         "type": "caveat",
