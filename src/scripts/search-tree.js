@@ -14,6 +14,7 @@
 import { frame, svg } from './svg.js';
 
 const STEP_X = 74, STEP_Y = 78, RADIUS = 13, MARGIN = 30;
+const BOUND_DROP = 18;   // where a node's bound sits below it, and the last row's floor
 
 /* Outcome to the token that fills it. `open` is a node still being worked on,
    which is every node until the event that settles it arrives. */
@@ -122,12 +123,22 @@ export function searchTree(host, spec) {
   if (!order.length) return;
   const column = columns(children, order[0]);
 
+  const deepest = Math.max(...depth.values());
   const width = (Math.max(...column.values()) + 1) * STEP_X + 2 * MARGIN;
-  const height = (Math.max(...depth.values()) + 1) * STEP_Y + 2 * MARGIN;
+  /* Down to the last row's bound label and no further. Reserving a whole extra
+     STEP_Y below the deepest node left a band of empty viewBox, and because the
+     drawing is scaled to the column width that band came out twice the size it
+     is here: two hundred pixels of nothing between the tree and its scrubber. */
+  const height = MARGIN + 2 * RADIUS + deepest * STEP_Y + BOUND_DROP + MARGIN;
   const at = (name) => [MARGIN + RADIUS + column.get(name) * STEP_X,
                         MARGIN + RADIUS + depth.get(name) * STEP_Y];
 
   const picture = frame(width, height);
+  /* A nine-node tree stretched across a 920 px reading column gives nodes the
+     size of buttons. It stays responsive and stops growing a little past its
+     natural size, which is where the labels are still comfortable. */
+  picture.style.maxWidth = `${Math.round(width * 1.3)}px`;
+  picture.style.marginInline = 'auto';
   picture.setAttribute('aria-label',
     `${head.algorithm}: a search tree of ${order.length} nodes, ` +
     `${Math.max(...depth.values()) + 1} deep. The events it replays are listed below it.`);
