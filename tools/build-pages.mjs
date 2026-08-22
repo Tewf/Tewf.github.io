@@ -45,6 +45,30 @@ function assertPathIsServable (page) {
   }
 }
 
+/* `{"$shared": "key"}` anywhere in a page becomes `page.shared[key]`.
+
+   Language-independent data would otherwise be typed once per language. The
+   knapsack trace on the after-hours page is two kilobytes of it, and storing
+   the same twenty-five events under `en` and again under `fr` means a
+   regenerated trace has to be pasted into two places or the two pages quietly
+   replay different runs. Prose is translated and belongs per language; a run
+   is not, and does not. */
+function resolveShared (value, shared, where) {
+  if (Array.isArray(value)) return value.map((item) => resolveShared(item, shared, where));
+  if (value && typeof value === 'object') {
+    if (typeof value.$shared === 'string') {
+      if (!(value.$shared in shared)) {
+        throw new Error(`content page "${where}" refers to shared "${value.$shared}", ` +
+                        `which its "shared" block does not define.`);
+      }
+      return resolveShared(shared[value.$shared], shared, where);
+    }
+    return Object.fromEntries(Object.entries(value)
+      .map(([key, item]) => [key, resolveShared(item, shared, where)]));
+  }
+  return value;
+}
+
 export async function buildPages ({ out, strict = true } = {}) {
   const site = JSON.parse(await readFile(join(CONTENT, 'site.json'), 'utf8'));
   const files = await jsonFiles(join(CONTENT, 'pages'));
@@ -52,6 +76,13 @@ export async function buildPages ({ out, strict = true } = {}) {
 
   pages.sort((a, b) => a.path.localeCompare(b.path));
   pages.forEach(assertPathIsServable);
+  for (const page of pages) {
+    if (!page.shared) continue;
+    for (const key of Object.keys(page)) {
+      if (key === 'shared' || key === 'path') continue;
+      page[key] = resolveShared(page[key], page.shared, page.path);
+    }
+  }
 
   for (const page of pages) {
     if (!page[site.defaultLanguage]) {

@@ -1,5 +1,291 @@
 {
   "path": "work/after-hours/",
+  "shared": {
+    "knapsack_trace": {
+      "head": {
+        "schema": "trace/1",
+        "algorithm": "knapsack",
+        "world": "search",
+        "seed": null,
+        "config": {
+          "sense": "max",
+          "variables": 4,
+          "constraints": 1,
+          "integral": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "node_limit": 5000
+        }
+      },
+      "events": [
+        {
+          "t": 0,
+          "op": "open",
+          "ids": [
+            "n0"
+          ],
+          "attrs": {
+            "parent": null,
+            "depth": 0,
+            "branch": null
+          }
+        },
+        {
+          "t": 1,
+          "op": "bound",
+          "ids": [
+            "n0"
+          ],
+          "attrs": {
+            "value": "224/5"
+          }
+        },
+        {
+          "t": 2,
+          "op": "open",
+          "ids": [
+            "n1"
+          ],
+          "attrs": {
+            "parent": "n0",
+            "depth": 1,
+            "branch": "x0 <= 2"
+          }
+        },
+        {
+          "t": 3,
+          "op": "bound",
+          "ids": [
+            "n1"
+          ],
+          "attrs": {
+            "value": "312/7"
+          }
+        },
+        {
+          "t": 4,
+          "op": "open",
+          "ids": [
+            "n2"
+          ],
+          "attrs": {
+            "parent": "n1",
+            "depth": 2,
+            "branch": "x1 <= 0"
+          }
+        },
+        {
+          "t": 5,
+          "op": "bound",
+          "ids": [
+            "n2"
+          ],
+          "attrs": {
+            "value": "44"
+          }
+        },
+        {
+          "t": 6,
+          "op": "adopt",
+          "ids": [
+            "n2"
+          ],
+          "attrs": {
+            "value": "44",
+            "point": [
+              "2",
+              "0",
+              "1",
+              "0"
+            ]
+          }
+        },
+        {
+          "t": 7,
+          "op": "open",
+          "ids": [
+            "n3"
+          ],
+          "attrs": {
+            "parent": "n1",
+            "depth": 2,
+            "branch": "x1 >= 1"
+          }
+        },
+        {
+          "t": 8,
+          "op": "bound",
+          "ids": [
+            "n3"
+          ],
+          "attrs": {
+            "value": "222/5"
+          }
+        },
+        {
+          "t": 9,
+          "op": "open",
+          "ids": [
+            "n4"
+          ],
+          "attrs": {
+            "parent": "n3",
+            "depth": 3,
+            "branch": "x0 <= 1"
+          }
+        },
+        {
+          "t": 10,
+          "op": "bound",
+          "ids": [
+            "n4"
+          ],
+          "attrs": {
+            "value": "310/7"
+          }
+        },
+        {
+          "t": 11,
+          "op": "open",
+          "ids": [
+            "n5"
+          ],
+          "attrs": {
+            "parent": "n4",
+            "depth": 4,
+            "branch": "x1 <= 1"
+          }
+        },
+        {
+          "t": 12,
+          "op": "bound",
+          "ids": [
+            "n5"
+          ],
+          "attrs": {
+            "value": "44"
+          }
+        },
+        {
+          "t": 13,
+          "op": "prune",
+          "ids": [
+            "n5"
+          ],
+          "attrs": {
+            "why": "bounded"
+          }
+        },
+        {
+          "t": 14,
+          "op": "open",
+          "ids": [
+            "n6"
+          ],
+          "attrs": {
+            "parent": "n4",
+            "depth": 4,
+            "branch": "x1 >= 2"
+          }
+        },
+        {
+          "t": 15,
+          "op": "bound",
+          "ids": [
+            "n6"
+          ],
+          "attrs": {
+            "value": "44"
+          }
+        },
+        {
+          "t": 16,
+          "op": "prune",
+          "ids": [
+            "n6"
+          ],
+          "attrs": {
+            "why": "bounded"
+          }
+        },
+        {
+          "t": 17,
+          "op": "close",
+          "ids": [
+            "n4"
+          ]
+        },
+        {
+          "t": 18,
+          "op": "open",
+          "ids": [
+            "n7"
+          ],
+          "attrs": {
+            "parent": "n3",
+            "depth": 3,
+            "branch": "x0 >= 2"
+          }
+        },
+        {
+          "t": 19,
+          "op": "prune",
+          "ids": [
+            "n7"
+          ],
+          "attrs": {
+            "why": "infeasible"
+          }
+        },
+        {
+          "t": 20,
+          "op": "close",
+          "ids": [
+            "n3"
+          ]
+        },
+        {
+          "t": 21,
+          "op": "close",
+          "ids": [
+            "n1"
+          ]
+        },
+        {
+          "t": 22,
+          "op": "open",
+          "ids": [
+            "n8"
+          ],
+          "attrs": {
+            "parent": "n0",
+            "depth": 1,
+            "branch": "x0 >= 3"
+          }
+        },
+        {
+          "t": 23,
+          "op": "prune",
+          "ids": [
+            "n8"
+          ],
+          "attrs": {
+            "why": "infeasible"
+          }
+        },
+        {
+          "t": 24,
+          "op": "close",
+          "ids": [
+            "n0"
+          ]
+        }
+      ]
+    }
+  },
   "en": {
     "short": "after-hours",
     "title": "after-hours",
@@ -44,288 +330,7 @@
         "chart": {
           "kind": "searchTree",
           "trace": {
-            "head": {
-              "schema": "trace/1",
-              "algorithm": "knapsack",
-              "world": "search",
-              "seed": null,
-              "config": {
-                "sense": "max",
-                "variables": 4,
-                "constraints": 1,
-                "integral": [
-                  0,
-                  1,
-                  2,
-                  3
-                ],
-                "node_limit": 5000
-              }
-            },
-            "events": [
-              {
-                "t": 0,
-                "op": "open",
-                "ids": [
-                  "n0"
-                ],
-                "attrs": {
-                  "parent": null,
-                  "depth": 0,
-                  "branch": null
-                }
-              },
-              {
-                "t": 1,
-                "op": "bound",
-                "ids": [
-                  "n0"
-                ],
-                "attrs": {
-                  "value": "224/5"
-                }
-              },
-              {
-                "t": 2,
-                "op": "open",
-                "ids": [
-                  "n1"
-                ],
-                "attrs": {
-                  "parent": "n0",
-                  "depth": 1,
-                  "branch": "x0 <= 2"
-                }
-              },
-              {
-                "t": 3,
-                "op": "bound",
-                "ids": [
-                  "n1"
-                ],
-                "attrs": {
-                  "value": "312/7"
-                }
-              },
-              {
-                "t": 4,
-                "op": "open",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "parent": "n1",
-                  "depth": 2,
-                  "branch": "x1 <= 0"
-                }
-              },
-              {
-                "t": 5,
-                "op": "bound",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 6,
-                "op": "adopt",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "value": "44",
-                  "point": [
-                    "2",
-                    "0",
-                    "1",
-                    "0"
-                  ]
-                }
-              },
-              {
-                "t": 7,
-                "op": "open",
-                "ids": [
-                  "n3"
-                ],
-                "attrs": {
-                  "parent": "n1",
-                  "depth": 2,
-                  "branch": "x1 >= 1"
-                }
-              },
-              {
-                "t": 8,
-                "op": "bound",
-                "ids": [
-                  "n3"
-                ],
-                "attrs": {
-                  "value": "222/5"
-                }
-              },
-              {
-                "t": 9,
-                "op": "open",
-                "ids": [
-                  "n4"
-                ],
-                "attrs": {
-                  "parent": "n3",
-                  "depth": 3,
-                  "branch": "x0 <= 1"
-                }
-              },
-              {
-                "t": 10,
-                "op": "bound",
-                "ids": [
-                  "n4"
-                ],
-                "attrs": {
-                  "value": "310/7"
-                }
-              },
-              {
-                "t": 11,
-                "op": "open",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "parent": "n4",
-                  "depth": 4,
-                  "branch": "x1 <= 1"
-                }
-              },
-              {
-                "t": 12,
-                "op": "bound",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 13,
-                "op": "prune",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "why": "bounded"
-                }
-              },
-              {
-                "t": 14,
-                "op": "open",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "parent": "n4",
-                  "depth": 4,
-                  "branch": "x1 >= 2"
-                }
-              },
-              {
-                "t": 15,
-                "op": "bound",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 16,
-                "op": "prune",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "why": "bounded"
-                }
-              },
-              {
-                "t": 17,
-                "op": "close",
-                "ids": [
-                  "n4"
-                ]
-              },
-              {
-                "t": 18,
-                "op": "open",
-                "ids": [
-                  "n7"
-                ],
-                "attrs": {
-                  "parent": "n3",
-                  "depth": 3,
-                  "branch": "x0 >= 2"
-                }
-              },
-              {
-                "t": 19,
-                "op": "prune",
-                "ids": [
-                  "n7"
-                ],
-                "attrs": {
-                  "why": "infeasible"
-                }
-              },
-              {
-                "t": 20,
-                "op": "close",
-                "ids": [
-                  "n3"
-                ]
-              },
-              {
-                "t": 21,
-                "op": "close",
-                "ids": [
-                  "n1"
-                ]
-              },
-              {
-                "t": 22,
-                "op": "open",
-                "ids": [
-                  "n8"
-                ],
-                "attrs": {
-                  "parent": "n0",
-                  "depth": 1,
-                  "branch": "x0 >= 3"
-                }
-              },
-              {
-                "t": 23,
-                "op": "prune",
-                "ids": [
-                  "n8"
-                ],
-                "attrs": {
-                  "why": "infeasible"
-                }
-              },
-              {
-                "t": 24,
-                "op": "close",
-                "ids": [
-                  "n0"
-                ]
-              }
-            ]
+            "$shared": "knapsack_trace"
           }
         },
         "caption": "The branch and bound solving a four-item knapsack, replayed from its own trace. Drag the scrubber, or press play. A node is opened, bounded by its relaxation, and then pruned (grey), or found whole (gold), or split in two. The relaxation gives 44&frasl;5 at the root and the answer is 44, settled in nine nodes. Every bound is an exact rational: nothing here is ever a float, so a pruned branch provably cannot hold the answer."
@@ -426,288 +431,7 @@
         "chart": {
           "kind": "searchTree",
           "trace": {
-            "head": {
-              "schema": "trace/1",
-              "algorithm": "knapsack",
-              "world": "search",
-              "seed": null,
-              "config": {
-                "sense": "max",
-                "variables": 4,
-                "constraints": 1,
-                "integral": [
-                  0,
-                  1,
-                  2,
-                  3
-                ],
-                "node_limit": 5000
-              }
-            },
-            "events": [
-              {
-                "t": 0,
-                "op": "open",
-                "ids": [
-                  "n0"
-                ],
-                "attrs": {
-                  "parent": null,
-                  "depth": 0,
-                  "branch": null
-                }
-              },
-              {
-                "t": 1,
-                "op": "bound",
-                "ids": [
-                  "n0"
-                ],
-                "attrs": {
-                  "value": "224/5"
-                }
-              },
-              {
-                "t": 2,
-                "op": "open",
-                "ids": [
-                  "n1"
-                ],
-                "attrs": {
-                  "parent": "n0",
-                  "depth": 1,
-                  "branch": "x0 <= 2"
-                }
-              },
-              {
-                "t": 3,
-                "op": "bound",
-                "ids": [
-                  "n1"
-                ],
-                "attrs": {
-                  "value": "312/7"
-                }
-              },
-              {
-                "t": 4,
-                "op": "open",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "parent": "n1",
-                  "depth": 2,
-                  "branch": "x1 <= 0"
-                }
-              },
-              {
-                "t": 5,
-                "op": "bound",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 6,
-                "op": "adopt",
-                "ids": [
-                  "n2"
-                ],
-                "attrs": {
-                  "value": "44",
-                  "point": [
-                    "2",
-                    "0",
-                    "1",
-                    "0"
-                  ]
-                }
-              },
-              {
-                "t": 7,
-                "op": "open",
-                "ids": [
-                  "n3"
-                ],
-                "attrs": {
-                  "parent": "n1",
-                  "depth": 2,
-                  "branch": "x1 >= 1"
-                }
-              },
-              {
-                "t": 8,
-                "op": "bound",
-                "ids": [
-                  "n3"
-                ],
-                "attrs": {
-                  "value": "222/5"
-                }
-              },
-              {
-                "t": 9,
-                "op": "open",
-                "ids": [
-                  "n4"
-                ],
-                "attrs": {
-                  "parent": "n3",
-                  "depth": 3,
-                  "branch": "x0 <= 1"
-                }
-              },
-              {
-                "t": 10,
-                "op": "bound",
-                "ids": [
-                  "n4"
-                ],
-                "attrs": {
-                  "value": "310/7"
-                }
-              },
-              {
-                "t": 11,
-                "op": "open",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "parent": "n4",
-                  "depth": 4,
-                  "branch": "x1 <= 1"
-                }
-              },
-              {
-                "t": 12,
-                "op": "bound",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 13,
-                "op": "prune",
-                "ids": [
-                  "n5"
-                ],
-                "attrs": {
-                  "why": "bounded"
-                }
-              },
-              {
-                "t": 14,
-                "op": "open",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "parent": "n4",
-                  "depth": 4,
-                  "branch": "x1 >= 2"
-                }
-              },
-              {
-                "t": 15,
-                "op": "bound",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "value": "44"
-                }
-              },
-              {
-                "t": 16,
-                "op": "prune",
-                "ids": [
-                  "n6"
-                ],
-                "attrs": {
-                  "why": "bounded"
-                }
-              },
-              {
-                "t": 17,
-                "op": "close",
-                "ids": [
-                  "n4"
-                ]
-              },
-              {
-                "t": 18,
-                "op": "open",
-                "ids": [
-                  "n7"
-                ],
-                "attrs": {
-                  "parent": "n3",
-                  "depth": 3,
-                  "branch": "x0 >= 2"
-                }
-              },
-              {
-                "t": 19,
-                "op": "prune",
-                "ids": [
-                  "n7"
-                ],
-                "attrs": {
-                  "why": "infeasible"
-                }
-              },
-              {
-                "t": 20,
-                "op": "close",
-                "ids": [
-                  "n3"
-                ]
-              },
-              {
-                "t": 21,
-                "op": "close",
-                "ids": [
-                  "n1"
-                ]
-              },
-              {
-                "t": 22,
-                "op": "open",
-                "ids": [
-                  "n8"
-                ],
-                "attrs": {
-                  "parent": "n0",
-                  "depth": 1,
-                  "branch": "x0 >= 3"
-                }
-              },
-              {
-                "t": 23,
-                "op": "prune",
-                "ids": [
-                  "n8"
-                ],
-                "attrs": {
-                  "why": "infeasible"
-                }
-              },
-              {
-                "t": 24,
-                "op": "close",
-                "ids": [
-                  "n0"
-                ]
-              }
-            ]
+            "$shared": "knapsack_trace"
           },
           "words": {
             "play": "Lecture",
