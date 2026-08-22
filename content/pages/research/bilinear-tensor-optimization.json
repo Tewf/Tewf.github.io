@@ -75,7 +75,7 @@
       },
       {
         "type": "prose",
-        "html": "The internship&rsquo;s second strand is a strand here too. Sparsifying the operators is the cost the multiplication count misses: fewer nonzero entries means fewer additions. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong> and an alternative-basis operator from 21 to 10, in milliseconds, which takes Strassen&rsquo;s 18 additions to 12. The source article reported no measured result for this operator, only that its program took too long for a simple problem. Source: <code>matrix_sparsification/README.md</code>."
+        "html": "The internship&rsquo;s second strand is a strand here too. Sparsifying the operators is the cost the multiplication count misses: fewer nonzero entries means fewer additions. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong> and an alternative-basis operator from 21 to 10, which takes Strassen&rsquo;s 18 additions to 12. Ten is not the best found but the <strong>least any change of basis can leave</strong>: choosing the sparsest basis of a subspace is a matroid problem, and a greedy returns a minimum-weight basis of any matroid. On the operators of a published rank-23 &#10216;3,3,3&#10217; scheme that is <strong>221 nonzeros to 128</strong>, against 167 for <a href=\"https://github.com/jgdumas/plinopt\">PLinOpt</a>, the field&rsquo;s reference implementation, whose search is bounded to four rows of support with eleven coefficients. One &#10216;4,4,4&#10217; operator is past searching altogether &mdash; fourteen million column subsets at weight six &mdash; and is answered instead by one linear programme per coordinate, in exact rationals, at 100 nonzeros in a third of a second. Source: <code>matrix_sparsification/against-plinopt.md</code>."
       },
       {
         "type": "heading",
@@ -202,7 +202,7 @@
   "fr": {
     "short": "Rang bilinéaire",
     "title": "Rang des applications bilinéaires",
-    "description": "Rang exact des tenseurs et des applications bilinéaires sur les corps finis : douze outils, dix volets. Le rang de la multiplication de matrices 2x2 est décidé à exactement 7 et celui de la multiplication de polynômes 5x5 sur GF(2) à 13, des deux côtés. Né d'un stage au LJK encadré par Jean-Guillaume Dumas.",
+    "description": "Rang exact des tenseurs et des applications bilinéaires sur les corps finis : treize outils, dix volets. Le rang de la multiplication de matrices 2x2 est décidé à exactement 7 et celui de la multiplication de polynômes 5x5 sur GF(2) à 13, des deux côtés. Né d'un stage au LJK encadré par Jean-Guillaume Dumas.",
     "blocks": [
       {
         "type": "hero",
@@ -270,11 +270,11 @@
       },
       {
         "type": "prose",
-        "html": "Cette descente n'est qu'un volet sur dix. <code>tensor-rank-toolkit</code> attaque la même question par dix directions avec <strong>douze outils en ligne de commande</strong>, chacun répondant à une question qu'aucun autre ne traite : la descente bon marché, une recherche exhaustive qui rend une preuve, des bornes inférieures sans aucune recherche, un codage SAT dont les réfutations sont écrites en DRAT et revérifiées par <code>drat-trim</code>, un quotient par le groupe de symétries, une énumération sans isomorphes, et une forme canonique pour les tenseurs à deux tranches qui traite un faisceau 4&times;4 en une cinquantaine de microsecondes, en temps polynomial. Sources : <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
+        "html": "Cette descente n'est qu'un volet sur dix. <code>tensor-rank-toolkit</code> attaque la même question par dix directions avec <strong>treize outils en ligne de commande</strong>, chacun répondant à une question qu'aucun autre ne traite : la descente bon marché, une recherche exhaustive qui rend une preuve, des bornes inférieures sans aucune recherche, un codage SAT dont les réfutations sont écrites en DRAT et revérifiées par <code>drat-trim</code>, un quotient par le groupe de symétries, une énumération sans isomorphes, et une forme canonique pour les tenseurs à deux tranches qui traite un faisceau 4&times;4 en une cinquantaine de microsecondes, en temps polynomial. Sources : <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
       },
       {
         "type": "prose",
-        "html": "Le second volet du stage est ici un volet à part entière. Rendre creux les opérateurs, c'est le coût que le décompte des multiplications ignore : moins de coefficients non nuls signifie moins d'additions. Les deux opérateurs d'encodage de Strassen passent de <strong>12 coefficients non nuls à 10</strong> et un opérateur en base alternative de 21 à 10, en quelques millisecondes, ce qui ramène les 18 additions de Strassen à 12. L'article d'origine ne rapportait aucun résultat mesuré sur cet opérateur, seulement que son programme prenait trop de temps pour un problème simple. Source : <code>matrix_sparsification/README.md</code>."
+        "html": "Le second volet du stage est ici un volet à part entière. Rendre creux les opérateurs, c'est le coût que le décompte des multiplications ignore : moins de coefficients non nuls signifie moins d'additions. Les deux opérateurs d'encodage de Strassen passent de <strong>12 coefficients non nuls à 10</strong> et un opérateur en base alternative de 21 à 10, ce qui ramène les 18 additions de Strassen à 12. Dix n'est pas le meilleur résultat trouvé mais le <strong>minimum que tout changement de base peut atteindre</strong> : choisir la base la plus creuse d'un sous-espace est un problème de matroïde, et un algorithme glouton y rend une base de poids minimal. Sur les opérateurs d'un schéma &#10216;3,3,3&#10217; de rang 23 déjà publié, cela fait <strong>221 non-nuls à 128</strong>, contre 167 pour <a href=\"https://github.com/jgdumas/plinopt\">PLinOpt</a>, l'implémentation de référence du domaine, dont la recherche est bornée à quatre lignes de support et onze coefficients. Un opérateur &#10216;4,4,4&#10217; est hors de portée de toute énumération &mdash; quatorze millions de sous-ensembles de colonnes au poids six &mdash; et se traite plutôt par un programme linéaire par coordonnée, en rationnels exacts, à 100 non-nuls en un tiers de seconde. Source : <code>matrix_sparsification/against-plinopt.md</code>."
       },
       {
         "type": "heading",
@@ -380,7 +380,7 @@
             "href": "https://github.com/Tewf/tensor-rank-toolkit",
             "tag": "Dépôt",
             "title": "Source et tests",
-            "desc": "C++20 sur Givaro, douze outils, licence MIT. Chaque décompte de cette page est asserti par la suite de tests et rejoué par l'intégration continue."
+            "desc": "C++20 sur Givaro, treize outils, licence MIT. Chaque décompte de cette page est asserti par la suite de tests et rejoué par l'intégration continue."
           },
           {
             "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
