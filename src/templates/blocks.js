@@ -58,6 +58,15 @@ const cards = (b, ctx) => `
 const chartRows = (chart) => {
   if (chart.kind === 'beforeAfter') return chart.rows.map((r) => [r.label, r.from, r.to]);
   if (chart.kind === 'logBars') return chart.rows.map((r) => [r.label, r.display ?? r.value]);
+  /* The tree's fallback is the trace itself, one row per event, which is what
+     the picture is a reading of. A reader without JavaScript gets the run rather
+     than a caption describing a box they cannot see. */
+  if (chart.kind === 'searchTree') {
+    return chart.trace.events.map((e) => [
+      e.t, e.op, e.ids[0],
+      Object.entries(e.attrs ?? {}).filter(([, v]) => v !== null)
+        .map(([k, v]) => `${k} ${v}`).join(', ')]);
+  }
   return null;
 };
 

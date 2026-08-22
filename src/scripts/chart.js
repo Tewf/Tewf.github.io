@@ -1,17 +1,7 @@
 /* Two SVG charts, drawn by hand. No library, no build step, no CDN.
    Colours come from the CSS custom properties so the charts follow the theme. */
 
-const NS = 'http://www.w3.org/2000/svg';
-
-function svg(tag, attrs = {}) {
-  const n = document.createElementNS(NS, tag);
-  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
-  return n;
-}
-
-function frame(w, h) {
-  return svg('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img', preserveAspectRatio: 'xMidYMid meet' });
-}
+import { frame, svg } from './svg.js';
 
 /**
  * Paired bars: the same quantity before and after, one row per case.

@@ -6,8 +6,9 @@
 import { mountPreview } from './scripts/preview.js';
 import { resolveSets } from './scripts/previews.js';
 import { beforeAfter, logBars } from './scripts/chart.js';
+import { searchTree } from './scripts/search-tree.js';
 
-const CHARTS = { beforeAfter, logBars };
+const CHARTS = { beforeAfter, logBars, searchTree };
 
 const panel = document.querySelector('[data-preview-panel]');
 if (panel) {

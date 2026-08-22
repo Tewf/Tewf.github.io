@@ -283,6 +283,22 @@ svg .bar { fill: var(--muted); }
 svg .bar.alt { fill: var(--ink); }
 svg .grid-line { stroke: var(--line); stroke-width: 1; }
 
+/* ---------- the search tree's scrubber ---------- */
+/* A range input is the whole interaction: it is keyboard-operable everywhere
+   without a line of script, which a row of custom step buttons would not be. */
+.scrub-row { display: flex; align-items: center; gap: .8rem; margin-top: .9rem; }
+.scrub { flex: 1; accent-color: var(--ink); min-width: 0; }
+.scrub-play {
+  font: inherit; font-size: .82rem; cursor: pointer;
+  padding: .34rem .95rem; border-radius: var(--pill);
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.scrub-play:hover { border-color: var(--dim); }
+.scrub-said {
+  font-family: var(--mono); font-size: .78rem; color: var(--muted);
+  margin: .5rem 0 0; min-height: 1.4em;
+}
+
 /* ---------- the surfaces a browser would otherwise theme itself ---------- */
 
 ::selection { background: var(--ink); color: var(--paper); }

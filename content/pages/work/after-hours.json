@@ -29,6 +29,309 @@
       },
       {
         "type": "heading",
+        "text": "One format, two pictures"
+      },
+      {
+        "type": "prose",
+        "html": "An algorithm and the animation of it are separate programs here. A sort, or a branch and bound, runs under plain Python and emits a <em>trace</em>: a line per thing it did, in the vocabulary of the problem rather than of geometry. No coordinate, no colour and no frame number ever appears in one. Put a position in and it stops being a trace and becomes a scene graph wearing a trace&rsquo;s clothes."
+      },
+      {
+        "type": "prose",
+        "html": "That split is what lets CI check the algorithm actually did what the picture claims, which a video cannot show you. It also means a second renderer can tell the same run differently: the sorts are keyframed in Blender, and the tree below is drawn in SVG in your browser, from the same five verbs. The two agree about what happened and disagree about everything visual, which is the point."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "searchTree",
+          "trace": {
+            "head": {
+              "schema": "trace/1",
+              "algorithm": "knapsack",
+              "world": "search",
+              "seed": null,
+              "config": {
+                "sense": "max",
+                "variables": 4,
+                "constraints": 1,
+                "integral": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "node_limit": 5000
+              }
+            },
+            "events": [
+              {
+                "t": 0,
+                "op": "open",
+                "ids": [
+                  "n0"
+                ],
+                "attrs": {
+                  "parent": null,
+                  "depth": 0,
+                  "branch": null
+                }
+              },
+              {
+                "t": 1,
+                "op": "bound",
+                "ids": [
+                  "n0"
+                ],
+                "attrs": {
+                  "value": "224/5"
+                }
+              },
+              {
+                "t": 2,
+                "op": "open",
+                "ids": [
+                  "n1"
+                ],
+                "attrs": {
+                  "parent": "n0",
+                  "depth": 1,
+                  "branch": "x0 <= 2"
+                }
+              },
+              {
+                "t": 3,
+                "op": "bound",
+                "ids": [
+                  "n1"
+                ],
+                "attrs": {
+                  "value": "312/7"
+                }
+              },
+              {
+                "t": 4,
+                "op": "open",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "parent": "n1",
+                  "depth": 2,
+                  "branch": "x1 <= 0"
+                }
+              },
+              {
+                "t": 5,
+                "op": "bound",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 6,
+                "op": "adopt",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "value": "44",
+                  "point": [
+                    "2",
+                    "0",
+                    "1",
+                    "0"
+                  ]
+                }
+              },
+              {
+                "t": 7,
+                "op": "open",
+                "ids": [
+                  "n3"
+                ],
+                "attrs": {
+                  "parent": "n1",
+                  "depth": 2,
+                  "branch": "x1 >= 1"
+                }
+              },
+              {
+                "t": 8,
+                "op": "bound",
+                "ids": [
+                  "n3"
+                ],
+                "attrs": {
+                  "value": "222/5"
+                }
+              },
+              {
+                "t": 9,
+                "op": "open",
+                "ids": [
+                  "n4"
+                ],
+                "attrs": {
+                  "parent": "n3",
+                  "depth": 3,
+                  "branch": "x0 <= 1"
+                }
+              },
+              {
+                "t": 10,
+                "op": "bound",
+                "ids": [
+                  "n4"
+                ],
+                "attrs": {
+                  "value": "310/7"
+                }
+              },
+              {
+                "t": 11,
+                "op": "open",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "parent": "n4",
+                  "depth": 4,
+                  "branch": "x1 <= 1"
+                }
+              },
+              {
+                "t": 12,
+                "op": "bound",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 13,
+                "op": "prune",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "why": "bounded"
+                }
+              },
+              {
+                "t": 14,
+                "op": "open",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "parent": "n4",
+                  "depth": 4,
+                  "branch": "x1 >= 2"
+                }
+              },
+              {
+                "t": 15,
+                "op": "bound",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 16,
+                "op": "prune",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "why": "bounded"
+                }
+              },
+              {
+                "t": 17,
+                "op": "close",
+                "ids": [
+                  "n4"
+                ]
+              },
+              {
+                "t": 18,
+                "op": "open",
+                "ids": [
+                  "n7"
+                ],
+                "attrs": {
+                  "parent": "n3",
+                  "depth": 3,
+                  "branch": "x0 >= 2"
+                }
+              },
+              {
+                "t": 19,
+                "op": "prune",
+                "ids": [
+                  "n7"
+                ],
+                "attrs": {
+                  "why": "infeasible"
+                }
+              },
+              {
+                "t": 20,
+                "op": "close",
+                "ids": [
+                  "n3"
+                ]
+              },
+              {
+                "t": 21,
+                "op": "close",
+                "ids": [
+                  "n1"
+                ]
+              },
+              {
+                "t": 22,
+                "op": "open",
+                "ids": [
+                  "n8"
+                ],
+                "attrs": {
+                  "parent": "n0",
+                  "depth": 1,
+                  "branch": "x0 >= 3"
+                }
+              },
+              {
+                "t": 23,
+                "op": "prune",
+                "ids": [
+                  "n8"
+                ],
+                "attrs": {
+                  "why": "infeasible"
+                }
+              },
+              {
+                "t": 24,
+                "op": "close",
+                "ids": [
+                  "n0"
+                ]
+              }
+            ]
+          }
+        },
+        "caption": "The branch and bound solving a four-item knapsack, replayed from its own trace. Drag the scrubber, or press play. A node is opened, bounded by its relaxation, and then pruned (grey), or found whole (gold), or split in two. The relaxation gives 44&frasl;5 at the root and the answer is 44, settled in nine nodes. Every bound is an exact rational: nothing here is ever a float, so a pruned branch provably cannot hold the answer."
+      },
+      {
+        "type": "heading",
         "text": "The five"
       },
       {
@@ -82,12 +385,12 @@
   "fr": {
     "short": "after-hours",
     "title": "after-hours",
-    "description": "after-hours : un CNN pour Flappy Bird, un solveur 3-SAT sur GF(2), des algorithmes matriciels repris de zéro, des tris animés dans Blender, et l'impôt sur le revenu français modélisé avec la fonction W de Lambert.",
+    "description": "after-hours : un CNN pour Flappy Bird, un solveur 3-SAT sur GF(2), des algorithmes matriciels repris de z\u00e9ro, des tris anim\u00e9s dans Blender, et l'imp\u00f4t sur le revenu fran\u00e7ais mod\u00e9lis\u00e9 avec la fonction W de Lambert.",
     "blocks": [
       {
         "type": "hero",
         "title": "Ce que je construis en dehors des cours",
-        "lede": "Cinq projets autonomes en apprentissage automatique, calcul formel et mathématiques appliquées. Personne ne les a demandés, chaque chiffre est produit par du code présent dans le dépôt, et l'intégration continue rejoue les vérifications à chaque envoi."
+        "lede": "Cinq projets autonomes en apprentissage automatique, calcul formel et math\u00e9matiques appliqu\u00e9es. Personne ne les a demand\u00e9s, chaque chiffre est produit par du code pr\u00e9sent dans le d\u00e9p\u00f4t, et l'int\u00e9gration continue rejoue les v\u00e9rifications \u00e0 chaque envoi."
       },
       {
         "type": "preview",
@@ -96,15 +399,334 @@
       },
       {
         "type": "heading",
-        "text": "Celui qui mérite d'être raconté"
+        "text": "Celui qui m\u00e9rite d'\u00eatre racont\u00e9"
       },
       {
         "type": "prose",
-        "html": "Un réseau convolutif apprenant Flappy Bird à partir des seules images rendues. Le plus grand gain de tout le projet est venu de l'observation et non d'un hyperparamètre. Réduire une image à un seul canal est courant, et la façon courante est un niveau de gris de luminance, mais l'oiseau est jaune et le ciel bleu clair, et ces deux couleurs sont presque équiluminantes : mesuré sur les sprites, l'oiseau se détache du ciel de 22 niveaux sur 255 en luminance, et de 181 dans le canal bleu."
+        "html": "Un r\u00e9seau convolutif apprenant Flappy Bird \u00e0 partir des seules images rendues. Le plus grand gain de tout le projet est venu de l'observation et non d'un hyperparam\u00e8tre. R\u00e9duire une image \u00e0 un seul canal est courant, et la fa\u00e7on courante est un niveau de gris de luminance, mais l'oiseau est jaune et le ciel bleu clair, et ces deux couleurs sont presque \u00e9quiluminantes : mesur\u00e9 sur les sprites, l'oiseau se d\u00e9tache du ciel de 22 niveaux sur 255 en luminance, et de 181 dans le canal bleu."
       },
       {
         "type": "prose",
-        "html": "Le niveau de gris livrait les obstacles à trois fois le contraste de l'oiseau lui-même, qui est pourtant l'objet dont la politique a le plus besoin de connaître la position. Tout le reste étant tenu fixe, même graine et mêmes hyperparamètres, prendre le canal bleu à la place a fait passer l'agent de <strong>0,4 tuyau à 12,65</strong> à 250 000 pas. L'exécution en niveau de gris n'a jamais dépassé 0,8 en 420 000 pas."
+        "html": "Le niveau de gris livrait les obstacles \u00e0 trois fois le contraste de l'oiseau lui-m\u00eame, qui est pourtant l'objet dont la politique a le plus besoin de conna\u00eetre la position. Tout le reste \u00e9tant tenu fixe, m\u00eame graine et m\u00eames hyperparam\u00e8tres, prendre le canal bleu \u00e0 la place a fait passer l'agent de <strong>0,4 tuyau \u00e0 12,65</strong> \u00e0 250 000 pas. L'ex\u00e9cution en niveau de gris n'a jamais d\u00e9pass\u00e9 0,8 en 420 000 pas."
+      },
+      {
+        "type": "heading",
+        "text": "Un format, deux images"
+      },
+      {
+        "type": "prose",
+        "html": "Ici, un algorithme et son animation sont deux programmes distincts. Un tri, ou une s&eacute;paration et &eacute;valuation, s&rsquo;ex&eacute;cute en Python pur et &eacute;met une <em>trace</em> : une ligne par chose faite, dans le vocabulaire du probl&egrave;me et non dans celui de la g&eacute;om&eacute;trie. Aucune coordonn&eacute;e, aucune couleur, aucun num&eacute;ro d&rsquo;image n&rsquo;y figure jamais. Ajoutez-y une position et ce n&rsquo;est plus une trace : c&rsquo;est un graphe de sc&egrave;ne d&eacute;guis&eacute; en trace."
+      },
+      {
+        "type": "prose",
+        "html": "C&rsquo;est cette s&eacute;paration qui permet &agrave; l&rsquo;int&eacute;gration continue de v&eacute;rifier que l&rsquo;algorithme a bien fait ce que l&rsquo;image pr&eacute;tend, ce qu&rsquo;une vid&eacute;o ne montrera jamais. Elle permet aussi &agrave; un second moteur de rendu de raconter la m&ecirc;me ex&eacute;cution autrement : les tris sont anim&eacute;s par images cl&eacute;s dans Blender, l&rsquo;arbre ci-dessous est dessin&eacute; en SVG dans votre navigateur, &agrave; partir des m&ecirc;mes cinq verbes. Les deux s&rsquo;accordent sur ce qui s&rsquo;est pass&eacute; et divergent sur tout le visuel, et c&rsquo;est bien l&agrave; l&rsquo;int&eacute;r&ecirc;t."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "searchTree",
+          "trace": {
+            "head": {
+              "schema": "trace/1",
+              "algorithm": "knapsack",
+              "world": "search",
+              "seed": null,
+              "config": {
+                "sense": "max",
+                "variables": 4,
+                "constraints": 1,
+                "integral": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "node_limit": 5000
+              }
+            },
+            "events": [
+              {
+                "t": 0,
+                "op": "open",
+                "ids": [
+                  "n0"
+                ],
+                "attrs": {
+                  "parent": null,
+                  "depth": 0,
+                  "branch": null
+                }
+              },
+              {
+                "t": 1,
+                "op": "bound",
+                "ids": [
+                  "n0"
+                ],
+                "attrs": {
+                  "value": "224/5"
+                }
+              },
+              {
+                "t": 2,
+                "op": "open",
+                "ids": [
+                  "n1"
+                ],
+                "attrs": {
+                  "parent": "n0",
+                  "depth": 1,
+                  "branch": "x0 <= 2"
+                }
+              },
+              {
+                "t": 3,
+                "op": "bound",
+                "ids": [
+                  "n1"
+                ],
+                "attrs": {
+                  "value": "312/7"
+                }
+              },
+              {
+                "t": 4,
+                "op": "open",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "parent": "n1",
+                  "depth": 2,
+                  "branch": "x1 <= 0"
+                }
+              },
+              {
+                "t": 5,
+                "op": "bound",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 6,
+                "op": "adopt",
+                "ids": [
+                  "n2"
+                ],
+                "attrs": {
+                  "value": "44",
+                  "point": [
+                    "2",
+                    "0",
+                    "1",
+                    "0"
+                  ]
+                }
+              },
+              {
+                "t": 7,
+                "op": "open",
+                "ids": [
+                  "n3"
+                ],
+                "attrs": {
+                  "parent": "n1",
+                  "depth": 2,
+                  "branch": "x1 >= 1"
+                }
+              },
+              {
+                "t": 8,
+                "op": "bound",
+                "ids": [
+                  "n3"
+                ],
+                "attrs": {
+                  "value": "222/5"
+                }
+              },
+              {
+                "t": 9,
+                "op": "open",
+                "ids": [
+                  "n4"
+                ],
+                "attrs": {
+                  "parent": "n3",
+                  "depth": 3,
+                  "branch": "x0 <= 1"
+                }
+              },
+              {
+                "t": 10,
+                "op": "bound",
+                "ids": [
+                  "n4"
+                ],
+                "attrs": {
+                  "value": "310/7"
+                }
+              },
+              {
+                "t": 11,
+                "op": "open",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "parent": "n4",
+                  "depth": 4,
+                  "branch": "x1 <= 1"
+                }
+              },
+              {
+                "t": 12,
+                "op": "bound",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 13,
+                "op": "prune",
+                "ids": [
+                  "n5"
+                ],
+                "attrs": {
+                  "why": "bounded"
+                }
+              },
+              {
+                "t": 14,
+                "op": "open",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "parent": "n4",
+                  "depth": 4,
+                  "branch": "x1 >= 2"
+                }
+              },
+              {
+                "t": 15,
+                "op": "bound",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "value": "44"
+                }
+              },
+              {
+                "t": 16,
+                "op": "prune",
+                "ids": [
+                  "n6"
+                ],
+                "attrs": {
+                  "why": "bounded"
+                }
+              },
+              {
+                "t": 17,
+                "op": "close",
+                "ids": [
+                  "n4"
+                ]
+              },
+              {
+                "t": 18,
+                "op": "open",
+                "ids": [
+                  "n7"
+                ],
+                "attrs": {
+                  "parent": "n3",
+                  "depth": 3,
+                  "branch": "x0 >= 2"
+                }
+              },
+              {
+                "t": 19,
+                "op": "prune",
+                "ids": [
+                  "n7"
+                ],
+                "attrs": {
+                  "why": "infeasible"
+                }
+              },
+              {
+                "t": 20,
+                "op": "close",
+                "ids": [
+                  "n3"
+                ]
+              },
+              {
+                "t": 21,
+                "op": "close",
+                "ids": [
+                  "n1"
+                ]
+              },
+              {
+                "t": 22,
+                "op": "open",
+                "ids": [
+                  "n8"
+                ],
+                "attrs": {
+                  "parent": "n0",
+                  "depth": 1,
+                  "branch": "x0 >= 3"
+                }
+              },
+              {
+                "t": 23,
+                "op": "prune",
+                "ids": [
+                  "n8"
+                ],
+                "attrs": {
+                  "why": "infeasible"
+                }
+              },
+              {
+                "t": 24,
+                "op": "close",
+                "ids": [
+                  "n0"
+                ]
+              }
+            ]
+          },
+          "words": {
+            "play": "Lecture",
+            "pause": "Pause",
+            "step": "{step} sur {total} : ",
+            "nothing": "rien encore",
+            "open": "ouvre {node}, la branche o\u00f9 {branch}",
+            "openRoot": "ouvre {node}, le probl\u00e8me entier",
+            "bound": "{node} se rel\u00e2che \u00e0 {value}",
+            "adopt": "{node} est entier \u00e0 {value}, le meilleur jusqu'ici",
+            "close": "{node} est fini, ses deux branches parcourues",
+            "bounded": "{node} \u00e9lagu\u00e9 : ne peut pas battre le meilleur d\u00e9j\u00e0 trouv\u00e9",
+            "infeasible": "{node} \u00e9lagu\u00e9 : aucun point ne le satisfait",
+            "unbounded": "{node} \u00e9lagu\u00e9 : non born\u00e9",
+            "limit": "{node} \u00e9lagu\u00e9 : le budget de n\u0153uds est \u00e9puis\u00e9",
+            "otherwise": "{node} \u00e9lagu\u00e9 : {value}"
+          }
+        },
+        "caption": "La s&eacute;paration et &eacute;valuation r&eacute;solvant un sac &agrave; dos de quatre objets, rejou&eacute;e depuis sa propre trace. Faites glisser le curseur, ou lancez la lecture. Un n&oelig;ud est ouvert, born&eacute; par sa relaxation, puis &eacute;lagu&eacute; (gris), ou trouv&eacute; entier (or), ou coup&eacute; en deux. La relaxation donne 44&frasl;5 &agrave; la racine et la r&eacute;ponse est 44, r&eacute;gl&eacute;e en neuf n&oelig;uds. Chaque borne est un rationnel exact : rien ici n&rsquo;est jamais un flottant, donc une branche &eacute;lagu&eacute;e ne peut d&eacute;montrablement pas contenir la r&eacute;ponse."
       },
       {
         "type": "heading",
@@ -117,44 +739,44 @@
             "href": "https://tewf.github.io/after-hours/",
             "tag": "Site",
             "title": "Les parcourir tous",
-            "desc": "Chaque projet sur une page, avec les animations et les graphiques en taille réelle."
+            "desc": "Chaque projet sur une page, avec les animations et les graphiques en taille r\u00e9elle."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Flappy_Bird_CNN",
             "tag": "Renforcement",
-            "title": "Flappy Bird à partir des pixels",
-            "desc": "Un DQN atteignant 12,21 tuyaux en moyenne sur 100 épisodes, et une exécution REINFORCE qui n'en a jamais franchi un, expliquée."
+            "title": "Flappy Bird \u00e0 partir des pixels",
+            "desc": "Un DQN atteignant 12,21 tuyaux en moyenne sur 100 \u00e9pisodes, et une ex\u00e9cution REINFORCE qui n'en a jamais franchi un, expliqu\u00e9e."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Groebner_Basis_SAT_Solver",
-            "tag": "Algèbre",
+            "tag": "Alg\u00e8bre",
             "title": "3-SAT sur GF(2)",
-            "desc": "Les clauses comme polynômes dans l'anneau booléen. 500 instances vérifiées contre une recherche exhaustive, sans aucun verdict erroné."
+            "desc": "Les clauses comme polyn\u00f4mes dans l'anneau bool\u00e9en. 500 instances v\u00e9rifi\u00e9es contre une recherche exhaustive, sans aucun verdict erron\u00e9."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Linear_Algebra",
             "tag": "Maths",
-            "title": "Algorithmes matriciels repris de zéro",
-            "desc": "FFT, déterminant par complément de Schur et inverse entier exact, vérifiés contre NumPy à 1e-13."
+            "title": "Algorithmes matriciels repris de z\u00e9ro",
+            "desc": "FFT, d\u00e9terminant par compl\u00e9ment de Schur et inverse entier exact, v\u00e9rifi\u00e9s contre NumPy \u00e0 1e-13."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Taxes",
-            "tag": "Appliqué",
-            "title": "L'impôt sur le revenu français",
-            "desc": "Le taux effectif ajusté par tranche, la fonction W de Lambert situant le point d'inflexion à 59 800 EUR."
+            "tag": "Appliqu\u00e9",
+            "title": "L'imp\u00f4t sur le revenu fran\u00e7ais",
+            "desc": "Le taux effectif ajust\u00e9 par tranche, la fonction W de Lambert situant le point d'inflexion \u00e0 59 800 EUR."
           },
           {
             "href": "https://github.com/Tewf/after-hours/tree/main/Blender_Python_Scripts",
             "tag": "Graphisme",
             "title": "Les tris, rendus",
-            "desc": "Tri à bulles et tri fusion animés image par image via l'API Python de Blender, de sorte que le motif d'accès soit observable."
+            "desc": "Tri \u00e0 bulles et tri fusion anim\u00e9s image par image via l'API Python de Blender, de sorte que le motif d'acc\u00e8s soit observable."
           }
         ]
       },
       {
         "type": "caveat",
-        "title": "Ce que le solveur SAT montre réellement",
-        "html": "Sa propre mesure est que l'étape algébrique est presque inerte : sur les instances insatisfiables testées, l'élimination seule n'en a détecté presque aucune, et c'est le branchement qui fait le travail. Le dépôt le dit plutôt que de l'enfouir. Il est en outre évalué en deçà de la transition de phase, où la plupart des instances sont satisfiables, ce que l'écrit signale lui-même comme un point ouvert."
+        "title": "Ce que le solveur SAT montre r\u00e9ellement",
+        "html": "Sa propre mesure est que l'\u00e9tape alg\u00e9brique est presque inerte : sur les instances insatisfiables test\u00e9es, l'\u00e9limination seule n'en a d\u00e9tect\u00e9 presque aucune, et c'est le branchement qui fait le travail. Le d\u00e9p\u00f4t le dit plut\u00f4t que de l'enfouir. Il est en outre \u00e9valu\u00e9 en de\u00e7\u00e0 de la transition de phase, o\u00f9 la plupart des instances sont satisfiables, ce que l'\u00e9crit signale lui-m\u00eame comme un point ouvert."
       }
     ]
   }
