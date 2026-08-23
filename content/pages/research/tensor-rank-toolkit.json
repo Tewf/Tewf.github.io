@@ -159,7 +159,7 @@
     ]
   },
   "fr": {
-    "short": "Boîte à outils rang tensoriel",
+    "short": "Outils de rang tensoriel",
     "title": "tensor-rank-toolkit",
     "description": "Bibliothèque C++20 indépendante pour le rang exact des tenseurs et des applications bilinéaires sur les corps finis. La multiplication de polynômes 5x5 sur GF(2) est tranchée à exactement 13, douze produits réfutés sur 146 402 553 nœuds, et les 221 coefficients non nuls d'un schéma de rang 23 publié descendent à un minimum démontré de 128. Licence MIT, v0.4.1.",
     "blocks": [
