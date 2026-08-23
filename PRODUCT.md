@@ -65,10 +65,19 @@ results, not omissions.
 
 ## Capabilities and Constraints
 
-- Eight pages: home, `research/` and two research pages, `work/` and two work
-  pages, `contact/`. Confirmed to stay as they are; Odophone, the playable game
-  `shots`, and `backend-systems` were each offered and declined for now. `shots`
-  is moot while it is private.
+- Nine pages: home, `research/` and three research pages, `work/` and two work
+  pages, `contact/`. **This said eight until 2026-08-24, and the decision it
+  recorded was reversed rather than quietly outgrown.** What stood here was that
+  the eight stay as they are and that `tensor-rank-toolkit` needed no page of its
+  own, since it was already described inside the bilinear page and carried one
+  card. Mohamed reversed it: the toolkit is independent work of his own, at
+  v0.4.1, and appearing only as two paragraphs inside the page about the
+  internship that preceded it says the wrong thing about whose work it is. The
+  ninth page is `research/tensor-rank-toolkit/`, and the bilinear page was cut
+  back to a pointer wherever the two would otherwise have said the same thing,
+  so the page count grew without the site repeating itself. Odophone, the
+  playable game `shots`, and `backend-systems` were each offered and declined and
+  stay declined; `shots` is moot while it is private.
 - Static. Content lives in `content/`, is rendered by `tools/build-pages.mjs`
   through `src/templates/`, built by Vite, deployed by GitHub Actions.
 - **Nothing may be loaded from a CDN**, and no third-party code may run in the
