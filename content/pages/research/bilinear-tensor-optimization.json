@@ -190,10 +190,10 @@
             "desc": "Definitions, theorems and proofs: step 1 exact by Rado-Edmonds, the descent sound and terminating, the orbit quotient invariant."
           },
           {
-            "href": "https://github.com/Tewf/bilinear-tensor-optimization",
+            "href": "https://tewf.github.io/bilinear-tensor-optimization/",
             "tag": "Archive",
             "title": "The internship, as submitted",
-            "desc": "The 2024 Julia and Python code and the two write-ups, left as they were handed in."
+            "desc": "Its own page: the two strands, what each reached, and the 2024 Julia and Python code left as it was handed in."
           }
         ]
       }
@@ -389,10 +389,10 @@
             "desc": "Définitions, théorèmes et preuves : l'étape 1 exacte par Rado-Edmonds, la descente correcte et terminante, le quotient par les orbites invariant."
           },
           {
-            "href": "https://github.com/Tewf/bilinear-tensor-optimization",
+            "href": "https://tewf.github.io/bilinear-tensor-optimization/",
             "tag": "Archive",
             "title": "Le stage, tel que rendu",
-            "desc": "Le code Julia et Python de 2024 et les deux écrits, laissés dans l'état où ils ont été rendus."
+            "desc": "Sa propre page : les deux volets, ce que chacun a atteint, et le code Julia et Python de 2024 laissé dans l'état où il a été rendu."
           }
         ]
       }
