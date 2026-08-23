@@ -3,7 +3,7 @@
   "en": {
     "short": "Research",
     "title": "Research",
-    "description": "Research internships at LJK (bilinear map rank) and GAEL (algorithmic pricing).",
+    "description": "Research internships at LJK (bilinear map rank) and GAEL (algorithmic pricing), and tensor-rank-toolkit, the independent library the first of them led to.",
     "blocks": [
       {
         "type": "hero",
@@ -22,9 +22,16 @@
               {
                 "href": "research/bilinear-tensor-optimization/",
                 "preview": "bilinear",
-                "tag": "LJK &middot; May to July 2024, and since",
+                "tag": "LJK &middot; May to July 2024",
                 "title": "Rank of bilinear maps",
-                "desc": "Supervised by Jean-Guillaume Dumas, then carried on alone. Thirteen tools that decide a rank rather than propose one: 2&times;2 matrix multiplication at exactly 7, F2 5&times;5 polynomial multiplication at 13."
+                "desc": "Supervised by Jean-Guillaume Dumas. A greedy descent that cuts a polynomial product from 25 multiplications to 14, and the finding that its expensive step buys almost nothing."
+              },
+              {
+                "href": "research/tensor-rank-toolkit/",
+                "preview": "toolkit",
+                "tag": "Independent &middot; C++20, MIT, v0.4.1",
+                "title": "tensor-rank-toolkit",
+                "desc": "Both costs of a fast algorithm, each settled exactly. F2 5&times;5 polynomial multiplication proved to be rank 13, and 221 nonzero entries brought to a proved minimum of 128."
               },
               {
                 "href": "research/strategic-pricing/",
@@ -42,7 +49,7 @@
   "fr": {
     "short": "Recherche",
     "title": "Recherche",
-    "description": "Stages de recherche au LJK (rang des applications bilinéaires) et au GAEL (tarification algorithmique).",
+    "description": "Stages de recherche au LJK (rang des applications bilinéaires) et au GAEL (tarification algorithmique), et tensor-rank-toolkit, la bibliothèque indépendante à laquelle le premier a mené.",
     "blocks": [
       {
         "type": "hero",
@@ -61,9 +68,16 @@
               {
                 "href": "research/bilinear-tensor-optimization/",
                 "preview": "bilinear",
-                "tag": "LJK &middot; mai à juillet 2024, et depuis",
+                "tag": "LJK &middot; mai à juillet 2024",
                 "title": "Rang des applications bilinéaires",
-                "desc": "Encadré par Jean-Guillaume Dumas, puis poursuivi seul. Treize outils qui décident un rang au lieu d'en proposer un : la multiplication de matrices 2&times;2 à exactement 7, les polynômes F2 5&times;5 à 13."
+                "desc": "Encadré par Jean-Guillaume Dumas. Une descente gloutonne qui fait passer un produit de polynômes de 25 multiplications à 14, et le constat que son étape coûteuse ne rapporte presque rien."
+              },
+              {
+                "href": "research/tensor-rank-toolkit/",
+                "preview": "toolkit",
+                "tag": "Indépendant &middot; C++20, MIT, v0.4.1",
+                "title": "tensor-rank-toolkit",
+                "desc": "Les deux coûts d'un algorithme rapide, chacun tranché exactement. La multiplication de polynômes F2 5&times;5 démontrée de rang 13, et 221 coefficients non nuls ramenés à un minimum démontré de 128."
               },
               {
                 "href": "research/strategic-pricing/",

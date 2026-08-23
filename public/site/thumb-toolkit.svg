@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 264" width="400" height="264" role="img"
+     aria-label="Multiplications falling from 25 to 14 and proved to be 13, and 221 nonzero entries brought to a proved minimum of 128">
+  <style>
+    .bg   { fill: #FFFFFF; }
+    .before { fill: #D7DEE7; }
+    .after  { fill: #B4820E; }
+    .lab  { fill: #5A6B80; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+    .sub  { fill: #5A6B80; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+    .num  { fill: #0F1B2A; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #121D2A; }
+      .before { fill: #233346; }
+      .after  { fill: #E0B93F; }
+      .lab, .sub { fill: #93A5BA; }
+      .num  { fill: #E7EEF6; }
+    }
+  </style>
+  <rect class="bg" width="400" height="264"/>
+
+  <!-- left panel: multiplications, 25 naive, 14 by descent, 13 proved -->
+  <text class="lab" x="30" y="26">multiplications</text>
+  <text class="sub" x="30" y="42">F2 5x5 over GF(2)</text>
+  <rect class="before" x="30"  y="74"  width="26" height="132" rx="2"/>
+  <rect class="before" x="66"  y="132" width="26" height="74"  rx="2"/>
+  <rect class="after"  x="102" y="137" width="26" height="69"  rx="2"/>
+  <text class="sub" x="30"  y="66">25</text>
+  <text class="sub" x="66"  y="124">14</text>
+  <text class="num" x="102" y="129">13</text>
+
+  <!-- right panel: nonzero entries of a published rank-23 scheme -->
+  <text class="lab" x="234" y="26">nonzeros</text>
+  <text class="sub" x="234" y="42">rank-23 scheme</text>
+  <rect class="before" x="234" y="74"  width="26" height="132" rx="2"/>
+  <rect class="after"  x="270" y="130" width="26" height="76"  rx="2"/>
+  <text class="sub" x="234" y="66">221</text>
+  <text class="num" x="270" y="122">128</text>
+
+  <text class="sub" x="30" y="232">12 refuted in 146 402 553 nodes</text>
+  <text class="sub" x="30" y="250">128 is the least any change of basis leaves</text>
+</svg>

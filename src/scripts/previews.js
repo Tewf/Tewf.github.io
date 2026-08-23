@@ -168,6 +168,20 @@ export const SETS = {
     ],
   },
 
+  toolkit: {
+    caption: {
+      en: 'Both costs of one bilinear algorithm, each settled exactly: the multiplications of a 5x5 product over GF(2), and the nonzero entries of a published rank-23 scheme',
+      fr: "Les deux coûts d'un même algorithme bilinéaire, chacun tranché exactement : les multiplications d'un produit 5x5 sur GF(2), et les coefficients non nuls d'un schéma de rang 23 publié",
+    },
+    images: [
+      { src: 'anim-toolkit.svg', still: 'thumb-toolkit.svg', w: 400, h: 264,
+        alt: { en: 'A toolkit that decides a bilinear rank instead of proposing one',
+               fr: 'Une boîte à outils qui décide un rang bilinéaire au lieu d\'en proposer un' },
+        result: { en: 'F2 5x5 settled at 13, and 221 nonzeros to a proved 128',
+                  fr: 'F2 5x5 tranché à 13, et 221 non-nuls à 128 démontré' } },
+    ],
+  },
+
   bilinear: {
     caption: {
       en: 'Multiplications falling on four bilinear maps over F2 and F3, and the rank of the first since proved to be 13',

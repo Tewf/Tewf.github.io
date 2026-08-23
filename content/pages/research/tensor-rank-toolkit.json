@@ -1,0 +1,319 @@
+{
+  "path": "research/tensor-rank-toolkit/",
+  "en": {
+    "short": "Tensor rank toolkit",
+    "title": "tensor-rank-toolkit",
+    "description": "Independent C++20 library for exact tensor and bilinear rank over finite fields. 5x5 polynomial multiplication over GF(2) is settled at exactly 13, twelve products refuted over 146 402 553 nodes, and 221 nonzeros in a published rank-23 scheme come down to a proved minimum of 128. MIT, v0.4.1.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "A fast algorithm pays twice",
+        "lede": "It costs multiplications, and it costs additions, and the two are counted by different questions. <code>tensor-rank-toolkit</code> answers both exactly on the maps small enough to answer, where exactly means proved rather than found: a rank closed from both sides, and a nonzero count that is the least any change of basis can leave."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "toolkit"
+      },
+      {
+        "type": "meta",
+        "html": "Independent work, begun after the internship that brought this problem into view<br>C++20 on <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a> &middot; MIT &middot; v0.4.1, released 23 August 2026<br>Thirteen command-line tools across ten strands, twelve of them drivable from a browser"
+      },
+      {
+        "type": "heading",
+        "text": "Two costs, not one"
+      },
+      {
+        "type": "prose",
+        "html": "An algorithm for a bilinear map is three operators: <code>L</code> and <code>R</code> encoding the two operands, <code>P</code> combining the products. Its multiplications are the rank of the map, which is what a decomposition of the tensor counts. Its additions are set by how many nonzero entries those three operators carry, which the multiplication count never sees. Both are minimised here, by different mathematics, and they are reported as two numbers rather than folded into one. Sources: <code>README.md</code>, <code>what-it-computes.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "What makes a number here a fact"
+      },
+      {
+        "type": "prose",
+        "html": "Nothing in the library is ever a float, so a reported rank is a fact about the map rather than an artefact of rounding, and every decomposition is rebuilt and multiplied back out against the map before it is printed. The solver route writes its refutations as DRAT and has <code>drat-trim</code> check them, so a lower bound from a solver is verifiable rather than trusted, and the theorems the routes rest on are stated and proved in <code>article/bilinear-rank.pdf</code>. <strong>Every count the repository can re-derive is re-derived from the built binaries on every push</strong>, by <code>reproduce/measure.py --check</code>. The few it cannot are named one at a time, with what each would cost to run, in <code>reproduce/questions.py</code>, so a carried number says on its own row that nothing re-derives it."
+      },
+      {
+        "type": "heading",
+        "text": "Multiplications, and one map settled at 13"
+      },
+      {
+        "type": "prose",
+        "html": "Multiplying two 5-coefficient polynomials over GF(2) takes 25 multiplications done naively, and the cheap descent brings that to 14. Nine, ten and eleven products are then refused by <code>rank_lower_bound</code> before the search opens a single node. Twelve is ruled out by exhaustion, <strong>146 402 553 nodes</strong> walked to the end of the tree. <code>lower-the-bound</code> then exhibits a thirteen in <strong>80 nodes</strong>. Floor and ceiling meet, so the rank is exactly <strong>13</strong>, and both halves of that are now proved inside the repository. Barbulescu, Detrey, Estibals and Zimmermann published the same 13 in 2012, so nothing here beats it; what changed is that the line no longer rests on their reporting it. Sources: <code>descent_search/results.json</code>, <code>descent_search/what-the-exact-search-decides.md</code>, <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            {
+              "label": "refuting 12",
+              "value": 146402553,
+              "display": "146 402 553"
+            },
+            {
+              "label": "exhibiting 13",
+              "value": 80,
+              "display": "80",
+              "highlight": true
+            }
+          ],
+          "note": "nodes, F2 5x5 polynomial multiplication, log scale"
+        },
+        "caption": "The two halves that close the map, and they cost nothing like the same. The refutation is the floor and the exhibit is the ceiling, and neither is the answer on its own. Sources: <code>descent_search/what-the-exact-search-decides.md</code> and <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Additions, and 221 nonzeros brought to a proved 128"
+      },
+      {
+        "type": "prose",
+        "html": "The other cost is set by the operators. Given <code>U</code>, the question is which invertible change of basis <code>V</code> leaves <code>U V</code> with the fewest nonzero entries. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong>, and an alternative-basis operator from 21 to 10, which takes Strassen&rsquo;s 18 additions to 12 and the leading coefficient of <code>7&middot;N^log&#8322;7 &minus; 6&middot;N&sup2;</code> from 7 to 5. <strong>Ten is not the best found but the least any change of basis can leave</strong>: choosing the sparsest basis of a subspace is a matroid problem, and a greedy returns a minimum-weight basis of any matroid. On the three encoding operators of a published rank-23 &#10216;3,3,3&#10217; scheme that is <strong>221 nonzeros to 128</strong>, in about a third of a second, and 128 is again the proved minimum rather than the best found. Sources: <code>matrix_sparsification/README.md</code>, <code>matrix_sparsification/what-it-is-worth.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "L  23x9",
+              "from": 69,
+              "to": 43
+            },
+            {
+              "label": "R  23x9",
+              "from": 66,
+              "to": 42
+            },
+            {
+              "label": "P  9x23",
+              "from": 86,
+              "to": 43
+            }
+          ],
+          "unit": " nonzeros"
+        },
+        "caption": "The three encoding operators of a published rank-23 &#10216;3,3,3&#10217; scheme, as given and at the minimum: 221 nonzeros in all become 128. The second column is not the best answer found, it is the least any invertible change of basis can leave. Source: <code>matrix_sparsification/results.json</code>."
+      },
+      {
+        "type": "prose",
+        "html": "One &#10216;4,4,4&#10217; operator is past searching altogether, at fourteen million column subsets at weight six, and is answered by not searching: one linear programme per coordinate, in exact rationals, reaching a verified basis at 100 nonzeros in a third of a second. That route returns an upper bound rather than a proof, and it reaches the proved minimum anyway on every operator where a proof exists, between four and fifteen times faster than the search that proves it. <strong>Why it should is an open question</strong>, since the theorem that suggested it turns out to apply to none of the operators measured. Source: <code>matrix_sparsification/method/answering-without-searching.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>And fewer nonzeros is not the same as fewer additions.</strong> Hand the output of the exact stage to a pass that finds common subexpressions and a raw scheme improves by 23%, two already-polished ones by 2% and 7%, and one operator of nine goes the wrong way: six more zeros there cost two additions. A basis of least weight is not a basis with the most shared subexpressions, so the proxy is measured rather than assumed and the two counts are reported apart. Source: <code>matrix_sparsification/measured-with-other-tools/before-a-subexpression-pass.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Both halves, in a browser"
+      },
+      {
+        "type": "prose",
+        "html": "A decomposition is not the deliverable; the algorithm is. The rank search recovers the three operators from the decomposition it finds and writes them out, and the sparsification is what they are for: <code>minimise-rank fixtures/f2_5x5.tensor --emit-operators out</code> takes 25 multiplications to 14, and <code>sparsify-operator out_L.sms</code> then takes that operator from 31 nonzeros to 27. Fewer multiplications, then fewer additions, from one map, in two commands."
+      },
+      {
+        "type": "prose",
+        "html": "The same two run in that order from a browser, as the console&rsquo;s decompose-then-sparsify flow: one press, four runs, each an ordinary run with its own command, its own card and its own exit code. Twelve of the thirteen tools are on it, each stating what it asks, and the command is shown before it runs and again beside the answer as a line that can be retyped at a terminal. It listens on the loopback address, so only that machine can reach it, and it needs Python 3&rsquo;s standard library and nothing else, which is exactly what building the toolkit needed. Source: <code>web_interface/README.md</code>."
+      },
+      {
+        "type": "caveat",
+        "title": "What is proved, and what is not",
+        "html": "Each proof here is an exhaustion over one map at one size, or a minimum over one operator. The bilinear rank problem itself is still open, no upper bound on this page proves anything on its own, and exact arithmetic makes an answer trustworthy rather than optimal. The descent proves nothing at all: what it returns is a decomposition, not a claim about the true rank. Timings are the other kind of number, taken on one core of an i5-12450H, fastest of three runs on a quiet machine, and worth an order of magnitude rather than a digit: no test asserts one and CI checks none, because a shared runner would turn a real regression and a noisy afternoon into the same red tick. The counts are exact, asserted by the test suite, and rerun on every push. Protocol: <code>MEASURING.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Read it"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/tensor-rank-toolkit/",
+            "tag": "Live",
+            "title": "What it computes",
+            "desc": "The project&rsquo;s own site: every headline number beside the file that produced it, with the charts drawn in the browser."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit",
+            "tag": "Repository",
+            "title": "Source and tests",
+            "desc": "C++20 on Givaro, thirteen tools, MIT. A test suite that asserts every published count, in about two minutes."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
+            "tag": "PDF",
+            "title": "The write-up",
+            "desc": "Definitions, theorems and proofs: the first descent step exact by Rado-Edmonds, the descent sound and terminating, the orbit quotient invariant."
+          },
+          {
+            "href": "research/bilinear-tensor-optimization/",
+            "preview": "bilinear",
+            "tag": "Where it started",
+            "title": "Rank of bilinear maps",
+            "desc": "The 2024 LJK internship this grew out of: the Julia descent, what it reached, and the finding it left behind about its own expensive step."
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "short": "Boîte à outils rang tensoriel",
+    "title": "tensor-rank-toolkit",
+    "description": "Bibliothèque C++20 indépendante pour le rang exact des tenseurs et des applications bilinéaires sur les corps finis. La multiplication de polynômes 5x5 sur GF(2) est tranchée à exactement 13, douze produits réfutés sur 146 402 553 nœuds, et les 221 coefficients non nuls d'un schéma de rang 23 publié descendent à un minimum démontré de 128. Licence MIT, v0.4.1.",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "Un algorithme rapide se paie deux fois",
+        "lede": "Il coûte des multiplications, et il coûte des additions, et les deux se comptent par des questions différentes. <code>tensor-rank-toolkit</code> répond exactement aux deux sur les applications assez petites pour être tranchées, où exactement veut dire démontré et non trouvé : un rang refermé des deux côtés, et un nombre de coefficients non nuls qui est le plus petit que tout changement de base puisse laisser."
+      },
+      {
+        "type": "preview",
+        "mode": "head",
+        "key": "toolkit"
+      },
+      {
+        "type": "meta",
+        "html": "Travail indépendant, commencé après le stage qui a fait découvrir ce problème<br>C++20 sur <a href=\"https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro/\">Givaro</a> &middot; licence MIT &middot; v0.4.1, publiée le 23 août 2026<br>Treize outils en ligne de commande sur dix volets, dont douze pilotables depuis un navigateur"
+      },
+      {
+        "type": "heading",
+        "text": "Deux coûts, et non un seul"
+      },
+      {
+        "type": "prose",
+        "html": "Un algorithme pour une application bilinéaire, ce sont trois opérateurs : <code>L</code> et <code>R</code> qui encodent les deux opérandes, <code>P</code> qui recombine les produits. Ses multiplications sont le rang de l'application, c'est-à-dire ce que compte une décomposition du tenseur. Ses additions sont fixées par le nombre de coefficients non nuls que portent ces trois opérateurs, ce que le décompte des multiplications ne voit jamais. Les deux sont minimisés ici, par des mathématiques différentes, et ils sont rapportés comme deux nombres plutôt que repliés en un seul. Sources : <code>README.md</code>, <code>what-it-computes.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Ce qui fait d'un nombre, ici, un fait"
+      },
+      {
+        "type": "prose",
+        "html": "Rien dans la bibliothèque n'est jamais un flottant, de sorte qu'un rang rapporté est un fait portant sur l'application et non un artefact d'arrondi, et chaque décomposition est reconstruite et remultipliée contre l'application avant d'être affichée. La voie du solveur écrit ses réfutations en DRAT et les fait vérifier par <code>drat-trim</code>, si bien qu'une borne inférieure venue d'un solveur est vérifiable et non pas crue sur parole, et les théorèmes sur lesquels reposent ces voies sont énoncés et démontrés dans <code>article/bilinear-rank.pdf</code>. <strong>Chaque décompte que le dépôt sait redériver est redérivé depuis les binaires construits à chaque poussée</strong>, par <code>reproduce/measure.py --check</code>. Les quelques-uns qu'il ne sait pas redériver sont nommés un par un, avec ce que chacun coûterait à relancer, dans <code>reproduce/questions.py</code> : un nombre reporté dit ainsi sur sa propre ligne que rien ne le redérive."
+      },
+      {
+        "type": "heading",
+        "text": "Les multiplications, et une application tranchée à 13"
+      },
+      {
+        "type": "prose",
+        "html": "Multiplier deux polynômes à 5 coefficients sur GF(2) demande 25 multiplications de façon naïve, et la descente bon marché ramène cela à 14. Neuf, dix et onze produits sont ensuite refusés par <code>rank_lower_bound</code> avant que la recherche n'ouvre le moindre nœud. Douze est écarté par exhaustion, <strong>146 402 553 nœuds</strong> parcourus jusqu'au bout de l'arbre. <code>lower-the-bound</code> exhibe alors un treize en <strong>80 nœuds</strong>. Le plancher et le plafond se rejoignent : le rang vaut donc exactement <strong>13</strong>, et les deux moitiés en sont désormais démontrées à l'intérieur du dépôt. Barbulescu, Detrey, Estibals et Zimmermann ont publié ce même 13 en 2012, et rien ici ne les dépasse ; ce qui a changé, c'est que la ligne ne repose plus sur le fait qu'ils l'aient rapporté. Sources : <code>descent_search/results.json</code>, <code>descent_search/what-the-exact-search-decides.md</code>, <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "logBars",
+          "rows": [
+            {
+              "label": "réfuter 12",
+              "value": 146402553,
+              "display": "146 402 553"
+            },
+            {
+              "label": "exhiber 13",
+              "value": 80,
+              "display": "80",
+              "highlight": true
+            }
+          ],
+          "note": "nœuds, multiplication de polynômes F2 5x5, échelle log"
+        },
+        "caption": "Les deux moitiés qui referment l'application, et elles sont loin de coûter la même chose. La réfutation est le plancher, l'exhibition est le plafond, et aucune des deux n'est la réponse à elle seule. Sources : <code>descent_search/what-the-exact-search-decides.md</code> et <code>incumbent_search/what-it-reaches.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Les additions, et 221 non-nuls ramenés à un 128 démontré"
+      },
+      {
+        "type": "prose",
+        "html": "L'autre coût est fixé par les opérateurs. Étant donné <code>U</code>, la question est de savoir quel changement de base inversible <code>V</code> laisse à <code>U V</code> le moins de coefficients non nuls. Les deux opérateurs d'encodage de Strassen passent de <strong>12 non-nuls à 10</strong>, et un opérateur en base alternative de 21 à 10, ce qui ramène les 18 additions de Strassen à 12 et le coefficient dominant de <code>7&middot;N^log&#8322;7 &minus; 6&middot;N&sup2;</code> de 7 à 5. <strong>Dix n'est pas le meilleur résultat trouvé mais le plus petit que tout changement de base puisse laisser</strong> : choisir la base la plus creuse d'un sous-espace est un problème de matroïde, et un algorithme glouton y rend une base de poids minimal. Sur les trois opérateurs d'encodage d'un schéma &#10216;3,3,3&#10217; de rang 23 déjà publié, cela fait <strong>221 non-nuls à 128</strong>, en un tiers de seconde environ, et 128 est là encore le minimum démontré plutôt que le meilleur résultat trouvé. Sources : <code>matrix_sparsification/README.md</code>, <code>matrix_sparsification/what-it-is-worth.md</code>."
+      },
+      {
+        "type": "figure",
+        "chart": {
+          "kind": "beforeAfter",
+          "rows": [
+            {
+              "label": "L  23x9",
+              "from": 69,
+              "to": 43
+            },
+            {
+              "label": "R  23x9",
+              "from": 66,
+              "to": 42
+            },
+            {
+              "label": "P  9x23",
+              "from": 86,
+              "to": 43
+            }
+          ],
+          "unit": " non-nuls"
+        },
+        "caption": "Les trois opérateurs d'encodage d'un schéma &#10216;3,3,3&#10217; de rang 23 déjà publié, tels que donnés puis au minimum : 221 non-nuls en tout deviennent 128. La seconde colonne n'est pas la meilleure réponse trouvée, c'est le plus petit que tout changement de base inversible puisse laisser. Source : <code>matrix_sparsification/results.json</code>."
+      },
+      {
+        "type": "prose",
+        "html": "Un opérateur &#10216;4,4,4&#10217; est hors de portée de toute énumération, à quatorze millions de sous-ensembles de colonnes au poids six, et se traite en ne cherchant pas : un programme linéaire par coordonnée, en rationnels exacts, qui atteint une base vérifiée à 100 non-nuls en un tiers de seconde. Cette voie rend une borne supérieure et non une preuve, et elle atteint tout de même le minimum démontré sur chaque opérateur où une preuve existe, entre quatre et quinze fois plus vite que la recherche qui le démontre. <strong>Pourquoi il en va ainsi reste une question ouverte</strong>, puisque le théorème qui l'avait suggérée ne s'applique à aucun des opérateurs mesurés. Source : <code>matrix_sparsification/method/answering-without-searching.md</code>."
+      },
+      {
+        "type": "prose",
+        "html": "<strong>Et moins de non-nuls, ce n'est pas moins d'additions.</strong> Confiez la sortie de l'étape exacte à une passe qui repère les sous-expressions communes : un schéma brut s'améliore de 23 %, deux schémas déjà travaillés de 2 % et 7 %, et un opérateur sur neuf part dans le mauvais sens, six zéros de plus y coûtant deux additions. Une base de poids minimal n'est pas une base qui partage le plus de sous-expressions : l'approximation est donc mesurée plutôt que supposée, et les deux décomptes sont rapportés séparément. Source : <code>matrix_sparsification/measured-with-other-tools/before-a-subexpression-pass.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Les deux moitiés, dans un navigateur"
+      },
+      {
+        "type": "prose",
+        "html": "Une décomposition n'est pas le livrable ; l'algorithme l'est. La recherche de rang retrouve les trois opérateurs depuis la décomposition qu'elle trouve et les écrit, et c'est à cela que sert la sparsification : <code>minimise-rank fixtures/f2_5x5.tensor --emit-operators out</code> fait passer 25 multiplications à 14, puis <code>sparsify-operator out_L.sms</code> fait passer cet opérateur de 31 non-nuls à 27. Moins de multiplications, puis moins d'additions, depuis une seule application, en deux commandes."
+      },
+      {
+        "type": "prose",
+        "html": "Les deux mêmes s'enchaînent dans cet ordre depuis un navigateur, sous la forme du flux décomposer-puis-rendre-creux de la console : une pression, quatre exécutions, chacune une exécution ordinaire avec sa propre commande, sa propre fiche et son propre code de sortie. Douze des treize outils y figurent, chacun énonçant ce qu'il demande, et la commande est montrée avant d'être lancée puis de nouveau à côté de la réponse, sous la forme d'une ligne que l'on peut retaper dans un terminal. Elle écoute sur l'adresse de bouclage, donc seule cette machine peut l'atteindre, et elle n'a besoin que de la bibliothèque standard de Python 3, c'est-à-dire exactement de ce qu'il fallait pour construire la boîte à outils. Source : <code>web_interface/README.md</code>."
+      },
+      {
+        "type": "caveat",
+        "title": "Ce qui est démontré, et ce qui ne l'est pas",
+        "html": "Chaque preuve ici est une exhaustion sur une application et à une taille, ou un minimum sur un opérateur. Le problème du rang bilinéaire lui-même reste ouvert, aucune borne supérieure de cette page ne démontre quoi que ce soit à elle seule, et l'arithmétique exacte rend une réponse digne de confiance, pas optimale. La descente ne démontre rien du tout : ce qu'elle rend est une décomposition, non une affirmation sur le rang véritable. Les temps sont de l'autre espèce, mesurés sur un seul cœur d'un i5-12450H, meilleur de trois exécutions sur une machine au repos, et valent comme ordre de grandeur et non comme chiffre : aucun test n'en assertit un et l'intégration continue n'en vérifie aucun, car un exécuteur partagé rendrait indiscernables une vraie régression et un après-midi chargé. Les décomptes sont exacts, assertis par la suite de tests, et rejoués à chaque poussée. Protocole : <code>MEASURING.md</code>."
+      },
+      {
+        "type": "heading",
+        "text": "Lire"
+      },
+      {
+        "type": "cards",
+        "items": [
+          {
+            "href": "https://tewf.github.io/tensor-rank-toolkit/",
+            "tag": "En ligne",
+            "title": "Ce que cela calcule",
+            "desc": "Le site du projet : chaque chiffre en vue à côté du fichier qui l'a produit, les graphiques étant dessinés dans le navigateur."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit",
+            "tag": "Dépôt",
+            "title": "Source et tests",
+            "desc": "C++20 sur Givaro, treize outils, licence MIT. Une suite de tests qui assertit chaque décompte publié, en deux minutes environ."
+          },
+          {
+            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
+            "tag": "PDF",
+            "title": "L'écrit",
+            "desc": "Définitions, théorèmes et preuves : la première étape de la descente exacte par Rado-Edmonds, la descente correcte et terminante, le quotient par les orbites invariant."
+          },
+          {
+            "href": "research/bilinear-tensor-optimization/",
+            "preview": "bilinear",
+            "tag": "D'où cela vient",
+            "title": "Rang des applications bilinéaires",
+            "desc": "Le stage de 2024 au LJK dont ceci est issu : la descente en Julia, ce qu'elle a atteint, et le résultat qu'elle a laissé sur sa propre étape coûteuse."
+          }
+        ]
+      }
+    ]
+  }
+}

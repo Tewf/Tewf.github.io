@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 264" width="400" height="264" role="img"
+     aria-label="Multiplications falling from 25 to 14 and proved to be 13, and 221 nonzero entries brought to a proved minimum of 128">
+  <style>
+    .bg   { fill: #FFFFFF; }
+    .before { fill: #D7DEE7; }
+    .after  { fill: #B4820E; transform-box: fill-box; transform-origin: bottom; }
+    .lab  { fill: #5A6B80; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+    .sub  { fill: #5A6B80; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; }
+    .num  { fill: #0F1B2A; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #121D2A; }
+      .before { fill: #233346; }
+      .after  { fill: #E0B93F; }
+      .lab, .sub { fill: #93A5BA; }
+      .num  { fill: #E7EEF6; }
+    }
+
+    /* each proved bar starts at the height the naive count had and falls to the
+       height that was proved, so the two settled numbers are the animation */
+    .after { animation: drop 5s ease-in-out infinite; }
+    #a1 { --s: 1.913; }
+    #a2 { --s: 1.737; }
+    @keyframes drop {
+      0%, 12%   { transform: scaleY(var(--s)); }
+      42%, 88%  { transform: scaleY(1); }
+      100%      { transform: scaleY(var(--s)); }
+    }
+    .num { animation: fade 5s ease-in-out infinite; }
+    @keyframes fade {
+      0%, 20%  { opacity: 0; }
+      45%, 88% { opacity: 1; }
+      100%     { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .after, .num { animation: none; }
+    }
+  </style>
+  <rect class="bg" width="400" height="264"/>
+
+  <text class="lab" x="30" y="26">multiplications</text>
+  <text class="sub" x="30" y="42">F2 5x5 over GF(2)</text>
+  <rect class="before" x="30"  y="74"  width="26" height="132" rx="2"/>
+  <rect class="before" x="66"  y="132" width="26" height="74"  rx="2"/>
+  <rect class="after" id="a1" x="102" y="137" width="26" height="69"  rx="2"/>
+  <text class="sub" x="30"  y="66">25</text>
+  <text class="sub" x="66"  y="124">14</text>
+  <text class="num" x="102" y="129">13</text>
+
+  <text class="lab" x="234" y="26">nonzeros</text>
+  <text class="sub" x="234" y="42">rank-23 scheme</text>
+  <rect class="before" x="234" y="74"  width="26" height="132" rx="2"/>
+  <rect class="after" id="a2" x="270" y="130" width="26" height="76"  rx="2"/>
+  <text class="sub" x="234" y="66">221</text>
+  <text class="num" x="270" y="122">128</text>
+
+  <text class="sub" x="30" y="232">12 refuted in 146 402 553 nodes</text>
+  <text class="sub" x="30" y="250">128 is the least any change of basis leaves</text>
+</svg>

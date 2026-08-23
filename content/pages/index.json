@@ -46,6 +46,11 @@
             "key": "bilinear",
             "href": "research/bilinear-tensor-optimization/",
             "title": "Rank of bilinear maps"
+          },
+          {
+            "key": "toolkit",
+            "href": "research/tensor-rank-toolkit/",
+            "title": "tensor-rank-toolkit"
           }
         ]
       },
@@ -101,6 +106,11 @@
             "key": "bilinear",
             "href": "research/bilinear-tensor-optimization/",
             "title": "Rang des applications bilinéaires"
+          },
+          {
+            "key": "toolkit",
+            "href": "research/tensor-rank-toolkit/",
+            "title": "tensor-rank-toolkit"
           }
         ]
       },
