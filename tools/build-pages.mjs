@@ -16,11 +16,12 @@ const CONTENT = join(ROOT, 'content');
    on this same origin, and they win over anything the root site emits. A page
    generated here at one of them would be silently unreachable.
 
-   `bilinear-tensor-optimization` and `shots` no longer publish a site: the
-   bilinear work continues as `tensor-rank-toolkit` and the archived repository
-   has Pages switched off, and `shots` went private in August 2026. Both paths
-   stay reserved, because either repository can turn Pages back on without this
-   build hearing about it. */
+   `bilinear-tensor-optimization` publishes the 2024 internship as it was
+   submitted and owns its path like any other project site, while the bilinear
+   work itself continues as `tensor-rank-toolkit`. `shots` went private in
+   August 2026 and currently serves nothing; its path stays reserved anyway,
+   because that repository can turn Pages back on without this build hearing
+   about it. */
 const OWNED_BY_PROJECT_SITES = new Set([
   'after-hours', 'University-Coursework', 'IA-Economie-Strategique',
   'tensor-rank-toolkit', 'bilinear-tensor-optimization', 'shots',

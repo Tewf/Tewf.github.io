@@ -48,15 +48,16 @@ results, not omissions.
 
 ## Operating Context
 
-- One origin, five sites. `tewf.github.io/` is this product. `after-hours`,
-  `University-Coursework`, `IA-Economie-Strategique` and `tensor-rank-toolkit`
-  are separate repositories publishing their own sites at
-  `tewf.github.io/<repo>/`. This site writes a page *about* several of them and
-  links out; it never duplicates their content. Two paths resolve to nothing and
-  stay reserved anyway, because either repository can switch Pages back on:
-  `/shots/`, private as of August 2026, and `/bilinear-tensor-optimization/`,
-  the 2024 internship repository, kept as an archive now that the bilinear rank
-  work continues in `tensor-rank-toolkit`.
+- One origin, six sites. `tewf.github.io/` is this product. `after-hours`,
+  `University-Coursework`, `IA-Economie-Strategique`, `tensor-rank-toolkit` and
+  `bilinear-tensor-optimization` are separate repositories publishing their own
+  sites at `tewf.github.io/<repo>/`. This site writes a page *about* several of
+  them and links out; it never duplicates their content.
+  `/bilinear-tensor-optimization/` publishes the 2024 internship as it was
+  submitted, kept as an archive now that the bilinear rank work continues in
+  `tensor-rank-toolkit`. One path resolves to nothing and stays reserved anyway,
+  because that repository can switch Pages back on: `/shots/`, private as of
+  August 2026.
 - Project thumbnails are loaded from each project's own published site, so the
   pictures on this site cannot drift from the work they depict.
 - The reader is often on a laptop, mid-triage, with the tab open beside an email or
