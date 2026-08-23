@@ -3,7 +3,7 @@
   "en": {
     "short": "Bilinear rank",
     "title": "Rank of bilinear maps",
-    "description": "Exact tensor and bilinear rank over finite fields: thirteen tools across ten strands. The rank of 2x2 matrix multiplication is decided at exactly 7 and 5x5 polynomial multiplication over GF(2) at 13, both sides proved. Grew out of an LJK internship supervised by Jean-Guillaume Dumas.",
+    "description": "An LJK internship on the rank of bilinear maps, supervised by Jean-Guillaume Dumas: a greedy descent that takes 5x5 polynomial multiplication over GF(2) from 25 multiplications to 14, the finding that its expensive step buys almost nothing, and what the independent continuation has settled since.",
     "blocks": [
       {
         "type": "hero",
@@ -67,15 +67,11 @@
       },
       {
         "type": "heading",
-        "text": "What it is now"
+        "text": "Where it went next"
       },
       {
         "type": "prose",
-        "html": "That descent is one strand of ten. <code>tensor-rank-toolkit</code> attacks the same question from ten directions with <strong>thirteen command-line tools</strong>, each answering one question no other answers: the cheap descent, an exhaustive search that returns a proof, lower bounds with no search at all, a SAT encoding whose refutations are written as DRAT and rechecked by <code>drat-trim</code>, a quotient by the symmetry group, isomorph-free enumeration, and a canonical form for two-slice tensors that answers a 4&times;4 pencil in about 50 microseconds in polynomial time. The thirteenth reads somebody else&rsquo;s published &lang;L,&nbsp;R,&nbsp;P&rang; back into a tensor, because nobody distributes tensors: the field publishes operator triples as SMS files, never the tensor itself. Sources: <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
-      },
-      {
-        "type": "prose",
-        "html": "The internship&rsquo;s second strand is a strand here too. Sparsifying the operators is the cost the multiplication count misses: fewer nonzero entries means fewer additions. Strassen&rsquo;s two encoding operators go from <strong>12 nonzeros to 10</strong> and an alternative-basis operator from 21 to 10, which takes Strassen&rsquo;s 18 additions to 12. Ten is not the best found but the <strong>least any change of basis can leave</strong>: choosing the sparsest basis of a subspace is a matroid problem, and a greedy returns a minimum-weight basis of any matroid. On the operators of a published rank-23 &#10216;3,3,3&#10217; scheme that is <strong>221 nonzeros to 128</strong>, and 128 is again the proved minimum rather than the best found. One &#10216;4,4,4&#10217; operator is past searching altogether, at fourteen million column subsets at weight six, and is answered instead by one linear programme per coordinate, in exact rationals, at 100 nonzeros in a third of a second. Source: <code>matrix_sparsification/README.md</code>."
+        "html": "The internship had a second strand as well, sparsifying the operators, and both strands are carried on by later and independent work. <code>tensor-rank-toolkit</code> has a page of its own: <a href=\"research/tensor-rank-toolkit/\">the two costs a fast algorithm pays, the sparsification strand taken to a proved minimum, and the console that runs both halves in a browser</a>. What follows here is what that continuation settled about the maps this internship started from."
       },
       {
         "type": "heading",
@@ -172,22 +168,11 @@
         "type": "cards",
         "items": [
           {
-            "href": "https://tewf.github.io/tensor-rank-toolkit/",
-            "tag": "Live",
-            "title": "What it computes",
-            "desc": "The project&rsquo;s own site: every headline number beside the file that produced it, with the charts drawn in the browser."
-          },
-          {
-            "href": "https://github.com/Tewf/tensor-rank-toolkit",
-            "tag": "Repository",
-            "title": "Source and tests",
-            "desc": "C++20 on Givaro, thirteen tools, MIT. Every count on this page is asserted by the test suite and rerun by CI."
-          },
-          {
-            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
-            "tag": "PDF",
-            "title": "The write-up",
-            "desc": "Definitions, theorems and proofs: step 1 exact by Rado-Edmonds, the descent sound and terminating, the orbit quotient invariant."
+            "href": "research/tensor-rank-toolkit/",
+            "preview": "toolkit",
+            "tag": "The continuation",
+            "title": "tensor-rank-toolkit",
+            "desc": "Its own page: the two costs a fast algorithm pays, both settled exactly, and where to read the source, the tests and the write-up."
           },
           {
             "href": "https://tewf.github.io/bilinear-tensor-optimization/",
@@ -202,7 +187,7 @@
   "fr": {
     "short": "Rang bilinéaire",
     "title": "Rang des applications bilinéaires",
-    "description": "Rang exact des tenseurs et des applications bilinéaires sur les corps finis : treize outils, dix volets. Le rang de la multiplication de matrices 2x2 est décidé à exactement 7 et celui de la multiplication de polynômes 5x5 sur GF(2) à 13, des deux côtés. Né d'un stage au LJK encadré par Jean-Guillaume Dumas.",
+    "description": "Un stage au LJK sur le rang des applications bilinéaires, encadré par Jean-Guillaume Dumas : une descente gloutonne qui fait passer la multiplication de polynômes 5x5 sur GF(2) de 25 multiplications à 14, le constat que son étape coûteuse ne rapporte presque rien, et ce que la suite indépendante a tranché depuis.",
     "blocks": [
       {
         "type": "hero",
@@ -266,15 +251,11 @@
       },
       {
         "type": "heading",
-        "text": "Ce que c'est devenu"
+        "text": "Où cela est allé ensuite"
       },
       {
         "type": "prose",
-        "html": "Cette descente n'est qu'un volet sur dix. <code>tensor-rank-toolkit</code> attaque la même question par dix directions avec <strong>treize outils en ligne de commande</strong>, chacun répondant à une question qu'aucun autre ne traite : la descente bon marché, une recherche exhaustive qui rend une preuve, des bornes inférieures sans aucune recherche, un codage SAT dont les réfutations sont écrites en DRAT et revérifiées par <code>drat-trim</code>, un quotient par le groupe de symétries, une énumération sans isomorphes, et une forme canonique pour les tenseurs à deux tranches qui traite un faisceau 4&times;4 en une cinquantaine de microsecondes, en temps polynomial. Le treizi&egrave;me relit un &lang;L,&nbsp;R,&nbsp;P&rang; publi&eacute; par quelqu'un d'autre pour en refaire un tenseur, car personne ne distribue de tenseurs : le domaine publie des triplets d'op&eacute;rateurs en fichiers SMS, jamais le tenseur lui-m&ecirc;me. Sources : <code>README.md</code>, <code>OPTIONS/one-question-per-command.md</code>, <code>OPTIONS/reading-the-answer-off.md</code>."
-      },
-      {
-        "type": "prose",
-        "html": "Le second volet du stage est ici un volet à part entière. Rendre creux les opérateurs, c'est le coût que le décompte des multiplications ignore : moins de coefficients non nuls signifie moins d'additions. Les deux opérateurs d'encodage de Strassen passent de <strong>12 coefficients non nuls à 10</strong> et un opérateur en base alternative de 21 à 10, ce qui ramène les 18 additions de Strassen à 12. Dix n'est pas le meilleur résultat trouvé mais le <strong>minimum que tout changement de base peut atteindre</strong> : choisir la base la plus creuse d'un sous-espace est un problème de matroïde, et un algorithme glouton y rend une base de poids minimal. Sur les opérateurs d'un schéma &#10216;3,3,3&#10217; de rang 23 déjà publié, cela fait <strong>221 non-nuls à 128</strong>, et 128 est là encore le minimum démontré plutôt que le meilleur résultat trouvé. Un opérateur &#10216;4,4,4&#10217; est hors de portée de toute énumération, à quatorze millions de sous-ensembles de colonnes au poids six, et se traite plutôt par un programme linéaire par coordonnée, en rationnels exacts, à 100 non-nuls en un tiers de seconde. Source : <code>matrix_sparsification/README.md</code>."
+        "html": "Le stage avait aussi un second volet, rendre creux les opérateurs, et les deux volets sont poursuivis par un travail ultérieur et indépendant. <code>tensor-rank-toolkit</code> a sa propre page : <a href=\"research/tensor-rank-toolkit/\">les deux coûts que paie un algorithme rapide, le volet de sparsification mené jusqu'à un minimum démontré, et la console qui enchaîne les deux moitiés dans un navigateur</a>. Ce qui suit ici est ce que cette suite a tranché sur les applications dont ce stage était parti."
       },
       {
         "type": "heading",
@@ -371,22 +352,11 @@
         "type": "cards",
         "items": [
           {
-            "href": "https://tewf.github.io/tensor-rank-toolkit/",
-            "tag": "En ligne",
-            "title": "Ce que cela calcule",
-            "desc": "Le site du projet : chaque chiffre en vue à côté du fichier qui l'a produit, les graphiques étant dessinés dans le navigateur."
-          },
-          {
-            "href": "https://github.com/Tewf/tensor-rank-toolkit",
-            "tag": "Dépôt",
-            "title": "Source et tests",
-            "desc": "C++20 sur Givaro, treize outils, licence MIT. Chaque décompte de cette page est asserti par la suite de tests et rejoué par l'intégration continue."
-          },
-          {
-            "href": "https://github.com/Tewf/tensor-rank-toolkit/blob/main/article/bilinear-rank.pdf",
-            "tag": "PDF",
-            "title": "L'écrit",
-            "desc": "Définitions, théorèmes et preuves : l'étape 1 exacte par Rado-Edmonds, la descente correcte et terminante, le quotient par les orbites invariant."
+            "href": "research/tensor-rank-toolkit/",
+            "preview": "toolkit",
+            "tag": "La suite",
+            "title": "tensor-rank-toolkit",
+            "desc": "Sa propre page : les deux coûts que paie un algorithme rapide, tranchés exactement l'un et l'autre, et où lire la source, les tests et l'écrit."
           },
           {
             "href": "https://tewf.github.io/bilinear-tensor-optimization/",
